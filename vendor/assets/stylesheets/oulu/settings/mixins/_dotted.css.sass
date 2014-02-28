@@ -1,0 +1,4 @@
+=dotted($color:rgba(#000, 1.0), $stripe: 1, $spacing: 4, $height:1)
+  +background-image(linear-gradient(left, color-stops($color, $color ($stripe/($stripe+$spacing))*100%, transparent ($stripe/($stripe+$spacing))*100%, transparent 100%)))
+  background-size: ($stripe+$spacing)*1px ($stripe+$spacing)*1px
+  height: $height*1px

@@ -1,6 +1,5 @@
 require 'oulu-rails/version'
 require 'sass'
-require 'ceaser-easing'
 
 module OuluRails
   class Engine < ::Rails::Engine

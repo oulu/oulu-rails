@@ -15,6 +15,9 @@
 // sass-ceaser-easing https://github.com/jhardy/compass-ceaser-easing
 @import ceaser-easing
 
+// variables
+@import settings/variables/compass
+
 // functions
 @import settings/functions/strip-units
 
@@ -30,25 +33,27 @@
 // initializers
 @import compass/reset
 @import settings/initializers/resets
-@import settings/initializers/default
 
 // helper-classes
-@import settings/helper-classes/helpers
+@import settings/helper-classes/application-helper
 
 
+//////////////
+//blocks
+//////////////
 
+// typography
+@import oulu/blocks/typography
 
-@import oulu/typography
-
-
-@import oulu/legacy_grid
-@import oulu/grid
+// layout
+@import oulu/blocks/layout/legacy_grid
+@import oulu/blocks/layout/grid
 
 // button
-@import oulu/button/button-base
-@import oulu/button/button-default
-@import oulu/button/button-flat
+@import oulu/blocks/button/button-base
+@import oulu/blocks/button/button-default
+@import oulu/blocks/button/button-flat
 
-@import oulu/form
-@import oulu/googledriveform
-@import oulu/selectize.default
+@import oulu/blocks/form
+@import oulu/blocks/googledriveform
+@import oulu/blocks/selectize.default
