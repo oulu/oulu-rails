@@ -4,8 +4,8 @@ require File.expand_path('../lib/oulu-rails/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.authors       = ["machida"]
   gem.email         = ["machida@fjord.jp"]
-  gem.description   = %q{Sass mixins Oulu}
-  gem.summary       = %q{Sass mixins Oulu}
+  gem.description   = %q{Sass tools for machida}
+  gem.summary       = %q{Sass tools for machida}
   gem.homepage      = "http://fjord.jp"
 
   gem.files         = Dir["{lib,vendor}/**/*"] + ["MIT-LICENSE", "README.md"]
@@ -15,9 +15,10 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = OuluRails::VERSION
 
-  gem.add_dependency "railties"
+  gem.add_dependency("railties")
   gem.add_dependency("compass-rails")
-  gem.add_dependency("font-awesome-rails")
   gem.add_dependency("ceaser-easing")
   gem.add_dependency("sass-mediaqueries-rails")
+  gem.add_dependency("scompass-rgbapng")
+  gem.add_dependency("SassyLists")
 end
