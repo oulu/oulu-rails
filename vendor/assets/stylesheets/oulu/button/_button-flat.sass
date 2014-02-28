@@ -1,0 +1,23 @@
+=button-flat($button-color: red, $button-text-color: white, $button-border-radius: 4px, $button-drop-shadow: false, $button-pressed-shadow: false, $button-border-width: 0)
+  border: darken($button-color, 6%) solid $button-border-width
+  color: $button-text-color
+  background-color: $button-color
+  +border-radius($button-border-radius)
+  +ceaser-transition(all, .2s, $ease)
+  &:hover
+    @if $button-drop-shadow == true
+      +box-shadow(unquote($button-drop-shadow))
+    @if lightness($button-color) > 70%
+      background-color: lighten($button-color, 4%)
+    @else
+      background-color: lighten($button-color, 8%)
+  &:active
+    @if $button-pressed-shadow == true
+      +box-shadow(unquote($button-pressed-shadow))
+    @if lightness($button-color) > 70%
+      background-color: lighten($button-color, 8%)
+      color: rgba($button-text-color, .56)
+    @else
+      background-color: lighten($button-color, 12%)
+      color: rgba($button-text-color, .6)
+

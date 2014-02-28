@@ -1,0 +1,71 @@
+=placeholder($placeholder-color: #F00)
+  ::-webkit-input-placeholder
+    color: $placeholder-color
+  :-moz-placeholder
+    color: $placeholder-color
+
+// form reset
+button::-moz-focus-inner,
+input::-moz-focus-inner
+  border: 0
+  padding: 0
+
+input
+  &[type="radio"],
+  &[type="checkbox"]
+    margin: 0 .2em 0 0
+    cursor: pointer
+input,
+textarea
+  +box-sizing(border-box)
+  border: none
+
+button, x:-moz-any-link,
+input[type=button], x:-moz-any-link,
+input[type=submit], x:-moz-any-link
+  line-height: normal !important
+
+
+// add class
+.hidden-field
+  margin-left: -99999px
+  position: absolute
+  visibility: hidden
+
+.clickable
+  cursor: pointer
+
+select
+  +inline-block
+  height: 34px
+  padding: 6px 12px
+  font-size: 14px
+  line-height: 1.428571429
+  color: black
+  vertical-align: middle
+  background-color: red
+  +background-image(linear-gradient(#fff, #fff))
+  border: 1px solid #ccc
+  border-radius: 4px
+
+.scroll-x
+  overflow-x: auto
+  overflow-y: hidden
+  -webkit-overflow-scrolling: touch
+  width: 100%
+  position: relative
+  +max-screen($xs)
+    table
+      min-width: 100%
+    td
+      min-width: 3rem
+
+body
+  // タップ時のハイライトカラー
+  -webkit-tap-highlight-color: #f00
+
+  // テキストの選択をキャンセルする場合
+  -webkit-user-select: none
+
+  // リンクの長時間タップでリンク内容をポップアップで表示させない場合
+  -webkit-touch-callout: none

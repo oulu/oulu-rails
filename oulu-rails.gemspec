@@ -1,0 +1,23 @@
+# -*- encoding: utf-8 -*-
+require File.expand_path('../lib/oulu-rails/version', __FILE__)
+
+Gem::Specification.new do |gem|
+  gem.authors       = ["machida"]
+  gem.email         = ["machida@fjord.jp"]
+  gem.description   = %q{Sass mixins Oulu}
+  gem.summary       = %q{Sass mixins Oulu}
+  gem.homepage      = "http://fjord.jp"
+
+  gem.files         = Dir["{lib,vendor}/**/*"] + ["MIT-LICENSE", "README.md"]
+  gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
+  gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
+  gem.name          = "oulu-rails"
+  gem.require_paths = ["lib"]
+  gem.version       = OuluRails::VERSION
+
+  gem.add_dependency "railties"
+  gem.add_dependency("compass-rails")
+  gem.add_dependency("font-awesome-rails")
+  gem.add_dependency("ceaser-easing")
+  gem.add_dependency("sass-mediaqueries-rails")
+end

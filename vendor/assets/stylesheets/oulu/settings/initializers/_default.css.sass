@@ -1,0 +1,34 @@
+html
+  font-size: 62.5%
+
+body
+  +rem('font-size', $md)
+
+.wrapper
+  +rem('max-width', $wrapper-max-width)
+  +box-sizing(border-box)
+  +side-mg-auto
+  +rem('padding-left', $wrapper-padding)
+  +rem('padding-right', $wrapper-padding)
+  @media screen and (max-width: #{$break-point})
+    +rem('padding-left', 10px)
+    +rem('padding-right', 10px)
+
+*
+  +transition-property(all)
+  +transition-duration(.2s)
+  +transition-timing-function(ease-in)
+
+.content
+  color: $black
+  +rem('padding-bottom', 80px)
+  +rem('min-height', 1000px)
+  @media screen and (max-width: #{$break-point})
+    min-height: auto
+    padding-bottom: 0
+
+.content__wrapper
+  +rem('padding-right', $side-column-width + $content-wrapper-right-padding)
+  +relative(1)
+  @media screen and (max-width: #{$break-point})
+    padding-right: 0

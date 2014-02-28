@@ -1,0 +1,40 @@
+.relative
+  position: relative
+
+.pc
+  @media screen and (max-width: #{$break-point})
+    display: none !important
+.mobile
+  display: none
+  @media screen and (max-width: #{$break-point})
+    display: inline
+
+.pie
+  +pie-element(relative)
+
+.clearfix
+  *zoom: 1
+.clearfix:after
+  content: ''
+  display: table
+  clear: both
+
+.center-margin
+  +side-mg-auto
+
+.relative
+  position: relative
+
+.is-fixed
+  +fixed(left, 0, top, 0)
+  width: 100%
+
+.horizontal-list
+  +horizontal-list(0)
+
+body
+  .is-hidden
+    display: none
+
+  .is-shown
+    +inline-block

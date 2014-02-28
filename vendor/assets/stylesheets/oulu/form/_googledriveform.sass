@@ -1,0 +1,108 @@
+.ss-top-of-page
+  margin-bottom: 40px
+  .ss-form-heading
+    .ss-form-title
+      font-size: 22px
+      margin-bottom: .8em
+    .ss-form-desc
+      font-size: 14px
+      line-height: 1.6
+    .ss-required-asterisk
+      font-size: 12px
+      color: red
+
+.ss-form
+  form
+    >div
+      margin-bottom: 40px
+      &:nth-last-of-type(2)
+        margin-bottom: 0
+      &:last-child
+        margin-bottom: 0
+
+// 質問タイトル
+.ss-q-title
+  font-size: 18px
+  font-weight: bold
+  margin-bottom: 1.4em
+
+// タイトル横の必須のマーク（アスタリスク）
+.ss-required-asterisk
+  color: red
+
+// 質問説明文
+.ss-secondary-text
+  font-size: 14px
+  margin-bottom: 1em
+
+// 必須の説明文
+.required-message
+  font-size: 12px
+  color: red
+
+// ラジオボタン、チェックボックス
+.ss-choices
+  padding-left: 0
+  .ss-choice-item
+    +inline-block
+    margin: 0 2em .6em 0
+    label
+      cursor: pointer
+      display: block
+
+// 一行テキスト
+.ss-q-short
+  width: 100%
+
+// 複数行テキスト
+.ss-q-long
+  width: 100%
+
+// カレンダー
+.ss-q-datetime
+
+// テーブル
+table
+  +min-screen($sm)
+    min-width: 100%
+td
+  text-align: center
+.ss-scalerow
+  border:
+    top: 1px solid #ccc
+    bottom: 1px solid #ccc
+.ss-gridnumbers
+  border-bottom: 1px solid hsl(120, 6%, 84%)
+  padding: .5em .25em
+.ss-grid-row-odd
+  td
+    border-bottom: 1px solid hsl(120, 6%, 84%)
+    padding: .5em .25em
+    background-color: #eee
+.ss-grid-row-even
+  td
+    border-bottom: 1px solid hsl(120, 6%, 84%)
+    padding: .5em .25em
+.aria-only-help
+  font-size: 0
+  left: -9999px
+  position: absolute
+
+// サブミットボタン
+.ss-submit
+
+.ss-footer
+  .disclaimer
+    text-align: center
+  .powered-by-logo
+    margin-bottom: 1em
+    .powered-by-text
+      font-size: 12px
+  .ss-terms
+    font-size: 12px
+    br
+      display: none
+.docs-offscreen
+  font-size: 12px
+#docs-aria-speakable
+  text-align: center

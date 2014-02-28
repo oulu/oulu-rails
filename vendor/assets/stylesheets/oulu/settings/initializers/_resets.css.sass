@@ -1,0 +1,47 @@
+html
+  -webkit-text-size-adjust: none
+
+input,
+button,
+textarea
+  margin: 0
+  padding: 0
+  border: none
+  background-color: transparent
+  outline: none
+
+img
+  vertical-align: bottom
+
+body.windows
+  +clear-type
+
+a
+  outline: none
+  overflow: hidden
+
+[class^="reset-"],
+[class*=" reset-"],
+.reset
+  padding: 0
+  margin: 0
+
+.reset-a
+  text-decoration: none
+  &:hover,
+  &:focus
+    text-decoration: none
+
+.reset-ul,
+.reset-ol
+  list-style-type: none
+  @extend .reset
+
+.reset-li
+  display: inline
+
+.reset-button
+  border: none
+
+.reset-address
+  font-style: normal
