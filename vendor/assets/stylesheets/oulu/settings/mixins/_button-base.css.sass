@@ -1,0 +1,12 @@
+=button-base($fz: 14px, $ht: 30px, $fw: bold, $wd: auto, $center: false)
+  +rem('font-size', $fz)
+  +rem('height', $ht)
+  +rem('line-height', $ht)
+  font-weight: $fw
+  +rem('width', $wd)
+  @if $center
+    display: block
+    margin-left: auto
+    margin-right: auto
+  @else
+    +inline-block
