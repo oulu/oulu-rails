@@ -1,2 +1,3 @@
-svgeezy.init false, "png"
-$(".fixping").fixPng()
+$ ->
+  svgeezy.init false, "png"
+  $(".fixping").fixPng()
