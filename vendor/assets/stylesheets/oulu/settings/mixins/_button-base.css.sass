@@ -1,12 +1,27 @@
-=button-base($fz: 14px, $ht: 30px, $fw: bold, $wd: auto, $center: false)
+=button-base($fz: 12px, $ht: 30px, $fw: bold, $wd: auto, $bk: false, $ct: false, $i-fz: 14px, $i-ps: false)
   +rem('font-size', $fz)
   +rem('height', $ht)
   +rem('line-height', $ht)
   font-weight: $fw
   +rem('width', $wd)
-  @if $center
+  text-decoration: none
+  +relative(1)
+  @if $bk
     display: block
-    margin-left: auto
-    margin-right: auto
   @else
     +inline-block
+  @if $ct
+    margin-left: auto
+    margin-right: auto
+  @if $i-fz
+    i
+      +text-block($i-fz, $ht)
+      +rem('width', $ht)
+      display: block
+      text-align: center
+    @if $i-ps == "left"
+      i
+        +absolute(left, 0, top, 0)
+    @else if $i-ps == "right"
+      i
+        +absolute(right, 0, top, 0)
