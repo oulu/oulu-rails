@@ -8,5 +8,3 @@ $ ->
       scrollTop: position
     , speed, "swing"
     false
-
-  return

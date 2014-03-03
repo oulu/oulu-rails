@@ -1,7 +1,16 @@
 html
-  -webkit-text-size-adjust: none
   font-size: 62.5%
-  +base-font
+  +basic-font
+
+.mobile
+  // 自動文字サイズ調整
+  -webkit-text-size-adjust: none
+  // タップ時のハイライトカラー
+  -webkit-tap-highlight-color: transparent
+  // テキストの選択をキャンセルする場合
+  -webkit-user-select: none
+  // リンクの長時間タップでリンク内容をポップアップで表示させない場合
+  -webkit-touch-callout: none
 
 input,
 button,
@@ -11,7 +20,11 @@ textarea
   border: none
   background-color: transparent
   outline: none
-  +base-font
+  +basic-font
+
+#{$all-button-inputs},
+button
+  cursor: pointer
 
 img
   vertical-align: bottom
