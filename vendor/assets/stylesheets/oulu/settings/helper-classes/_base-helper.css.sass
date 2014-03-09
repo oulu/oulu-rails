@@ -1,6 +1,3 @@
-.relative
-  position: relative
-
 //
   .pie
     +pie-element(relative)
@@ -17,13 +14,22 @@
 
 .is-relative
   position: relative
-
 .is-fixed
   +fixed(left, 0, top, 0)
   width: 100%
-
+.is-clickable
+  cursor: pointer
 .horizontal-list
   +horizontal-list(0)
+.is-hidden
+  margin-left: -99999px
+  position: absolute
+  visibility: hidden
+  display: none
+.is-clickable
+  cursor: pointer
+.is-clear
+  clear: both
 
 body
   .is-hidden
@@ -32,12 +38,4 @@ body
   .is-shown
     +inline-block
 
-.hidden-field
-  margin-left: -99999px
-  position: absolute
-  visibility: hidden
-  display: none
-
-.clickable
-  cursor: pointer
 
