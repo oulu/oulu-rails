@@ -1,7 +1,3 @@
-//
-  .pie
-    +pie-element(relative)
-
 .clearfix
   *zoom: 1
 .clearfix:after
@@ -9,9 +5,7 @@
   display: table
   clear: both
 
-.center-block
-  +side-mg-auto
-
+// state
 .is-relative
   position: relative
 .is-fixed
@@ -19,25 +13,22 @@
   width: 100%
 .is-clickable
   cursor: pointer
-.horizontal-list
-  +horizontal-list(0)
-.is-hidden
-  margin-left: -99999px
-  position: absolute
-  visibility: hidden
-  display: none
-.is-clickable
-  cursor: pointer
 .is-clear
   clear: both
-
+.gradient
+  filter: none
 body
   .is-hidden
+    margin-left: -99999px
+    position: absolute
+    visibility: hidden
     display: none
-
   .is-shown
     +inline-block
 
-.gradient
-  filter: none
+// layout
+.horizontal-list
+  +horizontal-list(0)
+.center-block
+  +side-mg-auto
 
