@@ -37,7 +37,6 @@ $baseline-px: 10px
         // If the value is zero or not a number, return it
         @if $value == 0 or type-of( $value ) != "number"
           $rem-values: append($rem-values, $value)
-
         @else
           $rem-values: append($rem-values, $value / $baseline-rem)
 
