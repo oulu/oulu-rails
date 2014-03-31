@@ -1,3 +1,8 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic)
-=lato
+=lato($fw: 400, $ls: 0, $fs: false)
   font-family: 'Lato', sans-serif
+  font-weight: $fw
+  @if not $ls == 0
+    letter-spacing: $ls
+  @if (not $fs == false)
+    font-style: italic

@@ -5,9 +5,7 @@
 
   @each $input in $inputs {
     $input: unquote($input);
-    @if not $pseudo == nulls {
-      $input: ($pseudo, $input + ":" + $pseudo, $input);
-    }
+    $input: if($pseudo, $input + ":" + $pseudo, $input);
     $list: append($list, $input, comma);
   }
 

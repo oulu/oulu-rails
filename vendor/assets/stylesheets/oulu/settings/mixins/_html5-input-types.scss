@@ -20,9 +20,28 @@ $inputs-list: 'input[type="email"]',
               'input[type="time"]',
               'input[type="week"]';
 
+$inputs-en-list: 'input[type="email"]',
+                 'input[type="number"]',
+                 'input[type="password"]',
+                 'input[type="search"]',
+                 'input[type="tel"]',
+                 'input[type="url"]',
+
+                 // Webkit & Gecko may change the display of these in the future
+                 'input[type="color"]',
+                 'input[type="date"]',
+                 'input[type="datetime"]',
+                 'input[type="datetime-local"]',
+                 'input[type="time"]';
+
+
 // Bare inputs
 //************************************************************************//
 $all-text-inputs: assign-inputs($inputs-list);
+
+// English inputs
+//************************************************************************//
+$all-en-text-inputs: assign-inputs($inputs-en-list);
 
 // Hover Pseudo-class
 //************************************************************************//
