@@ -4,34 +4,17 @@ input::-moz-focus-inner
   border: 0
   padding: 0
 
-input
-  &[type="radio"],
-  &[type="checkbox"]
-    margin: 0 .2em 0 0
-    cursor: pointer
+#{$all-button-inputs}
+  cursor: pointer
+
 input,
 textarea
-  +box-sizing(border-box)
   border: none
 
 button, x:-moz-any-link,
 input[type=button], x:-moz-any-link,
 input[type=submit], x:-moz-any-link
   line-height: normal !important
-
-
-select
-  +inline-block
-  height: 34px
-  padding: 6px 12px
-  font-size: 14px
-  line-height: 1.428571429
-  color: black
-  vertical-align: middle
-  background-color: red
-  +background-image(linear-gradient(#fff, #fff))
-  border: 1px solid #ccc
-  border-radius: 4px
 
 .scroll-x
   overflow-x: auto
