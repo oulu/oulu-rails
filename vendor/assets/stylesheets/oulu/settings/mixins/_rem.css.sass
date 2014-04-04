@@ -24,11 +24,13 @@ $baseline-px: 10px
     // Print the first line in pixel values
     #{$property}: $px-values
 
-    // If there is only one (numeric) value, return the property/value line for it.
     @if type-of($px-values) == "number"
-      #{$property}: $px-values / $baseline-rem
+      @if $px-values == "0"
+        #{$property}: $px-values
+        // If there is only one (numeric) value, return the property/value line for it.
+      @else
+        #{$property}: $px-values / $baseline-rem
     @else
-
       // Create an empty list that we can dump values into
       $rem-values: ()
 

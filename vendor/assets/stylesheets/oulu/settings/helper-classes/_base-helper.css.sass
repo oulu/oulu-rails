@@ -1,11 +1,10 @@
-.clearfix
-  *zoom: 1
-.clearfix:after
-  content: ''
-  display: table
-  clear: both
-
 // state
+.is-clearfix
+  *zoom: 1
+  &:after
+    content: ''
+    display: table
+    clear: both
 .is-relative
   position: relative
 .is-fixed
@@ -15,8 +14,18 @@
   cursor: pointer
 .is-clear
   clear: both
-.gradient
+.is-gradient
   filter: none
+.is-left
+  float: left
+.is-right
+  float: right
+.is-center
+  display: block
+  +side-mg-auto
+.center-wrapper
+  text-align: center
+
 body
   .is-hidden
     margin-left: -99999px

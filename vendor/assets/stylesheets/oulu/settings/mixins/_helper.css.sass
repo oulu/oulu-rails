@@ -1,6 +1,8 @@
-=side-mg-auto
+=side-mg-auto($mgt: 0px, $mgb: 0px)
   margin-left: auto
   margin-right: auto
+  +rem('margin-top', $mgt)
+  +rem('margin-bottom', $mgb)
 
 =absolute($absolute-direction1: left, $absolute-value1: 0, $absolute-direction2: top, $absolute-value2: 0, $absolute-z-index: 1)
   @if $absolute-value1 == 0
