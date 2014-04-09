@@ -2,3 +2,11 @@
   +background-image(linear-gradient(left, color-stops($color, $color ($stripe/($stripe+$spacing))*100%, transparent ($stripe/($stripe+$spacing))*100%, transparent 100%)))
   background-size: ($stripe+$spacing)*1px ($stripe+$spacing)*1px
   height: $height*1px
+
+=m-graLineLT($hue01, $sat01, $lig01, $hue02, $sat02, $lig02, $ichi01, $bg-size)
+  //h(bg),s(bg),l(bg),h(gra),s(gra),l(gra),ichi(線の太さ1～48%で指定),bg-size
+  background-color: hsl($hue01, $sat01, $lig01)
+  +background-image(linear-gradient(left top, hsla($hue02, $sat02, $lig02, 1) 0%, hsla($hue02, $sat02, $lig02, 1) $ichi01, hsla($hue02, $sat02, $lig02, 0) $ichi01 + 1%, hsla($hue02, $sat02, $lig02, 0) 50% - $ichi01 - 1%, hsla($hue02, $sat02, $lig02, 1) 50% - $ichi01, hsla($hue02, $sat02, $lig02, 1) 50% + $ichi01, hsla($hue02, $sat02, $lig02, 0) 50% + $ichi01 + 1%, hsla($hue02, $sat02, $lig02, 0) 100% - $ichi01 - 1%, hsla($hue02, $sat02, $lig02, 1) 100% - $ichi01, hsla($hue02, $sat02, $lig02, 1) 100%))
+  background-repeat: repeat
+  background-position: left top
+  +background-size($bg-size $bg-size)
