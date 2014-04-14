@@ -7,5 +7,3 @@ $ ->
     $("html, body").animate
       scrollTop: position
     , speed, "swing"
-    false
-  return
