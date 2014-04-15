@@ -5,11 +5,11 @@
   +rem('margin-bottom', $mgb)
 
 =absolute($absolute-direction1: left, $absolute-value1: 0, $absolute-direction2: top, $absolute-value2: 0, $absolute-z-index: 1)
-  @if $absolute-value1 == 0
+  @if $absolute-value1 == 0 or unit($absolute-value1) == '%'
     #{$absolute-direction1}: #{$absolute-value1}
   @else
     +rem('#{$absolute-direction1}', #{$absolute-value1})
-  @if $absolute-value2 == 0
+  @if $absolute-value2 == 0 or unit($absolute-value2) == '%'
     #{$absolute-direction2}: #{$absolute-value2}
   @else
     +rem('#{$absolute-direction2}', #{$absolute-value2})
@@ -17,11 +17,11 @@
   z-index: $absolute-z-index
 
 =fixed($fixed-direction1: left, $fixed-value1: 0, $fixed-direction2: top, $fixed-value2: 0, $fixed-z-index: 1)
-  @if $fixed-value1 == 0
+  @if $fixed-value1 == 0 or unit($fixed-value1) == '%'
     #{$fixed-direction1}: #{$fixed-value1}
   @else
     +rem('#{$fixed-direction1}', #{$fixed-value1})
-  @if $fixed-value2 == 0
+  @if $fixed-value2 == 0 or unit($fixed-value2) == '%'
     #{$fixed-direction2}: #{$fixed-value2}
   @else
     +rem('#{$fixed-direction2}', #{$fixed-value2})
@@ -32,14 +32,28 @@
   position: relative
   z-index: $relative-z-index
 
-=border($border-position: all, $border-width: 1px, $border-style: solid, $border-color: black, $border-bg-color: white)
+=border($border-position: all, $border-width: 1px, $border-style: solid, $border-color: black, $border-bg-color: false)
   @if $border-position == "all"
     +rem('border-width', $border-width)
-    +rgba($border-color, $border-bg-color, border-color)
+    @if $border-bg-color
+      +rgba($border-color, $border-bg-color, border-color)
+    @else
+      border-color: $border-color
     border-style: $border-style
+  @else if $border-position == "side"
+    @each $position in left, right
+      +rem('border-#{$position}-width', $border-width)
+      @if $border-bg-color
+        +rgba($border-color, $border-bg-color, border-#{$position}-color)
+      @else
+        border-#{$position}-color: $border-color
+      border-#{$position}-style: $border-style
   @else
     +rem('border-#{$border-position}-width', $border-width)
-    +rgba($border-color, $border-bg-color, border-#{$border-position}-color)
+    @if $border-bg-color
+      +rgba($border-color, $border-bg-color, border-#{$border-position}-color)
+    @else
+      border-#{$border-position}-color: $border-color
     border-#{$border-position}-style: $border-style
 
 =bg-image($bg-color: transparent, $bg-img: false, $bg-position-x: left, $bg-position-y: top, $bg-repeat: no-repeat, $bg-attachment: scroll, $bg-size: auto)
