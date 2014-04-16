@@ -1,0 +1,32 @@
+=baloon-tale($tale-direction: bottom, $tale-cl: #ccc, $tale-wd: 12px, $tale-ht: 16px, $baloon-bdw: false)
+  &:before
+    content: ""
+    border-color: transparent
+    border-width: $tale-ht $tale-wd
+    border-style: solid
+    border-#{$tale-direction}-color: $tale-cl
+    @if $tale-direction == 'bottom'
+      @if $baloon-bdw
+        +absolute(left, 50%, top, $tale-ht*2*-1 - $baloon-bdw)
+      @else
+        +absolute(left, 50%, top, $tale-ht*2*-1)
+      +rem('margin-left', $tale-wd/2*-1)
+    @else if $tale-direction == 'top'
+      @if $baloon-bdw
+        +absolute(left, 50%, bottom, $tale-ht*2*-1 - $baloon-bdw)
+      @else
+        +absolute(left, 50%, bottom, $tale-ht*2*-1)
+      +rem('margin-left', $tale-wd/2*-1)
+    @else if $tale-direction == 'left'
+      @if $baloon-bdw
+        +absolute(right, $tale-wd*2*-1 - $baloon-bdw, top, 50%)
+      @else
+        +absolute(right, $tale-wd*2*-1, top, 50%)
+      +rem('margin-top', $tale-ht*-1)
+    @else if $tale-direction == 'right'
+      @if $baloon-bdw
+        +absolute(left, $tale-wd*2*-1 - $baloon-bdw, top, 50%)
+      @else
+        +absolute(left, $tale-wd*2*-1, top, 50%)
+      +rem('margin-top', $tale-ht*-1)
+
