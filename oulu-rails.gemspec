@@ -22,5 +22,4 @@ Gem::Specification.new do |gem|
   gem.add_dependency("sass-mediaqueries-rails")
   gem.add_dependency("compass-rgbapng")
   gem.add_dependency("SassyLists")
-  gem.add_dependency("color-schemer")
 end
