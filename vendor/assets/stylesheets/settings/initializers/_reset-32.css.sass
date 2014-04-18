@@ -1,0 +1,66 @@
+html
+  font-size: 62.5%
+  +basic-font
+
+.mobile
+  // 自動文字サイズ調整
+  -webkit-text-size-adjust: none
+  // タップ時のハイライトカラー
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+  // テキストの選択をキャンセルする場合
+  -webkit-user-select: none
+  // inputは選択をキャンセルしない
+  *:not(input)
+    -webkit-user-select: none
+  // リンクの長時間タップでリンク内容をポップアップで表示させない場合
+  -webkit-touch-callout: none
+
+input,
+button,
+textarea
+  margin: 0
+  padding: 0
+  border: none
+  background-color: transparent
+  outline: none
+  +basic-font
+
+img
+  vertical-align: bottom
+
+body.windows
+  +clear-type
+
+a
+  outline: none
+
+hr
+  border: none
+
+strong
+  font-weight: bold
+
+.pie
+  zoom: 1
+  position:relative
+
+// form
+// #{$all-button-inputs}, sass3.3以上のみ可
+button
+  cursor: pointer
+
+button::-moz-focus-inner,
+input::-moz-focus-inner
+  border: 0
+  padding: 0
+
+input,
+textarea
+  border: none
+  +box-sizing(border-box)
+
+button, x:-moz-any-link,
+input[type=button], x:-moz-any-link,
+input[type=submit], x:-moz-any-link
+  line-height: normal !important
+
