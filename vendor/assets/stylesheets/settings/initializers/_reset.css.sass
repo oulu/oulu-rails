@@ -25,10 +25,6 @@ textarea
   outline: none
   +basic-font
 
-#{$all-button-inputs},
-button
-  cursor: pointer
-
 img
   vertical-align: bottom
 
@@ -47,4 +43,24 @@ strong
 .pie
   zoom: 1
   position:relative
+
+// form
+#{$all-button-inputs},
+button
+  cursor: pointer
+
+button::-moz-focus-inner,
+input::-moz-focus-inner
+  border: 0
+  padding: 0
+
+input,
+textarea
+  border: none
+  +box-sizing(border-box)
+
+button, x:-moz-any-link,
+input[type=button], x:-moz-any-link,
+input[type=submit], x:-moz-any-link
+  line-height: normal !important
 
