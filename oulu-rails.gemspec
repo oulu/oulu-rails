@@ -19,7 +19,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency("railties")
   gem.add_dependency("compass-rails")
   gem.add_dependency("ceaser-easing")
-  gem.add_dependency("sass-mediaqueries-rails")
+  gem.add_dependency("breakpoint")
   gem.add_dependency("respond-rails")
   gem.add_dependency("compass-rgbapng")
   gem.add_dependency("SassyLists")
