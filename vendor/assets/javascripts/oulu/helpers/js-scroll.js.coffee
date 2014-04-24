@@ -1,5 +1,5 @@
 $ ->
-  $("a[href^=#]").click ->
+  $(".js-scroll").click ->
     speed = 200
     href = $(this).attr("href")
     target = $((if href is "#" or href is "" then "html" else href))

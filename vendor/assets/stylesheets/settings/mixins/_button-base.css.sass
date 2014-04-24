@@ -7,11 +7,11 @@
   text-decoration: none
   +relative(1)
   text-align: center
-  @if $bk
+  @if $bk == "true"
     display: block
   @else
     +inline-block
-  @if $ct
+  @if $ct == "true"
     margin-left: auto
     margin-right: auto
   @if $i-fz
