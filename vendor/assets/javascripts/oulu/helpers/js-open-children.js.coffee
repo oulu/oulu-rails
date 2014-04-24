@@ -1,21 +1,28 @@
 $ ->
-  $(document).click ->
-    $('.js-child').addClass("is-hidden")
-    $('.js-child').removeClass("is-shown")
-    return
-  $('.js-show-child').click (ev) ->
-    sub = $(this).children('.js-child')
-    if $(sub).is(".is-hidden")
-      ev.stopPropagation()
-      $(sub).removeClass("is-hidden")
-      $(sub).addClass("is-shown")
+  $(".js-show-child").click ->
+    if $(this).hasClass("selected")
+      
+      # メニュー非表示
+      $(this).removeClass("selected")
+      $(this).find(".is-shown").addClass('is-hidden')
+      $(this).find(".is-shown").removeClass('is-shown')
     else
-      ev.stopPropagation()
-      $(sub).removeClass("is-shown")
-      $(sub).addClass("is-hidden")
-    $(this).parent().find('.is-clicked').removeClass("is-clicked")
-    $(this).addClass('is-clicked')
-
-  $("body").on "click", ".is-clicked", ->
-    $(this).find('.js-child').addClass("is-hidden")
-    $(this).find('.js-child').removeClass("is-shown")
+      
+      # 表示しているメニューを閉じる
+      $(".js-show-child").removeClass "selected"
+      $(".js-show-child ul").addClass('is-hidden')
+      $(".js-show-child ul").removeClass('is-shown')
+      
+      # メニュー表示
+      $(this).addClass("selected").find("ul").addClass('is-shown')
+      $(this).addClass("selected").find("ul").removeClass('is-hidden')
+  
+  # メニュー外でクリックすると閉じる
+  $(".js-show-child").hover (->
+    $("body").addClass('js-keep-child')
+    ), ->
+      $("body").removeClass('js-keep-child')
+  $("body").click ->
+    if not $("body").hasClass("js-keep-child")
+      $(".js-child").addClass('is-hidden') 
+      $(".js-child").removeClass('is-shown') 
