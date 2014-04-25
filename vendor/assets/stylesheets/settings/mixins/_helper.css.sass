@@ -4,34 +4,6 @@
   +rem('margin-top', $mgt)
   +rem('margin-bottom', $mgb)
 
-=absolute($absolute-direction1: left, $absolute-value1: 0, $absolute-direction2: top, $absolute-value2: 0, $absolute-z-index: 1)
-  @if $absolute-value1 == 0 or $absolute-value1 == auto or unit($absolute-value1) == '%'
-    #{$absolute-direction1}: #{$absolute-value1}
-  @else
-    +rem('#{$absolute-direction1}', #{$absolute-value1})
-  @if $absolute-value2 == 0 or $absolute-value2 == auto or unit($absolute-value2) == '%'
-    #{$absolute-direction2}: #{$absolute-value2}
-  @else
-    +rem('#{$absolute-direction2}', #{$absolute-value2})
-  position: absolute
-  z-index: $absolute-z-index
-
-=fixed($fixed-direction1: left, $fixed-value1: 0, $fixed-direction2: top, $fixed-value2: 0, $fixed-z-index: 1)
-  @if $fixed-value1 == 0 or $fixed-value1 == auto or unit($fixed-value1) == '%'
-    #{$fixed-direction1}: #{$fixed-value1}
-  @else
-    +rem('#{$fixed-direction1}', #{$fixed-value1})
-  @if $fixed-value2 == 0 or $fixed-value2 == auto or unit($fixed-value2) == '%'
-    #{$fixed-direction2}: #{$fixed-value2}
-  @else
-    +rem('#{$fixed-direction2}', #{$fixed-value2})
-  position: fixed
-  z-index: $fixed-z-index
-
-=relative($relative-z-index: auto)
-  position: relative
-  z-index: $relative-z-index
-
 =border($border-position: all, $border-width: 1px, $border-style: solid, $border-color: black, $border-bg-color: false)
   @if $border-position == "all"
     +rem('border-width', $border-width)
