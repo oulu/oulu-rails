@@ -29,7 +29,7 @@
     @if $relative-value1 == 0 or $relative-value1 == auto or unit($relative-value1) == '%'
       #{$relative-direction1}: #{$relative-value1}
     @else
-      +rem($relative-direction1, $fixed-value1)
+      +rem($relative-direction1, $relative-value1)
   @if $relative-direction2
     @if $relative-value2 == 0 or $relative-value2 == auto or unit($relative-value2) == '%'
       #{$relative-direction2}: #{$relative-value2}
