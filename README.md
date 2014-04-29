@@ -8,6 +8,20 @@ sass tools for machida.
 - $ bundle
 - Add `@import oulu` at app/assets/stylesheets/application.css.sass
 
+## settings
+
+### functions
+
+### variables
+
+### mixins
+
+### initializers
+
+## helper
+
+## options
+
 
 ## Contributing
 
