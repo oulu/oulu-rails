@@ -1,0 +1,37 @@
+=button-basic($ft-sz: 16px, $bt-ht: 42px, $ja: false)
+  text-decoration: none
+  +rem('height', $bt-ht)
+  +rem('font-size', $ft-sz)
+  font-weight: bold
+  +inline-block(bottom)
+  +border-radius(3px)
+  text-align: center
+  cursor: pointer
+  +box-sizing(border-box)
+  +rem('line-height', $bt-ht - 4)
+  white-space: nowrap
+  @if not $ja == false
+    +rem('padding-top', round($ft-sz/10))
+    +bold-ja
+  @if $ft-sz == "18px"
+    +rem('padding', 0 round($ft-sz*2.2))
+  @else
+    +rem('padding', 0 round($ft-sz*1.4))
+  >i
+    +inline-block
+    +rem('margin-right', $ft-sz*.5)
+    +rem('font-size', $ft-sz*1.4)
+    +rem('width', $ft-sz*1.5)
+    +rem('margin-left', $ft-sz*.3*-1.2)
+    +relative(1)
+    @if not $ja == false
+      top: $bt-ht*-0.01
+    @else
+      @if $ft-sz == 16px
+        +rem('top', -2px)
+      @else if $ft-sz == 18px
+        +rem('top', $bt-ht*-0.05)
+      @else if $ft-sz == 14px
+        +rem('top', $bt-ht*-0.001)
+      @else if $ft-sz == 12px
+        top: -1px
