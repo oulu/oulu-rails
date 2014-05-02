@@ -29,3 +29,8 @@
     @else
       border-#{$border-position}-color: $border-color
     border-#{$border-position}-style: $border-style
+
+=border-gradient($bd-wd: 1px, $bd-cl: white, $gradient-level: 20)
+  +rem('border-width', $bd-wd)
+  border-style: solid
+  border-color: $bd-cl shade($bd-cl, #{$gradient-level}%, shade($bd-cl, #{$gradient-level*2}%,)
