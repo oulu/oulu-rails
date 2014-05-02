@@ -1,0 +1,31 @@
+=border($border-position: all, $border-width: 1px, $border-style: solid, $border-color: black, $border-bg-color: false)
+  @if $border-position == "all"
+    +rem('border-width', $border-width)
+    @if $border-bg-color
+      +rgba($border-color, $border-bg-color, border-color)
+    @else
+      border-color: $border-color
+    border-style: $border-style
+  @else if $border-position == "horizontal"
+    @each $position in left, right
+      +rem('border-#{$position}-width', $border-width)
+      @if $border-bg-color
+        +rgba($border-color, $border-bg-color, border-#{$position}-color)
+      @else
+        border-#{$position}-color: $border-color
+      border-#{$position}-style: $border-style
+  @else if $border-position == "vertical"
+    @each $position in top, bottom
+      +rem('border-#{$position}-width', $border-width)
+      @if $border-bg-color
+        +rgba($border-color, $border-bg-color, border-#{$position}-color)
+      @else
+        border-#{$position}-color: $border-color
+      border-#{$position}-style: $border-style
+  @else
+    +rem('border-#{$border-position}-width', $border-width)
+    @if $border-bg-color
+      +rgba($border-color, $border-bg-color, border-#{$border-position}-color)
+    @else
+      border-#{$border-position}-color: $border-color
+    border-#{$border-position}-style: $border-style
