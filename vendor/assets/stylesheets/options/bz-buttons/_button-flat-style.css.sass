@@ -1,0 +1,23 @@
+=button-flat-style($bt-cl: $default-cl)
+  background-color: $bt-cl
+  @if $bt-cl == $default-cl
+    color: shade($bt-cl, 62%)
+    border: shade($bt-cl, 16%) solid 2px
+    $hv-bt-cl: tint($bt-cl, 50%)
+    &:hover,
+    &.is-hover
+      background-color: $hv-bt-cl
+      border-color: shade($hv-bt-cl, 16%)
+  @else
+    color: $white
+    border: shade($bt-cl, 12%) solid 2px
+    $hv-bt-cl: tint($bt-cl, 18%)
+    $av-bt-cl: shade($bt-cl, 6%)
+    &:hover,
+    &.is-hover
+      background-color: $hv-bt-cl
+      border-color: shade($hv-bt-cl, 12%)
+    &:active,
+    &.is-active
+      background-color: $av-bt-cl
+      border-color: shade($av-bt-cl, 12%)

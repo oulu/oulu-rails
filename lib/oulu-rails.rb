@@ -7,6 +7,7 @@ module OuluRails
     config.compass.require 'SassyLists'
     config.compass.require 'ceaser-easing'
     config.compass.require 'breakpoint'
+    config.compass.require 'modular-scale'
   end
 end
 

@@ -5,8 +5,22 @@ sass tools for machida.
 ## Installation
 
 - Add `source 'https://rails-assets.org'` at Gemfile.
-- $ bundle
+- `$ bundle`
 - Add `@import oulu` at app/assets/stylesheets/application.css.sass
+
+## settings
+
+### functions
+
+### variables
+
+### mixins
+
+### initializers
+
+## helper
+
+## options
 
 
 ## Contributing

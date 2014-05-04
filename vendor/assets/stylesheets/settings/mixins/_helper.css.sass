@@ -4,30 +4,6 @@
   +rem('margin-top', $mgt)
   +rem('margin-bottom', $mgb)
 
-=border($border-position: all, $border-width: 1px, $border-style: solid, $border-color: black, $border-bg-color: false)
-  @if $border-position == "all"
-    +rem('border-width', $border-width)
-    @if $border-bg-color
-      +rgba($border-color, $border-bg-color, border-color)
-    @else
-      border-color: $border-color
-    border-style: $border-style
-  @else if $border-position == "side"
-    @each $position in left, right
-      +rem('border-#{$position}-width', $border-width)
-      @if $border-bg-color
-        +rgba($border-color, $border-bg-color, border-#{$position}-color)
-      @else
-        border-#{$position}-color: $border-color
-      border-#{$position}-style: $border-style
-  @else
-    +rem('border-#{$border-position}-width', $border-width)
-    @if $border-bg-color
-      +rgba($border-color, $border-bg-color, border-#{$border-position}-color)
-    @else
-      border-#{$border-position}-color: $border-color
-    border-#{$border-position}-style: $border-style
-
 =bg-image($bg-color: transparent, $bg-img: false, $bg-position-x: left, $bg-position-y: top, $bg-repeat: no-repeat, $bg-attachment: scroll, $bg-size: auto)
   background-color: $bg-color
   @if $bg-img
