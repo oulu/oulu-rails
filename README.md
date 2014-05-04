@@ -10,15 +10,26 @@ sass tools for machida.
 
 ## settings
 
+これがないとエラーが出てしまうファイルはこの中に入ってます。
+
 ### functions
+
+sass の function はこちら
 
 ### variables
 
+sass の 変数 はこちら
+
 ### mixins
+
+sass の mixin はこちら
 
 ### initializers
 
+reset の設定に追加するものなどはこちら
+
 ## helper
+
 
 ## options
 
