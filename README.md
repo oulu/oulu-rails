@@ -8,31 +8,35 @@ sass tools for machida.
 - `$ bundle`
 - Add `@import oulu` at app/assets/stylesheets/application.css.sass
 
-## settings
+## ファイル構成
+
+### settings
 
 これがないとエラーが出てしまうファイルはこの中に入ってます。
 
-### functions
+#### functions
 
 sass の function はこちら
 
-### variables
+#### variables
 
 sass の 変数 はこちら
 
-### mixins
+#### mixins
 
 sass の mixin はこちら
 
-### initializers
+#### initializers
 
 reset の設定に追加するものなどはこちら
 
-## helper
+### helper
 
+あったら便利なcssのclass集
 
-## options
+### options
 
+plugin的なものはこちら
 
 ## Contributing
 
