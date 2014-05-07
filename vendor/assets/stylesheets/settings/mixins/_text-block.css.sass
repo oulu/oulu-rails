@@ -18,7 +18,7 @@
     @else
       font-weight: $fw
   @if not ($ta == false or $ta == "")
-    @if $fw == 'bold' or $fw == 'right'
-
-    @else
+    @if $ta == 'left' or $ta == 'right'
       text-align: $ta
+    @else
+      font-weight: $ta
