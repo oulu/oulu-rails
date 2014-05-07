@@ -13,21 +13,6 @@
     background-attachment: $bg-attachment
     background-size: $bg-size
 
-=text-block($font-size: $sm, $line-height: false, $margin-bottom: false)
-  +rem('font-size', $font-size)
-  @if not ($line-height == false or $line-height == "")
-    @if unit($line-height) == "px"
-      +rem('line-height', $line-height)
-    @else
-      $rem-line-height: $font-size * $line-height
-      +rem('line-height', $rem-line-height)
-  @if not ($margin-bottom == false or $line-height == "")
-    @if unit($margin-bottom) == "px"
-      +rem('margin-bottom', $margin-bottom)
-    @else
-      $rem-margin-bottom: $font-size * $margin-bottom
-      +rem('margin-bottom', $rem-margin-bottom)
-
 =center-block($block-width: 300px, $block-height: 300px, $block-z-index: 1)
   +rem('width', $block-width)
   +rem('height', $block-height)

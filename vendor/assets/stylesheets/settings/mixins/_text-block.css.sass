@@ -1,0 +1,24 @@
+=text-block($font-size: $sm, $line-height: false, $margin-bottom: false, $fw: false, $ta: false)
+  +rem('font-size', $font-size)
+  @if not ($line-height == false or $line-height == "")
+    @if unit($line-height) == "px"
+      +rem('line-height', $line-height)
+    @else
+      $rem-line-height: $font-size * $line-height
+      +rem('line-height', $rem-line-height)
+  @if not ($margin-bottom == false or $margin-bottom == "")
+    @if unit($margin-bottom) == "px"
+      +rem('margin-bottom', $margin-bottom)
+    @else
+      $rem-margin-bottom: $font-size * $margin-bottom
+      +rem('margin-bottom', $rem-margin-bottom)
+  @if not ($fw == false or $fw == "")
+    @if $fw == 'left' or $fw == 'right'
+      text-align: $fw
+    @else
+      font-weight: $fw
+  @if not ($ta == false or $ta == "")
+    @if $fw == 'bold' or $fw == 'right'
+
+    @else
+      text-align: $ta
