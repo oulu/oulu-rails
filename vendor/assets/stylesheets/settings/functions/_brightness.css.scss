@@ -22,6 +22,11 @@ $brightness-divisor: $red-magic-number + $green-magic-number + $blue-magic-numbe
   @else
     @return $dark
 
+// 使い方
+//color: contrasting-color($bg-color, $light-text-color, $dark-text-color)
+// $bg-colorが暗かったら$light-text-colorが選択される
+// $bg-colorが明るかったらｍ暗かったら$light-text-colorが選択される
+
 //@import brightness
 //$dark-background-color: #333333
 //$light-text-color: white
