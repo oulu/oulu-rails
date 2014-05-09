@@ -1,5 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700)
-=montserrat($fw: 400, $ls: 0, $fs: false)
+=montserrat($fw: 400, $ls: 0, $fs: false, $tx-rendering: true)
   // $fw: フォントの太さ, $ls: 字間, $fs: フォントスタイル
   font-family: 'Montserrat', sans-serif
   font-weight: $fw
@@ -8,5 +8,7 @@
     letter-spacing: $ls
   @if (not $fs == false)
     font-style: italic
+  @if $tx-rendering
+    text-rendering: optimizelegibility
   // 備考:モントセラト（モントセラート、モンセラット）と読む
 
