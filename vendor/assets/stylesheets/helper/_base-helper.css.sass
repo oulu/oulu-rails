@@ -16,25 +16,10 @@
   clear: both
 .is-gradient
   filter: none
-.is-center
-  display: block
-  +side-mg-auto
-.is-left
-  float: left
-.is-right
-  float: right
-.is-center
-  display: block
-  +side-mg-auto
+
 .is-block-link
   display: block
   text-decoration: none
-.is-center-wrapper
-  text-align: center
-.is-right-wrapper
-  text-align: right
-.is-left-wrapper
-  text-align: left
 .is-scroll-x-wrapper
   overflow-x: auto
   overflow-y: hidden
@@ -73,7 +58,32 @@ body
   =bold-ja
 
 // layout
-.horizontal-list
-  +horizontal-list(0)
-.center-block
+.is-center-block
   +side-mg-auto
+  display: block
+.is-center
+  display: block
+  +side-mg-auto
+.is-horizontal-center
+  display: block
+  +side-mg-auto
+.is-vertical-center
+  vertical-align: middle !important
+.is-left
+  float: left
+.is-right
+  float: right
+.is-center-wrapper
+  text-align: center
+.is-right-wrapper
+  text-align: right
+.is-left-wrapper
+  text-align: left
+
+// list
+.is-horizontal-list
+  +horizontal-list(0)
+
+.is-inline-blocks
+  >*
+    +inline-block(bottom)
