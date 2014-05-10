@@ -14,3 +14,21 @@ $basic-bold-sans-serif: "ヒラギノ角ゴ StdN", "Hiragino Kaku Gothic StdN", 
   font-weight: bold
   @if $tx-rendering
     text-rendering: optimizelegibility
+
+=is-ja
+  &.is-ja
+    @content
+
+=is-bold-ja
+  &.is-bold-ja
+    @content
+
+$fw: 400 !default
+=webfont-ja-sans-selif
+  @if $fw == 'bold' or $fw > 500
+    +is-bold-ja
+      +basic-bold-font
+  @else
+    +is-ja
+      +basic-font
+
