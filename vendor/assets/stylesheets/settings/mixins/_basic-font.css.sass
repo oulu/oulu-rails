@@ -1,12 +1,16 @@
+$basic-sans-serif: "Lucida Grande", "Lucida Sans Unicode", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", Helvetica, Arial, Verdana, sans-serif
+$basic-legacy-ie-sans-serif: "ＭＳ Ｐゴシック", "Lucida Sans Unicode", sans-serif
+$basic-bold-sans-serif: "ヒラギノ角ゴ StdN", "Hiragino Kaku Gothic StdN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", Helvetica, Arial, Verdana, sans-serif
+
 =basic-font($tx-rendering: true)
-  font-family: "Lucida Grande", "Lucida Sans Unicode", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", Helvetica, Arial, Verdana, sans-serif
-  *font-family: "ＭＳ Ｐゴシック", "Lucida Sans Unicode", sans-serif
+  font-family: $basic-sans-serif
+  *font-family: $basic-legacy-ie-sans-serif
   @if $tx-rendering
     text-rendering: optimizelegibility
 
 =bold-ja($tx-rendering: true)
-  font-family: "ヒラギノ角ゴ StdN", "Hiragino Kaku Gothic StdN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", Helvetica, Arial, Verdana, sans-serif
-  *font-family: "ＭＳ Ｐゴシック", "Lucida Sans Unicode", sans-serif
+  font-family: $basic-bold-sans-serif
+  *font-family: $basic-legacy-ie-sans-serif
   font-weight: bold
   @if $tx-rendering
     text-rendering: optimizelegibility
