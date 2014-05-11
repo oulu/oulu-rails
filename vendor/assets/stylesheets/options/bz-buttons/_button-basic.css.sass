@@ -15,6 +15,8 @@
     +bold-ja
   @if $ft-sz == "18px"
     +rem('padding', 0 round($ft-sz*2.2))
+  @else if $ft-sz == "12px"
+    +rem('padding', 0 round($ft-sz*0.8))
   @else
     +rem('padding', 0 round($ft-sz*1.4))
   >i
@@ -34,4 +36,4 @@
       @else if $ft-sz == 14px
         +rem('top', $bt-ht*-0.001)
       @else if $ft-sz == 12px
-        top: -1px
+        top: 0
