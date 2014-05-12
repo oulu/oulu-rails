@@ -1,4 +1,3 @@
-
 $ ->
   $('.js-open-me').click ->
     $(this).toggleClass('is-closed')
