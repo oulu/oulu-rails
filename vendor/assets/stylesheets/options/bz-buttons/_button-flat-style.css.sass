@@ -2,7 +2,7 @@
   background-color: $bt-cl
   @if $bt-cl == $default-cl
     color: shade($bt-cl, 62%)
-    border: shade($bt-cl, 16%) solid 2px
+    +border(all, 2px, solid, shade($bt-cl, 16%))
     $hv-bt-cl: tint($bt-cl, 50%)
     &:hover,
     &.is-hover
@@ -10,7 +10,7 @@
       border-color: shade($hv-bt-cl, 16%)
   @else
     color: $white
-    border: shade($bt-cl, 12%) solid 2px
+    +border(all, 2px, solid, shade($bt-cl, 12%))
     $hv-bt-cl: tint($bt-cl, 18%)
     $av-bt-cl: shade($bt-cl, 6%)
     &:hover,
