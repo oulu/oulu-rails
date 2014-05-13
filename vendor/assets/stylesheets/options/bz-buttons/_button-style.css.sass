@@ -4,7 +4,7 @@
     color: shade($bt-cl, 62%)
     +text-shadow(tint($bt-cl, 46%) 0 1px 0)
     +box-shadow(shade($bt-cl, 6%) 0 -1px 0 1px inset, tint($bt-cl, 46%) 0 1px 0 1px inset)
-    border: shade($bt-cl, 16%) solid 2px
+    +border(all, 2px, solid, shade($bt-cl, 16%))
     $hv-bt-cl: tint($bt-cl, 50%)
     &:hover,
     &.is-hover
@@ -16,7 +16,7 @@
     color: $white
     +text-shadow(shade($bt-cl, 18%) 0 -1px 0)
     +box-shadow(shade($bt-cl, 4%) 0 -1px 0 1px inset, tint($bt-cl, 32%) 0 1px 0 1px inset)
-    border: shade($bt-cl, 12%) solid 2px
+    +border(all, 2px, solid, shade($bt-cl, 12%))
     $hv-bt-cl: tint($bt-cl, 18%)
     $av-bt-cl: shade($bt-cl, 6%)
     &:hover,
