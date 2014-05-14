@@ -1,4 +1,4 @@
-=button-basic($ft-sz: 16px, $bt-ht: 42px, $ja: false)
+=button-basic($ft-sz: 16px, $bt-ht: 42px, $ja: false, $bt-icon-right: false)
   text-decoration: none
   +rem('height', $bt-ht)
   +rem('font-size', $ft-sz)
@@ -21,19 +21,23 @@
     +rem('padding', 0 round($ft-sz*1.4))
   >i
     +inline-block
-    +rem('margin-right', $ft-sz*.5)
-    +rem('font-size', $ft-sz*1.4)
-    +rem('width', $ft-sz*1.5)
-    +rem('margin-left', $ft-sz*.3*-1.2)
+    +rem('font-size', round($ft-sz*1.4))
+    +rem('width', round($ft-sz*1.5))
     +relative(1)
     @if not $ja == false
-      top: $bt-ht*-0.01
+      top: round($bt-ht*-0.01)
     @else
       @if $ft-sz == 16px
         top: 0
       @else if $ft-sz == 18px
-        +rem('top', $bt-ht*-0.05)
+        +rem('top', round($bt-ht*-0.05))
       @else if $ft-sz == 14px
-        +rem('top', $bt-ht*-0.001)
+        +rem('top', round($bt-ht*-0.001))
       @else if $ft-sz == 12px
         top: 0
+    @if $bt-icon-right
+      +rem('margin-left', round($ft-sz*.5))
+      +rem('margin-right', round($ft-sz*.3*-1.2))
+    @else
+      +rem('margin-right', round($ft-sz*.5))
+      +rem('margin-left', round($ft-sz*.3*-1.2))
