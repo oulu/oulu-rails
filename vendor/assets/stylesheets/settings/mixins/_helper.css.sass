@@ -1,8 +1,10 @@
-=side-mg-auto($mgt: 0px, $mgb: 0px)
+=side-mg-auto($mgt: false, $mgb: false)
   margin-left: auto
   margin-right: auto
-  +rem('margin-top', $mgt)
-  +rem('margin-bottom', $mgb)
+  @if $mgt
+    +rem('margin-top', $mgt)
+  @if $mgb
+    +rem('margin-bottom', $mgb)
 
 =side-mg($mg: 0px)
   +rem('margin-left', $mg)
