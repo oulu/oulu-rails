@@ -1,36 +1,37 @@
-=text-block($font-size: $sm, $line-height: false, $margin-bottom: false, $fw: false, $ta: false)
-  +rem('font-size', $font-size)
-  // $line-height
-  @if not ($line-height == false or $line-height == "")
-    @if font-weight($line-height)
-      font-weight: $line-height
+=text-block($fz: $sm, $lh: false, $mb: false, $fw: false, $ta: false)
+  // $fz
+  +rem('font-size', $fz)
+  // $lh
+  @if $lh
+    @if font-weight($lh)
+      font-weight: $lh
     @else
-      @if unit($line-height) == "px"
-        +rem('line-height', $line-height)
+      @if unit($lh) == "px"
+        +rem('line-height', $lh)
       @else
-        $rem-line-height: $font-size * $line-height
-        +rem('line-height', $rem-line-height)
-  // $margin-bottom
-  @if not ($margin-bottom == false or $margin-bottom == "")
-    @if font-weight($margin-bottom) == true
-      font-weight: $margin-bottom
+        $rem-lh: round($fz * $lh)
+        +rem('line-height', $rem-lh)
+  // $mb
+  @if $mb
+    @if font-weight($mb) == true
+      font-weight: $mb
+    @else if text-align($mb)
+      text-align: $mb
     @else
-      @if unit($margin-bottom) == "px"
-        +rem('margin-bottom', $margin-bottom)
+      @if unit($mb) == "px"
+        +rem('margin-bottom', $mb)
       @else
-        $rem-margin-bottom: $font-size * $margin-bottom
-        +rem('margin-bottom', $rem-margin-bottom)
+        $rem-mb: round($fz * $mb)
+        +rem('margin-bottom', $rem-mb)
   // $fw
-  @if not ($fw == false or $fw == "")
+  @if $fw
     @if font-weight($fw) == true
       font-weight: $fw
-    @else
-      @if $fw == 'left' or $fw == 'right'
-        text-align: $fw
+    @else if text-align($fw)
+      text-align: $fw
   // $ta
-  @if not ($ta == false or $ta == "")
+  @if $ta
     @if font-weight($ta) == true
       font-weight: $ta
-    @else
-      @if $ta == 'left' or $ta == 'right'
-        text-align: $ta
+    @else if text-align($ta)
+      text-align: $ta

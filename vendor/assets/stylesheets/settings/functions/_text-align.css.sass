@@ -1,0 +1,11 @@
+@function text-align($value)
+  @if unitless
+    @if type-of($value) == string
+      @if $value == "left" or $value == "right"
+        @return true
+      @else
+        @return false
+    @else
+      @return false
+  @else
+    @return false
