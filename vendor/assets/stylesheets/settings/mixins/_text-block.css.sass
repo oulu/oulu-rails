@@ -1,24 +1,36 @@
 =text-block($font-size: $sm, $line-height: false, $margin-bottom: false, $fw: false, $ta: false)
   +rem('font-size', $font-size)
+  // $line-height
   @if not ($line-height == false or $line-height == "")
-    @if unit($line-height) == "px"
-      +rem('line-height', $line-height)
+    @if font-weight($line-height)
+      font-weight: $line-height
     @else
-      $rem-line-height: $font-size * $line-height
-      +rem('line-height', $rem-line-height)
+      @if unit($line-height) == "px"
+        +rem('line-height', $line-height)
+      @else
+        $rem-line-height: $font-size * $line-height
+        +rem('line-height', $rem-line-height)
+  // $margin-bottom
   @if not ($margin-bottom == false or $margin-bottom == "")
-    @if unit($margin-bottom) == "px"
-      +rem('margin-bottom', $margin-bottom)
+    @if font-weight($margin-bottom) == true
+      font-weight: $margin-bottom
     @else
-      $rem-margin-bottom: $font-size * $margin-bottom
-      +rem('margin-bottom', $rem-margin-bottom)
+      @if unit($margin-bottom) == "px"
+        +rem('margin-bottom', $margin-bottom)
+      @else
+        $rem-margin-bottom: $font-size * $margin-bottom
+        +rem('margin-bottom', $rem-margin-bottom)
+  // $fw
   @if not ($fw == false or $fw == "")
-    @if $fw == 'left' or $fw == 'right'
-      text-align: $fw
-    @else
+    @if font-weight($fw) == true
       font-weight: $fw
-  @if not ($ta == false or $ta == "")
-    @if $ta == 'left' or $ta == 'right'
-      text-align: $ta
     @else
+      @if $fw == 'left' or $fw == 'right'
+        text-align: $fw
+  // $ta
+  @if not ($ta == false or $ta == "")
+    @if font-weight($ta) == true
       font-weight: $ta
+    @else
+      @if $ta == 'left' or $ta == 'right'
+        text-align: $ta
