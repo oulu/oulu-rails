@@ -3,7 +3,7 @@
   +rem('font-size', $fz)
   // $lh
   @if $lh
-    @if font-weight($lh)
+    @if font-weight($lh) == true
       font-weight: $lh
     @else
       @if unit($lh) == "px"
