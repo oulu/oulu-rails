@@ -3,14 +3,11 @@
   +rem('font-size', $fz)
   // $lh
   @if $lh
-    @if font-weight($lh) == true
-      font-weight: $lh
+    @if unit($lh) == "px"
+      +rem('line-height', $lh)
     @else
-      @if unit($lh) == "px"
-        +rem('line-height', $lh)
-      @else
-        $rem-lh: round($fz * $lh)
-        +rem('line-height', $rem-lh)
+      $rem-lh: round($fz * $lh)
+      +rem('line-height', $rem-lh)
   // $mb
   @if $mb
     @if font-weight($mb) == true
