@@ -4,7 +4,7 @@
   font-family: 'Open Sans', sans-serif
   font-weight: $fw
   @if not $ls == 0
-    letter-spacing: $ls
+    +rem('letter-spacing', $ls)
   @if (not $fs == false)
     font-style: italic
   @if $tx-rendering
