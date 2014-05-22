@@ -1,5 +1,7 @@
 =button-style($bt-cl: $default-cl)
   background-color: $bt-cl
+  +filter-gradient($bt-cl, $bt-cl, vertical)
+  +background-image(linear-gradient(top, $bt-cl 0%, $bt-cl 100%))
   @if $bt-cl == $default-cl
     color: shade($bt-cl, 62%)
     +text-shadow(tint($bt-cl, 46%) 0 1px 0)

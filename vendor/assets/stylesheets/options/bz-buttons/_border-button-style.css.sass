@@ -1,5 +1,7 @@
 =border-button-style($bt-cl: $default-cl)
   background-color: transparent
+  +filter-gradient(transparent, transparent, vertical)
+  +background-image(linear-gradient(top, transparent 0%, transparent 100%))
   @if $bt-cl == $default-cl
     color: shade($bt-cl, 62%)
     border: shade($bt-cl, 16%) solid 2px
