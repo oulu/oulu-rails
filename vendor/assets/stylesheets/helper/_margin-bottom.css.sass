@@ -1,0 +1,5 @@
+$mg-sizes: 4, 8, 12, 16, 20, 24, 28, 32
+
+@each $prefix in $mg-sizes
+  .is-mgb-#{$prefix}
+    +rem('margin-bottom', #{$prefix}px)
