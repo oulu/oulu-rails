@@ -1,39 +1,45 @@
-=text-block($fz: $sm, $lh: false, $mb: false, $fw: false, $ta: false)
+// どこでも font-weight と text-align が書ける設定
+=fw-ta($value)
+  @if $value
+    @if font-weight($value)
+      font-weight: $value
+    @else if text-align($value)
+      text-align: $value
+
+=text-block($fz: $sm, $lh: false, $mb: false, $fw: false, $ta: false, $top: false)
   // $fz
   @if em($fz)
     font-size: $fz
-  @else
+  @else if px($fz)
     +rem('font-size', $fz)
   // $lh
   @if $lh
     @if px($lh)
       +rem('line-height', $lh)
-    @else
+    @else if unitless-number($lh)
       @if px($fz)
         $rem-lh: round($fz * $lh)
         +rem('line-height', $rem-lh)
+    +fw-ta($lh)
   // $mb
   @if $mb
-    @if font-weight($mb) == true
-      font-weight: $mb
-    @else if text-align($mb)
-      text-align: $mb
-    @else
-      @if px($mb)
-        +rem('margin-bottom', $mb)
-      @else
-        @if px($fz)
-          $rem-mb: round($fz * $mb)
-          +rem('margin-bottom', $rem-mb)
+    @if px($mb)
+      +rem('margin-bottom', $mb)
+    @else if unitless-number($lh)
+      @if px($fz)
+        $rem-mb: round($fz * $mb)
+        +rem('margin-bottom', $rem-mb)
+    +fw-ta($mb)
   // $fw
   @if $fw
-    @if font-weight($fw)
-      font-weight: $fw
-    @else if text-align($fw)
-      text-align: $fw
+    @if px($fw)
+      +top($fw)
+    +fw-ta($fw)
   // $ta
   @if $ta
-    @if font-weight($ta)
-      font-weight: $ta
-    @else if text-align($ta)
-      text-align: $ta
+    @if px($ta)
+      +top($ta)
+    +fw-ta($ta)
+  // $top
+  @if $top
+    +top($top)

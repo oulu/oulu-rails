@@ -1,10 +1,10 @@
 @function font-weight($value)
-  @if type-of($value) == number and unitless($value)
+  @if unitless-number($value)
     @if $value >= 100
       @return true
     @else
       @return false
-  @else if type-of($value) == string
+  @else if string($value)
     @if $value == "bold" or $value == "normal"
       @return true
     @else
