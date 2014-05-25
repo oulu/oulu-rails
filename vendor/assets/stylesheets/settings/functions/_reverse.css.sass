@@ -8,6 +8,10 @@
       @return 'right'
     @else if $value == 'right'
       @return 'top'
+    @else if $value == 'bold'
+      @return 'normal'
+    @else if $value == 'normal'
+      @return 'bold'
   @else if type-of($value) == number
     @if unit($value) == '%'
       @return (100 - $value)
