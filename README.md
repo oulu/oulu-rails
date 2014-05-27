@@ -2,6 +2,11 @@
 
 sass tools for machida.
 
+## Docs
+
+- [index](/docs/index)
+
+
 ## Installation
 
 - Add `source 'https://rails-assets.org'` at Gemfile.
