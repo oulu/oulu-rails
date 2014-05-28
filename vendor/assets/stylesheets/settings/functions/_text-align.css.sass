@@ -1,5 +1,8 @@
-@function color($value)
-  @if type-of($value) == color
-    @return true
+@function text-align($value)
+  @if string($value)
+    @if $value == "left" or $value == "right "or $value == "center"
+      @return true
+    @else
+      @return false
   @else
     @return false

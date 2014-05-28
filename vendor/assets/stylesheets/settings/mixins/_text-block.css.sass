@@ -1,26 +1,28 @@
-// どこでも font-weight と text-align が書ける設定
-=fw-ta($value)
+// どこでも $font-weight と $text-align と $color が書ける設定
+=fw-ta-cl($value)
   @if $value
     @if font-weight($value)
       font-weight: $value
     @else if text-align($value)
       text-align: $value
+    @else if color($value)
+      color: $value
 
-=text-block($fz: $sm, $lh: false, $mb: false, $fw: false, $ta: false, $top: false)
+=text-block($fz: $sm, $lh: false, $mb: false, $fw: false, $ta: false, $top: false, $cl: false)
   // $fz
   @if em($fz)
     font-size: $fz
   @else if px($fz)
     +rem('font-size', $fz)
+  +fw-ta-cl($fz)
   // $lh
   @if $lh
     @if px($lh)
       +rem('line-height', $lh)
     @else if unitless-number($lh)
-      @if px($fz)
-        $rem-lh: round($fz * $lh)
-        +rem('line-height', $rem-lh)
-    +fw-ta($lh)
+      $rem-lh: round($fz * $lh)
+      +rem('line-height', $rem-lh)
+    +fw-ta-cl($lh)
   // $mb
   @if $mb
     @if px($mb)
@@ -29,17 +31,21 @@
       @if px($fz)
         $rem-mb: round($fz * $mb)
         +rem('margin-bottom', $rem-mb)
-    +fw-ta($mb)
+    +fw-ta-cl($mb)
   // $fw
   @if $fw
     @if px($fw)
       +top($fw)
-    +fw-ta($fw)
+    +fw-ta-cl($fw)
   // $ta
   @if $ta
     @if px($ta)
       +top($ta)
-    +fw-ta($ta)
+    +fw-ta-cl($ta)
   // $top
   @if $top
     +top($top)
+  +fw-ta-cl($top)
+  // $cl
+  @if $cl
+    +fw-ta-cl($fw)
