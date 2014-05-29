@@ -44,8 +44,9 @@
     +fw-ta-cl($ta)
   // $top
   @if $top
-    +top($top)
+    @if px($top)
+      +top($top)
   +fw-ta-cl($top)
   // $cl
   @if $cl
-    +fw-ta-cl($fw)
+    +fw-ta-cl($cl)
