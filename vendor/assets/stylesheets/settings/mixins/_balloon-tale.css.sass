@@ -1,16 +1,16 @@
-=baloon-tale($tale-position: bottom, $tale-cl: #ccc, $tale-wd: 12px, $tale-ht: 16px, $baloon-bdw: false, $tale-position-manual: false)
+=baloon-tale($tale-position: bottom, $tale-cl: #ccc, $tale-wd: 12px, $tale-ht: 16px, $baloon-bdw: false, $tale-position-manual-direction: false, $tale-position-manual-value: false)
   &:before
     content: ""
     +border(all, $tale-ht $tale-wd, solid, transparent)
     display: block
     border-#{reverse($tale-position)}-color: $tale-cl
     @if $tale-position == 'bottom' or $tale-position == 'top'
-      @if $tale-position-manual
+      @if $tale-position-manual-direction
         @if $baloon-bdw
           +absolute($tale-position, $tale-ht*2*-1 - $baloon-bdw)
         @else
           +absolute($tale-position, $tale-ht*2*-1)
-        +rem('left', $tale-position-manual)
+        +rem($tale-position-manual-direction, $tale-position-manual-value)
       @else
         +rem('margin-left', $tale-wd/2*-1)
         @if $baloon-bdw
@@ -18,16 +18,15 @@
         @else
           +absolute(left, 50%, $tale-position, $tale-ht*2*-1)
     @else if $tale-position == 'left' or $tale-position == 'right'
-      @if $tale-position-manual
+      @if $tale-position-manual-direction
         @if $baloon-bdw
           +absolute($tale-position, $tale-wd*2*-1 - $baloon-bdw)
         @else
           +absolute($tale-position, $tale-wd*2*-1)
-        +rem('top', $tale-position-manual)
+        +rem($tale-position-manual-direction, $tale-position-manual-value)
       @else
         +rem('margin-top', $tale-ht*-1)
         @if $baloon-bdw
           +absolute($tale-position, $tale-wd*2*-1 - $baloon-bdw, top, 50%)
         @else
           +absolute($tale-position, $tale-wd*2*-1, top, 50%)
-
