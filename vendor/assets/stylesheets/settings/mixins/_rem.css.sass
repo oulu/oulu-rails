@@ -20,15 +20,10 @@ $baseline-px: 10px
   @else
     // Convert the baseline into rems
     $baseline-rem: $baseline-px / 1rem
-
-    // Print the first line in pixel values
+    // remが使えないブラウザ用にpx版を出力
     #{$property}: $px-values
-
-    @if type-of($px-values) == "number"
-      @if $px-values == "0"
-        #{$property}: $px-values
-        // If there is only one (numeric) value, return the property/value line for it.
-      @else
+    @if number($px-values)
+      @if not $px-values == 0
         #{$property}: $px-values / $baseline-rem
     @else
       // Create an empty list that we can dump values into

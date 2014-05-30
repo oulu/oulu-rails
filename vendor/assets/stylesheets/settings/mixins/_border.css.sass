@@ -1,34 +1,34 @@
-=border($border-position: all, $border-width: 1px, $border-style: solid, $border-color: black, $border-bg-color: false)
-  @if $border-position == "all"
-    +rem('border-width', $border-width)
-    @if $border-bg-color
-      +rgba($border-color, $border-bg-color, border-color)
+=border($bd-ps: all, $bd-wd: 1px, $bd-st: solid, $bd-cl: black, $bd-bg-cl: false)
+  @if $bd-ps == "all"
+    +rem('border-width', $bd-wd)
+    @if $bd-bg-cl
+      +rgba($bd-cl, $bd-bg-cl, border-color)
     @else
-      border-color: $border-color
-    border-style: $border-style
-  @else if $border-position == "horizontal"
+      border-color: $bd-cl
+    border-style: $bd-st
+  @else if $bd-ps == "horizontal"
     @each $position in left, right
-      +rem('border-#{$position}-width', $border-width)
-      @if $border-bg-color
-        +rgba($border-color, $border-bg-color, border-#{$position}-color)
+      +rem('border-#{$position}-width', $bd-wd)
+      @if $bd-bg-cl
+        +rgba($bd-cl, $bd-bg-cl, border-#{$position}-color)
       @else
-        border-#{$position}-color: $border-color
-      border-#{$position}-style: $border-style
-  @else if $border-position == "vertical"
+        border-#{$position}-color: $bd-cl
+      border-#{$position}-style: $bd-st
+  @else if $bd-ps == "vertical"
     @each $position in top, bottom
-      +rem('border-#{$position}-width', $border-width)
-      @if $border-bg-color
-        +rgba($border-color, $border-bg-color, border-#{$position}-color)
+      +rem('border-#{$position}-width', $bd-wd)
+      @if $bd-bg-cl
+        +rgba($bd-cl, $bd-bg-cl, border-#{$position}-color)
       @else
-        border-#{$position}-color: $border-color
-      border-#{$position}-style: $border-style
+        border-#{$position}-color: $bd-cl
+      border-#{$position}-style: $bd-st
   @else
-    +rem('border-#{$border-position}-width', $border-width)
-    @if $border-bg-color
-      +rgba($border-color, $border-bg-color, border-#{$border-position}-color)
+    +rem('border-#{$bd-ps}-width', $bd-wd)
+    @if $bd-bg-cl
+      +rgba($bd-cl, $bd-bg-cl, border-#{$bd-ps}-color)
     @else
-      border-#{$border-position}-color: $border-color
-    border-#{$border-position}-style: $border-style
+      border-#{$bd-ps}-color: $bd-cl
+    border-#{$bd-ps}-style: $bd-st
 
 =border-gradient($bd-wd: 1px, $bd-cl: white, $base-shade: 1%, $gradient-ratio: $major-eleventh)
   +rem('border-width', $bd-wd)
