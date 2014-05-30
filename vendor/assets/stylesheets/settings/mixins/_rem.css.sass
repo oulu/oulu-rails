@@ -28,9 +28,7 @@ $baseline-px: 10px
     @else
       // Create an empty list that we can dump values into
       $rem-values: ()
-
       @each $value in $px-values
-
         // If the value is zero or not a number, return it
         @if $value == 0 or type-of( $value ) != "number"
           $rem-values: append($rem-values, $value)
