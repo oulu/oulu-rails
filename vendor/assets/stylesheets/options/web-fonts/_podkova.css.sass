@@ -1,0 +1,12 @@
+@import url(//fonts.googleapis.com/css?family=Podkova:400,700)
+
+=podkova($fw: 400, $ls: 0, $fs: false, $tx-rendering: true)
+  // $fw: フォントの太さ, $ls: 字間, $fs: フォントスタイル
+  font-family: 'Podkova', serif
+  font-weight: $fw
+  @if not $ls == 0
+    letter-spacing: $ls
+  @if (not $fs == false)
+    font-style: italic
+  @if $tx-rendering
+    text-rendering: optimizelegibility
