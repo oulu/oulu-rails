@@ -15,9 +15,8 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = OuluRails::VERSION
 
-  gem.add_dependency("sass-rails")
-  gem.add_dependency("railties")
   gem.add_dependency("compass-rails")
+  gem.add_dependency("oily_png")
   gem.add_dependency("ceaser-easing")
   gem.add_dependency("breakpoint")
   gem.add_dependency("respond-rails")
