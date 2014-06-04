@@ -1,15 +1,3 @@
-=side-mg-auto($mgt: false, $mgb: false)
-  margin-left: auto
-  margin-right: auto
-  @if $mgt
-    +rem('margin-top', $mgt)
-  @if $mgb
-    +rem('margin-bottom', $mgb)
-
-=side-mg($mg: 0px)
-  +rem('margin-left', $mg)
-  +rem('margin-right', $mg)
-
 =bg-image($bg-color: transparent, $bg-img: false, $bg-position-x: left, $bg-position-y: top, $bg-repeat: no-repeat, $bg-attachment: scroll, $bg-size: auto)
   background-color: $bg-color
   @if $bg-img

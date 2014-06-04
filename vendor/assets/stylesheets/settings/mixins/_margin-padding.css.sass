@@ -1,0 +1,42 @@
+// side
+=side-mg-auto($mgt: false, $mgb: false)
+  margin-left: auto
+  margin-right: auto
+  @if $mgt
+    +rem('margin-top', $mgt)
+  @if $mgb
+    +rem('margin-bottom', $mgb)
+
+=side-mg($mg: 0px)
+  +rem('margin-left', $mg)
+  +rem('margin-right', $mg)
+
+=side-pd($pd: 0px)
+  +rem('padding-left', $pd)
+  +rem('padding-right', $pd)
+
+// horizontal
+=horizontal-mg-auto($mgt: false, $mgb: false)
+  margin-left: auto
+  margin-right: auto
+  @if $mgt
+    +rem('margin-top', $mgt)
+  @if $mgb
+    +rem('margin-bottom', $mgb)
+
+=horizontal-mg($mg: 0px)
+  +rem('margin-left', $mg)
+  +rem('margin-right', $mg)
+
+=horizontal-pd($pd: 0px)
+  +rem('margin-left', $pd)
+  +rem('margin-right', $pd)
+
+// vertical
+=vertical-mg($mg: 0px)
+  +rem('margin-top', $mg)
+  +rem('margin-bottom', $mg)
+
+=vertical-pd($pd: 0px)
+  +rem('margin-top', $pd)
+  +rem('margin-bottom', $pd)
