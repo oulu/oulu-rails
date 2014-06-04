@@ -15,3 +15,9 @@ $ ->
     $(this).parent('.js-hidden').addClass('is-hidden')
     $(this).parent('.js-hidden').removeClass('is-shown')
     $(this).addClass('is-hidden')
+
+$ ->
+  $('.js-parents-close').click ->
+    $(this).parents('.js-hidden').addClass('is-hidden')
+    $(this).parents('.js-hidden').removeClass('is-shown')
+    $(this).addClass('is-hidden')
