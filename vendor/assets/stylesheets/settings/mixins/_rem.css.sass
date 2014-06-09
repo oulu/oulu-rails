@@ -22,9 +22,9 @@ $baseline-px: 10px
     $baseline-rem: $baseline-px / 1rem
     // remが使えないブラウザ用にpx版を出力
     #{$property}: $px-values
-    @if number($px-values)
-      @if not $px-values == 0
-        #{$property}: $px-values / $baseline-rem
+    // remで出力
+    @if px($px-values) and $px-values >= 1
+      #{$property}: $px-values / $baseline-rem
     @else
       // Create an empty list that we can dump values into
       $rem-values: ()
