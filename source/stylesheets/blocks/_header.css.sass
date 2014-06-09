@@ -1,0 +1,38 @@
+.header
+  +box-sizing(border-box)
+  +rem('height', 420px)
+.header__wrapper
+  +rem('padding-top', 116px)
+  +relative
+.header-site-title
+  +text-block(72px, 1.4, false, center)
+  +tauri(bold)
+.header-site-copy
+  +text-block(12px, 1.2, false, center)
+  +tauri(bold)
+.header__global-nav
+  +absolute(left, 26px, top, 0)
+.header__global-nav-items
+  +border(left, 2px, solid, $gray-l)
+  +rem('padding-left', 24px)
+  +rem('padding-top', 16px)
+  +rem('padding-bottom', 16px)
+.header__global-nav-item
+  display: block
+.header__global-nav-link
+  display: block
+  +text-block(14px, 46px, false, $black)
+  text-decoration: none
+  +tauri(bold)
+  &.is-current
+    color: $blue
+    +relative
+    &:after
+      content: ""
+      display: block
+      +rem('width', 8px)
+      +rem('height', 8px)
+      +border-radius(50%)
+      background-color: $blue
+      +absolute(left, -29px, top, 50%)
+      +rem('margin-top', -6px)

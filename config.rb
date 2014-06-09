@@ -35,10 +35,46 @@
 # Automatic image dimensions on image_tag helper
 # activate :automatic_image_sizes
 
+Time.zone = "Tokyo"
+
+activate :blog do |blog|
+  # blog.prefix = "blog"
+  # blog.permalink = ":year/:month/:day/:title.html"
+  # blog.sources = ":year-:month-:day-:title.html"
+  # blog.taglink = "tags/:tag.html"
+  # blog.layout = "layout"
+  # blog.summary_separator = /(READMORE)/
+  # blog.summary_length = 250
+  # blog.year_link = ":year.html"
+  # blog.month_link = ":year/:month.html"
+  # blog.day_link = ":year/:month/:day.html"
+  # blog.default_extension = ".markdown"
+
+  blog.tag_template = "tag.html"
+  blog.calendar_template = "calendar.html"
+
+  # blog.paginate = true
+  # blog.per_page = 10
+  # blog.page_link = "page/:num"
+end
+
+Slim::Engine.set_default_options :pretty => true
+
+Slim::Engine.set_default_options :shortcut => {
+  '#' => {:tag => 'div', :attr => 'id'},
+  '.' => {:tag => 'div', :attr => 'class'},
+  '&' => {:tag => 'input', :attr => 'type'}
+}
+
 # Reload the browser automatically whenever files change
-# configure :development do
-#   activate :livereload
-# end
+configure :development do
+  activate :livereload
+end
+
+activate :blog do |blog|
+  # ブログ機能のオプションを設定
+end
+
 
 # Methods defined in the helpers block are available in templates
 # helpers do
@@ -53,13 +89,15 @@ set :js_dir, 'javascripts'
 
 set :images_dir, 'images'
 
+
 # Build-specific configuration
 configure :build do
+  activate :minify_html, :remove_quotes => false, :remove_intertag_spaces => true
   # For example, change the Compass output style for deployment
-  # activate :minify_css
+  activate :minify_css
 
   # Minify Javascript on build
-  # activate :minify_javascript
+  activate :minify_javascript
 
   # Enable cache buster
   # activate :asset_hash

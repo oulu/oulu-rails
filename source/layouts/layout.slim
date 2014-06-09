@@ -1,0 +1,25 @@
+doctype html
+html
+  head
+    meta charset="utf-8"
+    meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"
+    title= current_page.data.title || "The Middleman"
+    = stylesheet_link_tag "application"
+    = javascript_include_tag  "all"
+  body
+    header.header
+      .wrapper.header__wrapper
+        h1.header-site-title Oulu
+        h2.header-site-copy sass tools for machida.
+        nav.header__global-nav
+          ul.header__global-nav-items
+            li.header__global-nav-item
+              = link_to "Functions", "/", class: "header__global-nav-link is-current"
+            li.header__global-nav-item
+              = link_to "Mixins", "/", class: "header__global-nav-link"
+            li.header__global-nav-item
+              = link_to "Blog", "/", class: "header__global-nav-link"
+            li.header__global-nav-item
+              = link_to "Functions", "/", class: "header__global-nav-link"
+    .body
+      = yield

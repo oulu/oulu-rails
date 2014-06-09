@@ -1,0 +1,32 @@
+.article__wrapper
+  +relative
+.article__content
+  +rem('max-width', 640px)
+  float: right
+.article__header
+  +rem('margin-bottom', 24px)
+.article__title
+  +text-block(32px, 1.6, false, bold)
+  +rem('padding-bottom', 12px)
+  +bold-ja
+.article__sub
+  float: left
+.article__created-at
+  +text-block(14px, 1.2, 16px, $white)
+  +rem('padding', 2px 6px)
+  +tauri(bold)
+  +top(8px)
+  background-color: $black
+.article__body
+  p
+    +text-block(16px, 2, 1.4)
+  pre
+    +absolute(left, 0)
+    width: 100%
+    code
+      +top(16px)
+      +border(all, 1px, solid, $black)
+      +rem('padding', 16px 16px)
+      width: 100%
+      +box-sizing(border-box)
+      overflow-x: auto
