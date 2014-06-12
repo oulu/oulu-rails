@@ -22,9 +22,9 @@ $ ->
   # すでにチェックが入ってるものにページ読み込みの時点で .is-checked を付ける
   $(this).find(":checked").closest("label").addClass "is-checked"
 
-  # ラジオボタンの親要素をクリッカブルに .clickable も付ける
+  # ラジオボタンの親要素をクリッカブルに .is-clickable も付ける
   cf = $(':radio').parent()
-  cf.addClass('clickable')
+  cf.addClass('is-clickable')
   cf.click ->
     $(this).find(':radio').attr('is-checked', true)
 
