@@ -1,4 +1,5 @@
 $ ->
+  time = $(".js-hide-after").data("time")
   setTimeout (->
-    $(".js-hide-after").fadeOut("2000")
-  ), 6000
+    $(".js-hide-after").addClass('is-fadeout')
+  ), time
