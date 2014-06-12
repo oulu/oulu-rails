@@ -16,6 +16,8 @@
   clear: both
 .is-gradient
   filter: none
+.is-visible
+  overflow: visible !important
 
 .is-block-link
   display: block
@@ -39,10 +41,14 @@
 
 body
   .is-hidden
+    visibility: hidden
+    display: none
+    +opacity(0)
+  .is-invisible
     margin-left: -99999px
     position: absolute
     visibility: hidden
-    display: none
+    +opacity(0)
   .is-shown
     +inline-block
   .is-horizontal-closed
