@@ -1,7 +1,12 @@
 article.article
   .wrapper.article__wrapper
     .article__sub
-      p.article__created-at= current_article.date.strftime('%y %b %e')
+      p.article__created-at= current_article.date.strftime('%y/%m/%d')
+      .article__tags
+        ul.article__tags-items
+          - current_article.tags.each do |tag|
+            li.article__tags-item
+              = link_to tag, tag_path(tag), class: "article__tags-link"
     .article__content
       .article__header
         h1.article__title= current_article.title

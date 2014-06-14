@@ -15,11 +15,28 @@
 .article__sub
   float: left
 .article__created-at
-  +text-block(14px, 1, 16px, $black)
+  +text-block(14px, 1, 32px, $black)
   +rem('padding', 5px 8px)
   +border(all, 2px, solid, $black)
   +tauri(bold)
   +top(9px)
+  +nowrap
+
+.article__tags-item
+  display: block
+.article__tags-link
+  +inline-block(bottom)
+  +relative
+  color: $black
+  +hover-link
+  +text-block(16px, 1.6)
+  +rem('margin-bottom', 12px)
+  +nowrap
+  &:before
+    +fa
+    content: "\f02b"
+    +rem('margin-right', 6px)
+
 .article__body
   +rem('margin-bottom', 80px)
   >*:last-child
