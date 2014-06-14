@@ -9,24 +9,21 @@
   +text-block(32px, 1.6, false, bold)
   +rem('padding-bottom', 12px)
   +bold-ja
+.article__title-link
+  text-decoration: none
+  color: $black
 .article__sub
   float: left
 .article__created-at
-  +text-block(14px, 1.2, 16px, $white)
-  +rem('padding', 2px 6px)
+  +text-block(14px, 1, 16px, $black)
+  +rem('padding', 5px 8px)
+  +border(all, 2px, solid, $black)
   +tauri(bold)
-  +top(8px)
-  background-color: $black
+  +top(9px)
 .article__body
+  +rem('margin-bottom', 80px)
+  >*:last-child
+    margin-bottom: 0
+  $ms-base: 16px
   p
-    +text-block(16px, 2, 1.4)
-  pre
-    +absolute(left, 0)
-    width: 100%
-    code
-      +top(16px)
-      +border(all, 1px, solid, $black)
-      +rem('padding', 16px 16px)
-      width: 100%
-      +box-sizing(border-box)
-      overflow-x: auto
+    +text-block($ms-base, 1.9, 1.6)

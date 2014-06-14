@@ -1,13 +1,16 @@
 .header
   +box-sizing(border-box)
-  +rem('height', 420px)
+  +rem('height', 360px)
 .header__wrapper
   +rem('padding-top', 116px)
   +relative
-.header-site-title
+.header__site-title
   +text-block(72px, 1.4, false, center)
   +tauri(bold)
-.header-site-copy
+.header__site-title-link
+  text-decoration: none
+  color: $black
+.header__site-copy
   +text-block(12px, 1.2, false, center)
   +tauri(bold)
 .header__global-nav

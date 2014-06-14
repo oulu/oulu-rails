@@ -19,10 +19,12 @@ gem "sass", "~> 3.3.8"
 gem "compass", "~> 1.0.0.alpha.19"
 gem "slim"
 gem 'middleman-minify-html'
+gem "middleman-syntax"
+gem "redcarpet"
 
 # Use oulu
-# gem 'middleman-oulu', path: '../middleman-oulu'
-gem 'middleman-oulu', '~> 0.0.3', github: 'oulu/middleman-oulu'
+gem 'middleman-oulu', path: '../middleman-oulu'
+# gem 'middleman-oulu', '~> 0.0.3', github: 'oulu/middleman-oulu'
 
 gem "ceaser-easing"
 gem "breakpoint"
@@ -31,4 +33,3 @@ gem "modular-scale"
 gem "SassyLists"
 gem "toolkit"
 gem "sassy-maps"
-

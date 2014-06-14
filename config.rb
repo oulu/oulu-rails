@@ -32,17 +32,21 @@
 # Helpers
 ###
 
+activate :syntax, line_numbers: true
+set :markdown_engine, :redcarpet
+set :markdown, :fenced_code_blocks => true, :smartypants => true
+
 # Automatic image dimensions on image_tag helper
 # activate :automatic_image_sizes
 
 Time.zone = "Tokyo"
 
 activate :blog do |blog|
-  # blog.prefix = "blog"
+  #blog.prefix = "blog"
   # blog.permalink = ":year/:month/:day/:title.html"
   # blog.sources = ":year-:month-:day-:title.html"
   # blog.taglink = "tags/:tag.html"
-  # blog.layout = "layout"
+  blog.layout = "layout"
   # blog.summary_separator = /(READMORE)/
   # blog.summary_length = 250
   # blog.year_link = ":year.html"
@@ -70,11 +74,6 @@ Slim::Engine.set_default_options :shortcut => {
 configure :development do
   activate :livereload
 end
-
-activate :blog do |blog|
-  # ブログ機能のオプションを設定
-end
-
 
 # Methods defined in the helpers block are available in templates
 # helpers do

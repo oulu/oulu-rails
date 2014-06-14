@@ -1,0 +1,9 @@
+article.article
+  .wrapper.article__wrapper
+    .article__sub
+      p.article__created-at= current_article.date.strftime('%y %b %e')
+    .article__content
+      .article__header
+        h1.article__title= current_article.title
+      .article__body
+        = current_article.body
