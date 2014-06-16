@@ -4,16 +4,14 @@ html
 
 .mobile
   // 自動文字サイズ調整
-  -webkit-text-size-adjust: none
+  +experimental(text-size-adjust, 100%)
   // タップ時のハイライトカラー
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
-  // テキストの選択をキャンセルする場合
-  -webkit-user-select: none
-  // inputは選択をキャンセルしない
+  +experimental(tap-highlight-color, rgba(0, 0, 0, 0))
+  // input以外はテキスト、画像の選択不可に
   *:not(input)
-    -webkit-user-select: none
+    +experimental(user-select, none)
   // リンクの長時間タップでリンク内容をポップアップで表示させない場合
-  -webkit-touch-callout: none
+  +experimental(touch-callout, none)
 
 input,
 button,
@@ -66,4 +64,3 @@ input[type=submit], x:-moz-any-link
 
 input[type="file"]::-webkit-file-upload-button
   cursor: pointer !important
-

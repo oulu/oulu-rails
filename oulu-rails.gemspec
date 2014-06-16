@@ -25,8 +25,5 @@ Gem::Specification.new do |gem|
   gem.add_dependency("SassyLists")
   gem.add_dependency("toolkit")
   gem.add_dependency("sassy-maps")
-  gem.add_dependency("rails-assets-font-awesome-animation")
-  gem.add_dependency("rails-assets-Ladda")
-  gem.add_dependency("rails-assets-css-modal")
 
 end
