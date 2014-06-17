@@ -1,0 +1,13 @@
+@import url(//fonts.googleapis.com/css?family=Source+Code+Pro:200,300,400,500,600,700,900)
+
+// 備考:Adobeの等幅フォント
+=source-code-pro($fw: 400, $ls: 0, $fs: false, $tx-rendering: true)
+  // $fw: フォントの太さ, $ls: 字間, $fs: フォントスタイル
+  font-family: 'Source Code Pro', monospace
+  font-weight: $fw
+  @if not $ls == 0
+    letter-spacing: $ls
+  @if (not $fs == false)
+    font-style: italic
+  @if $tx-rendering
+    text-rendering: optimizelegibility
