@@ -42,11 +42,9 @@ $gutter-width: 50px !default
 // カラムのラッパーの設定
 #{$row-class-name}
   // カラムのマージン分だけ両サイドにネガティブマージンを取る
-  margin:
-    left: ($gutter-width / 2) * -1
-    right: ($gutter-width / 2) * -1
+  +horizontal-mg(($gutter-width / 2) * -1)
   // clearfix
-  min-height: 1px
+  +rem('min-height', 1px)
   &:before,
   &:after
     display: table
@@ -56,10 +54,9 @@ $gutter-width: 50px !default
 
 // カラムの基本設定
 =column($number)
-  width: 100 / $columns-count * $number * 1%
-  min-height: 1px
-  padding-left: ($gutter-width / 2)
-  padding-right: ($gutter-width / 2)
+  +rem('width', 100 / $columns-count * $number * 1%)
+  +rem('min-height', 1px)
+  +horizontal-pd($gutter-width / 2)
   float: left
   +box-sizing(border-box)
 
@@ -72,7 +69,7 @@ $gutter-width: 50px !default
 
 // オフセットカラムの基本設定
 =column-offset($number)
-  margin-left: 100 / $columns-count * $number * 1%
+  +rem('margin-left', 100 / $columns-count * $number * 1%)
 
 // オフセットカラムをサイズごとに作る
 @each $break-point in $break-points
