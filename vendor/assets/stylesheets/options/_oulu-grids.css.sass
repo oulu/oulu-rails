@@ -4,6 +4,21 @@ $sm: 768px !default
 $md: 992px !default
 $lg: 1200px !default
 
+// devise
+=devise-xs
+  @media only screen and (max-width: $xs)
+    @content
+=devise-sm
+  @media only screen and (min-width: $sm)
+    @content
+=devise-md
+  @media only screen and (min-width: $md)
+    @content
+=devise-lg
+  @media only screen and (min-width: $lg)
+    @content
+
+
 // カラムのラッパーのクラス名
 $row-class-name: '.row' !default
 // カラムのネームスペース ※classの".（カンマ）"もネームスペースの一部
