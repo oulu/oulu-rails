@@ -1,5 +1,18 @@
-=list($mgl: 16px, $mgb: 24px, $list-st-tp: disc, $list-st-pt: outside)
+=list($mgl: 16px, $mgb: 24px, $list-st-tp: disc, $list-st-pt: outside, $icon-sz: 1em, $icon-pt: 0.42em, $icon-wd: 1.7em)
   +rem('margin-left', $mgl)
   +rem('margin-bottom', $mgb)
-  list-style-type: $list-st-tp
-  list-style-position: $list-st-pt
+  @if $list-st-tp
+    @if list-style-type($list-st-tp)
+      list-style-type: $list-st-tp
+      list-style-position: $list-st-pt
+    @else if $list-st-tp == "fa"
+      margin-left: $icon-wd
+      list-style-type: none
+      >li
+        +relative
+        &:before
+          +fa
+          +text-block($icon-sz, 1, false, center)
+          content: "#{$list-st-pt}"
+          +absolute(left, $icon-wd * -1, top, $icon-pt)
+          width: $icon-wd
