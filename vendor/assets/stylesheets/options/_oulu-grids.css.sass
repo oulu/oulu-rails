@@ -92,3 +92,64 @@ $gutter-width: 50px !default
     @for $i from 1 through $columns-count
       #{$column-namespace}#{$break-point}#{$column-offset-namespace}#{$i}
         +column-offset($i)
+
+.is-only-xs
+  +devise-lg
+    display: none !important
+  +devise-md
+    display: none !important
+  +devise-sm
+    display: none !important
+.is-only-sm
+  +devise-lg
+    display: none !important
+  +devise-md
+    display: none !important
+  +devise-xs
+    display: none !important
+.is-only-md
+  +devise-lg
+    display: none !important
+  +devise-sm
+    display: none !important
+  +devise-xs
+    display: none !important
+.is-only-lg
+  +devise-md
+    display: none !important
+  +devise-sm
+    display: none !important
+  +devise-xs
+    display: none !important
+
+.is-less-than-xs
+  +devise-lg
+    display: none !important
+  +devise-md
+    display: none !important
+  +devise-sm
+    display: none !important
+.is-less-than-sm
+  +devise-lg
+    display: none !important
+  +devise-md
+    display: none !important
+.is-less-than-md
+  +devise-lg
+    display: none !important
+
+.is-more-than-sm
+  +devise-xs
+    display: none !important
+.is-more-than-md
+  +devise-sm
+    display: none !important
+  +devise-xs
+    display: none !important
+.is-more-than-lg
+  +devise-md
+    display: none !important
+  +devise-sm
+    display: none !important
+  +devise-xs
+    display: none !important
