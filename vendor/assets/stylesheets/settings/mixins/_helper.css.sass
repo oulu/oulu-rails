@@ -48,3 +48,10 @@
 =reset-text
   margin: 0
   padding: 0
+
+=size($width, $height)
+  +rem('width', $width)
+  +rem('height', $height)
+
+=square($size)
+  +size($size, $size)
