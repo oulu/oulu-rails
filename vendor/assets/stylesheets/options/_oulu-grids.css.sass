@@ -94,33 +94,21 @@ $gutter-width: 50px !default
         +column-offset($i)
 
 .is-only-xs
-  +devise-lg
-    display: none !important
-  +devise-md
-    display: none !important
-  +devise-sm
-    display: none !important
+  display: none
+  +devise-xs
+    display: block !important
 .is-only-sm
-  +devise-lg
-    display: none !important
-  +devise-md
-    display: none !important
-  +devise-xs
-    display: none !important
+  display: none
+  +devise-sm
+    display: block !important
 .is-only-md
-  +devise-lg
-    display: none !important
-  +devise-sm
-    display: none !important
-  +devise-xs
-    display: none !important
-.is-only-lg
+  display: none
   +devise-md
-    display: none !important
-  +devise-sm
-    display: none !important
-  +devise-xs
-    display: none !important
+    display: block !important
+.is-only-lg
+  display: none
+  +devise-lg
+    display: block !important
 
 .is-less-than-xs
   +devise-lg
