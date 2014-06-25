@@ -252,10 +252,10 @@
       callback : function(api ){}, // プラグイン実行後のコールバック処理
       orders : ['hatebu','twitter', 'facebook', 'googleplus'], // ボタンの表示順
       labels : { // サービスの表示名
-        'hatebu' : '<i class="fa fa-hatena"></i>',
-        'twitter' : '<i class="fa fa-twitter"></i>',
-        'facebook' : '<i class="fa fa-facebook"></i>',
-        'googleplus' : '<i class="fa fa-google-plus"></i>'
+        'hatebu' : '<i class="fa fa-hatena sns-buttons__icon is-hatena"></i>',
+        'twitter' : '<i class="fa fa-twitter sns-buttons__icon is-twitter"></i>',
+        'facebook' : '<i class="fa fa-facebook sns-buttons__icon is-facebook"></i>',
+        'googleplus' : '<i class="fa fa-google-plus sns-buttons__icon is-google-plus"></i>'
       }
     },
     version : '0.2',
