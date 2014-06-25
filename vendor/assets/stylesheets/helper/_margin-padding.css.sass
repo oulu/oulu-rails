@@ -1,17 +1,21 @@
 $sizes: 0, 4, 8, 12, 16, 20, 24, 28, 32
 
 @each $prefix in $sizes
-  .is-mgb-#{$prefix}
-    +rem('margin-bottom', #{$prefix}px)
+  body
+    .is-mgb-#{$prefix}
+      +rem('margin-bottom', #{$prefix}px)
 
 @each $prefix in $sizes
-  .is-mgt-#{$prefix}
-    +rem('margin-top', #{$prefix}px)
+  body
+    .is-mgt-#{$prefix}
+      +rem('margin-top', #{$prefix}px)
 
 @each $prefix in $sizes
-  .is-pdb-#{$prefix}
-    +rem('padding-bottom', #{$prefix}px)
+  body
+    .is-pdb-#{$prefix}
+      +rem('padding-bottom', #{$prefix}px)
 
 @each $prefix in $sizes
-  .is-pdt-#{$prefix}
-    +rem('padding-top', #{$prefix}px)
+  body
+    .is-pdt-#{$prefix}
+      +rem('padding-top', #{$prefix}px)
