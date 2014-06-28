@@ -1,0 +1,31 @@
+=bg-ps($value)
+  @if background-position($value)
+    background-position: $value
+=bg-sz($value)
+  @if background-size($value)
+    +rem('background-size', $value)
+=bg-rp-ac($value)
+  @if background-repeat($value)
+    background-repeat: $value
+  @if background-repeat($value)
+    background-attachment: $value
+=bg-ps-rp-ac($value)
+  +bg-ps($value)
+  +bg-rp-ac($value)
+=bg-sz-rp-ac($value)
+  +bg-sz($value)
+  +bg-rp-ac($value)
+
+=background($bg-color: transparent, $bg-img: false, $bg-position: false, $bg-repeat: false, $bg-attachment: false, $bg-size: false)
+  background-color: $bg-color
+  @if $bg-img
+    @if background-image($bg-img)
+      background-image: image_url("#{$bg-img}")
+    @if $bg-position
+      +bg-ps-rp-ac($bg-repeat)
+    @if $bg-repeat
+      +bg-sz-rp-ac($bg-repeat)
+    @if $bg-attachment
+      +bg-sz-rp-ac($bg-attachment)
+    @if $bg-size
+      +bg-sz-rp-ac($bg-size)

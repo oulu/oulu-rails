@@ -1,0 +1,8 @@
+@function image($value)
+  @if string($value)
+    @if number(str-index($value, '.jpg')) or number(str-index($value, '.png')) or number(str-index($value, '.gif')) or number(str-index($value, '.svg'))
+      @return true
+    @else
+      @return false
+  @else
+    @return false

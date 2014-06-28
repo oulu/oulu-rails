@@ -1,0 +1,55 @@
+@function background-color($value)
+  @if color($value)
+    @return true
+  @else
+    @return false
+
+@function background-position($value)
+  @if list($value)
+    @if position(nth($value, 1)) or number(nth($value, 2))
+      @return true
+    @else
+      @return false
+  @else
+    @return false
+
+@function background-repeat($value)
+  @if string($value)
+    @if $value == 'no-repeat' or $value == 'repeat' or $value == 'repeat-x' or $value == 'repeat-y'
+      @return true
+    @else
+      @return false
+  @else
+    @return false
+
+@function background-attachment($value)
+  @if string($value)
+    @if $value == 'fixed' or $value == 'scroll'
+      @return true
+    @else
+      @return false
+  @else
+    @return false
+
+@function background-image($value)
+  @if string($value)
+    @if image($value)
+      @return true
+    @else
+      @return false
+  @else
+    @return false
+
+@function background-size($value)
+  @if string($value)
+    @if $value == 'auto' or $value == 'contain' or $value == 'cover'
+      @return true
+    @else
+      @return false
+  @else if list($value)
+    @if number(nth($value, 1)) or number(nth($value, 2))
+      @return true
+    @else
+      @return false
+  @else
+    @return false
