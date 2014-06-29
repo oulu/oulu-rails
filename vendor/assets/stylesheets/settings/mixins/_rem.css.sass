@@ -11,7 +11,7 @@ $baseline-px: 10px
   font-size: $baseline-px
   font-size: strip-units($baseline-px / 10) * 1rem
 
-=rem($property, $px-values)
+=rem($property, $px-values, $important: false)
   // 9px以下のfont-sizeを使う設定（IE8不可）
   @if px($px-values)
     @if $property == "font-size" and $px-values < 10px
@@ -22,10 +22,16 @@ $baseline-px: 10px
       // Convert the baseline into rems
       $baseline-rem: $baseline-px / 1rem
       // remが使えないブラウザ用にpx版を出力
-      #{$property}: $px-values
+      @if $important
+        #{$property}: $px-values !important
+      @else
+        #{$property}: $px-values
       // remで出力
       @if px($px-values) and $px-values >= 1
-        #{$property}: $px-values / $baseline-rem
+        @if $important
+          #{$property}: $px-values / $baseline-rem !important
+        @else
+          #{$property}: $px-values / $baseline-rem
       @else
         // Create an empty list that we can dump values into
         $rem-values: ()
@@ -37,6 +43,12 @@ $baseline-px: 10px
             $rem-values: append($rem-values, $value / $baseline-rem)
 
         // Return the property and its list of converted values
-        #{$property}: $rem-values
+        @if $important
+          #{$property}: $rem-values !important
+        @else
+          #{$property}: $rem-values
   @else
-    #{$property}: $px-values
+    @if $important
+      #{$property}: $px-values !important
+    @else
+      #{$property}: $px-values

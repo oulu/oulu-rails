@@ -1,0 +1,38 @@
+.amazlet-box
+  +rem('margin-bottom', 32px, !important)
+  .amazlet-image
+    float: none !important
+    +rem('margin', 0 0 16px, !important)
+    img
+      max-width: 100%
+      +rem('width', 260px)
+      display: block
+      +horizontal-mg-auto
+      +box-shadow(rgba(0, 0, 0, .3) 0px 0px 20px)
+.amazlet-info
+  text-align: center
+.amazlet-name
+  a
+    text-decoration: none
+    color: $black
+.amazlet-detail
+  +rem('font-size', 12px)
+  +rem('margin-bottom', 8px, !important)
+.amazlet-sub-info
+  float: none !important
+  text-align: right
+.amazlet-link
+  +inline-block(bottom)
+  +border(all, 2px, solid, $black)
+  margin-top: 0 !important
+  a
+    color: $black
+    text-decoration: none
+    +text-block(12px, 20px, false)
+    +horizontal-pd(6px)
+    &:after
+      +fa
+      content: "\f105"
+      +rem('margin-left', 8px)
+.amazlet-powered-date
+  display: none !important
