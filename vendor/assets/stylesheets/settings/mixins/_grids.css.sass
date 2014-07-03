@@ -25,17 +25,17 @@ $screen-sm-max: ($screen-md-min - 1) !default
 $screen-md-max: ($screen-lg-min - 1) !default
 
 // devise
-=devise-xs
+=screen-xs
   @media only screen and (max-width: $screen-xs)
     @content
-=devise-sm
-  @media only screen and (min-width: $screen-sm)
+=screen-sm
+  @media only screen and (max-width: $screen-sm)
     @content
-=devise-md
-  @media only screen and (min-width: $screen-md)
+=screen-md
+  @media only screen and (max-width: $screen-md)
     @content
-=devise-lg
-  @media only screen and (min-width: $screen-lg)
+=screen-lg
+  @media only screen and (max-width: $screen-lg)
     @content
 
 
@@ -60,12 +60,15 @@ $break-points: $break-point-xs-namespace, $break-point-sm-namespace, $break-poin
     @media only screen and (max-width: $screen-xs)
       @content
   @else if $screen-sm and $break-point == $break-point-sm-namespace
-    @media only screen and (min-width: $screen-sm)
+    @media only screen and (min-width: $screen-xs)
       @content
   @else if $screen-md and $break-point == $break-point-md-namespace
-    @media only screen and (min-width: $screen-md)
+    @media only screen and (min-width: $screen-sm)
       @content
   @else if $screen-lg and $break-point == $break-point-lg-namespace
+    @media only screen and (min-width: $screen-md)
+      @content
+  @else if $screen-xl and $break-point == $break-point-xl-namespace
     @media only screen and (min-width: $screen-lg)
       @content
 
