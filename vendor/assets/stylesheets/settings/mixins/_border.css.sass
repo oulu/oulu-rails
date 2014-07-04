@@ -1,34 +1,36 @@
-=border($bd-ps: all, $bd-wd: 1px, $bd-st: solid, $bd-cl: black, $bd-bg-cl: false)
-  @if $bd-ps == "all"
+=border($bd-pss: all, $bd-wd: 1px, $bd-st: solid, $bd-cl: black, $bd-bg-cl: false)
+  @if $bd-pss == "all"
     +rem('border-width', $bd-wd)
     @if $bd-bg-cl
       +rgba($bd-cl, $bd-bg-cl, border-color)
     @else
       border-color: $bd-cl
     border-style: $bd-st
-  @else if $bd-ps == "horizontal"
+  @else if $bd-pss == "horizontal"
     @each $position in left, right
       +rem('border-#{$position}-width', $bd-wd)
       @if $bd-bg-cl
-        +rgba($bd-cl, $bd-bg-cl, border-#{$position}-color)
+        +rgba($bd-cl, $bd-bg-cl, border-#{$bd-pss}-color)
       @else
-        border-#{$position}-color: $bd-cl
-      border-#{$position}-style: $bd-st
-  @else if $bd-ps == "vertical"
+        border-#{$bd-pss}-color: $bd-cl
+      border-#{$bd-pss}-style: $bd-st
+  @else if $bd-pss == "vertical"
     @each $position in top, bottom
       +rem('border-#{$position}-width', $bd-wd)
       @if $bd-bg-cl
-        +rgba($bd-cl, $bd-bg-cl, border-#{$position}-color)
+        +rgba($bd-cl, $bd-bg-cl, border-#{$bd-pss}-color)
       @else
-        border-#{$position}-color: $bd-cl
-      border-#{$position}-style: $bd-st
+        border-#{$bd-pss}-color: $bd-cl
+      border-#{$bd-pss}-style: $bd-st
   @else
-    +rem('border-#{$bd-ps}-width', $bd-wd)
-    @if $bd-bg-cl
-      +rgba($bd-cl, $bd-bg-cl, border-#{$bd-ps}-color)
-    @else
-      border-#{$bd-ps}-color: $bd-cl
-    border-#{$bd-ps}-style: $bd-st
+    @each $bd-ps in $bd-pss
+      +rem('border-#{$bd-ps}-width', $bd-wd)
+      @if $bd-bg-cl
+        +rgba($bd-cl, $bd-bg-cl, border-#{$bd-ps}-color)
+      @else
+        border-#{$bd-ps}-color: $bd-cl
+      border-#{$bd-ps}-style: $bd-st
+
 
 =border-gradient($bd-wd: 1px, $bd-cl: white, $base-shade: 1%, $gradient-ratio: $major-eleventh)
   +rem('border-width', $bd-wd)
