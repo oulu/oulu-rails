@@ -1,20 +1,3 @@
-// side
-=side-mg-auto($mgt: false, $mgb: false)
-  margin-left: auto
-  margin-right: auto
-  @if $mgt
-    +rem('margin-top', $mgt)
-  @if $mgb
-    +rem('margin-bottom', $mgb)
-
-=side-mg($mg: 0px)
-  +rem('margin-left', $mg)
-  +rem('margin-right', $mg)
-
-=side-pd($pd: 0px)
-  +rem('padding-left', $pd)
-  +rem('padding-right', $pd)
-
 // horizontal
 =horizontal-mg-auto($mgt: false, $mgb: false)
   margin-left: auto
@@ -40,3 +23,35 @@
 =vertical-pd($pd: 0px)
   +rem('padding-top', $pd)
   +rem('padding-bottom', $pd)
+
+=margin($mgs: false)
+  @if length($mgs) == 1
+    +rem('margin', $mgs)
+  @else if length($mgs) == 2
+    +rem('margin-top', nth($mgs, 1))
+    +rem('margin-bottom', nth($mgs, 2))
+  @else if length($mgs) == 3
+    +rem('margin-top', nth($mgs, 1))
+    +rem('margin-bottom', nth($mgs, 3))
+    +horizontal-mg(nth($mgs, 2))
+  @else if length($mgs) == 4
+    +rem('margin-top', nth($mgs, 1))
+    +rem('margin-right', nth($mgs, 2))
+    +rem('margin-bottom', nth($mgs, 3))
+    +rem('margin-left', nth($mgs, 4))
+
+=padding($pds: false)
+  @if length($pds) == 1
+    +rem('padding', $pds)
+  @else if length($pds) == 2
+    +rem('padding-top', nth($pds, 1))
+    +rem('padding-bottom', nth($pds, 2))
+  @else if length($pds) == 3
+    +rem('padding-top', nth($pds, 1))
+    +rem('padding-bottom', nth($pds, 3))
+    +horizontal-pd(nth($pds, 2))
+  @else if length($pds) == 4
+    +rem('padding-top', nth($pds, 1))
+    +rem('padding-right', nth($pds, 2))
+    +rem('padding-bottom', nth($pds, 3))
+    +rem('padding-left', nth($pds, 4))
