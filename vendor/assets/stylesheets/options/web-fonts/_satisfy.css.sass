@@ -1,0 +1,13 @@
+@import url(//fonts.googleapis.com/css?family=Satisfy)
+
+=satisfy($fw: false, $ls: false, $fs: false, $tx-rendering: true)
+  // $fw: フォントの太さ, $ls: 字間, $fs: フォントスタイル
+  font-family: 'Satisfy', cursive
+  @if $fw
+    font-weight: $fw
+  @if $ls
+    letter-spacing: $ls
+  @if (not $fs == false)
+    font-style: italic
+  @if $tx-rendering
+    text-rendering: optimizelegibility
