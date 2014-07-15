@@ -3,25 +3,42 @@
 .article__content
   +rem('max-width', 640px)
   float: right
+  +rem('padding-left', 24px)
+  +devise-xs
+    padding-left: 0
 .article__header
   +rem('margin-bottom', 24px)
+  +devise-xs
+    +rem('margin-bottom', 8px)
 .article__title
   +text-block(32px, 1.6, false, bold)
-  +rem('padding-bottom', 12px)
   +bold-ja
+  +devise-xs
+    +text-block(26px, 1.6, false, bold)
+  &:after
+    content: "\002d\002d\002d\002d\002d\002d\002d\002d\002d\002d\002d\002d\002d\002d\002d\002d\002d\002d\002d\002d\002d\002d\002d\002d\002d\002d\002d\002d\002d\002d\002d\002d\002d\002d\002d\002d\002d\002d\002d\002d\002d\002d\002d"
+    display: block
+    overflow: hidden
+    height: 0
 .article__title-link
   text-decoration: none
   color: $black
-.article__sub
-  float: left
+
 .article__created-at
+  +inline-block(bottom)
   +text-block(14px, 1, 32px, $black)
   +rem('padding', 5px 8px)
   +border(all, 2px, solid, $black)
   +tauri(bold)
   +top(9px)
   +nowrap
-
+  +devise-xs
+    +text-block(12px, 1, 24px, $black)
+.article__tags
+  +devise-xs
+    +inline-block(bottom)
+    +top(-4px)
+    +rem('margin-left', 8px)
 .article__tags-item
   display: block
 .article__tags-link
@@ -39,8 +56,14 @@
 
 .article__body
   +rem('margin-bottom', 80px)
+  +devise-xs
+    +rem('margin-bottom', 40px)
   >*:last-child
     margin-bottom: 0
   $ms-base: 16px
   p
     +text-block($ms-base, 1.9, 1.6)
+  +devise-xs
+    $ms-base: 14px
+    p
+      +text-block($ms-base, 1.8, 1.4)

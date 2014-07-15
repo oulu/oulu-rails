@@ -1,25 +1,59 @@
+body
+  overflow-x: hidden
+  width: 100%
+  +transition(.2s)
+  background-color: $white
+  &.is-slided
+    +rem('margin-left', 300px)
 .header
   +box-sizing(border-box)
   +rem('height', 360px)
+  +devise-xs
+    +rem('height', 160px)
 .header__wrapper
   +rem('padding-top', 116px)
   +relative
+  +devise-xs
+    +rem('padding-top', 32px)
 .header__site-title
   +text-block(72px, 1.4, false, center)
   +tauri(bold)
+  +devise-xs
+    +text-block(60px, 1.3)
 .header__site-title-link
   text-decoration: none
   color: $black
 .header__site-copy
   +text-block(12px, 1.2, false, center)
   +tauri(bold)
+  +devise-xs
+    +text-block(10px, 1.2, false, center)
 .header__global-nav
   +absolute(left, 26px, top, 0)
+  +devise-xs
+    +rem('width', 300px)
+    background-color: $black
+    height: 100%
+    +fixed(left, -300px, top, 0)
+    &.is-slided
+      left: 0
+.header .header__open-global-nav-icon
+  display: none
+  +devise-xs
+    display: block
+    +text-block(32px, 50px)
+    +rem('width', 50px)
+    +rem('height', 50px)
+    +absolute(left, 20px, top, 0px)
 .header__global-nav-items
   +border(left, 2px, solid, $gray-l)
   +rem('padding-left', 24px)
   +rem('padding-top', 16px)
   +rem('padding-bottom', 16px)
+  +devise-xs
+    +rem('margin-left', 20px)
+    height: 100%
+    +border(left, 4px, solid, $gray-l)
 .header__global-nav-item
   display: block
 .header__global-nav-link
@@ -39,3 +73,11 @@
       background-color: $blue
       +absolute(left, -29px, top, 50%)
       +rem('margin-top', -6px)
+  +devise-xs
+    +text-block(18px, 54px, false, $white)
+    &.is-current
+      &:after
+        +rem('width', 12px)
+        +rem('height', 12px)
+        +absolute(left, -32px, top, 50%)
+        +rem('margin-top', -6px)

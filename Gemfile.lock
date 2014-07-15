@@ -16,9 +16,6 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     addressable (2.3.6)
-    breakpoint (2.4.2)
-      sass (~> 3.3.0)
-      sassy-maps (< 1.0.0)
     ceaser-easing (0.7)
       compass (>= 0.12.2)
       rake
@@ -163,7 +160,6 @@ PLATFORMS
 
 DEPENDENCIES
   SassyLists
-  breakpoint
   ceaser-easing
   compass (~> 1.0.0.alpha.19)
   compass-rgbapng

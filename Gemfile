@@ -27,7 +27,6 @@ gem 'middleman-oulu', path: '../middleman-oulu'
 # gem 'middleman-oulu', '~> 0.0.3', github: 'oulu/middleman-oulu'
 
 gem "ceaser-easing"
-gem "breakpoint"
 gem "compass-rgbapng"
 gem "modular-scale"
 gem "SassyLists"

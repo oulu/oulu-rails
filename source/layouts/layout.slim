@@ -16,7 +16,8 @@ html
       .wrapper.header__wrapper
         h1.header__site-title= link_to "Oulu", "/", class: "header__site-title-link"
         h2.header__site-copy sass tools for machida.
-        nav.header__global-nav
+        i.fa.fa-bars.header__open-global-nav-icon.js-open-slide-nav
+        nav.header__global-nav.js-slide-nav
           ul.header__global-nav-items
             li.header__global-nav-item
               = link_to "About", "/", class: "header__global-nav-link is-current"
