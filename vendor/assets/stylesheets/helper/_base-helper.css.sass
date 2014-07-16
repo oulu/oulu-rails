@@ -90,12 +90,22 @@ body
 .is-horizontal-center
   display: block
   +horizontal-mg(auto)
+
+// vertical
 .is-vertical-center
   vertical-align: middle !important
+.is-vertical-top
+  vertical-align: top !important
+.is-vertical-bottom
+  vertical-align: bottom !important
+
+// float
 .is-left
   float: left
 .is-right
   float: right
+
+// text-align
 .is-center-wrapper
   text-align: center
 .is-right-wrapper
@@ -114,10 +124,17 @@ body
 .is-nowrap
   white-space: nowrap
 
-// Font Awesome hatena bookmark
+// Font Awesome
+
 // http://hayashikejinan.com/webwork/css/913/
 .fa-hatena
   &:before
     content: "B!"
     font-family: Verdana
     font-weight: bold
+.fa-triangle-o:before
+   content: "\0025b3"
+   +sans-serif
+.fa-triangle:before
+   content: "\0025b2"
+   +sans-serif
