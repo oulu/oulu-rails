@@ -1,4 +1,4 @@
-=absolute($absolute-direction1: left, $absolute-value1: 0, $absolute-direction2: false, $absolute-value2: 0, $absolute-z-index: auto)
+=absolute($absolute-direction1: left, $absolute-value1: 0, $absolute-direction2: false, $absolute-value2: 0, $absolute-z-index: false)
   @if $absolute-value1 == 0 or $absolute-value1 == auto or unit($absolute-value1) == '%'
     #{$absolute-direction1}: #{$absolute-value1}
   @else
@@ -9,9 +9,10 @@
     @else
       +rem($absolute-direction2, $absolute-value2)
   position: absolute
-  z-index: $absolute-z-index
+  @if $absolute-z-index
+    z-index: $absolute-z-index
 
-=fixed($fixed-direction1: left, $fixed-value1: 0, $fixed-direction2: false, $fixed-value2: 0, $fixed-z-index: auto)
+=fixed($fixed-direction1: left, $fixed-value1: 0, $fixed-direction2: false, $fixed-value2: 0, $fixed-z-index: false)
   @if $fixed-value1 == 0 or $fixed-value1 == auto or unit($fixed-value1) == '%'
     #{$fixed-direction1}: #{$fixed-value1}
   @else
@@ -22,11 +23,13 @@
     @else
       +rem($fixed-direction2, $fixed-value2)
   position: fixed
-  z-index: $fixed-z-index
+  @if $fixed-z-index
+    z-index: $fixed-z-index
 
-=relative($relative-z-index: auto, $relative-direction1: false, $relative-value1: false, $relative-direction2: false, $relative-value2: false)
+=relative($relative-z-index: false, $relative-direction1: false, $relative-value1: false, $relative-direction2: false, $relative-value2: false)
   position: relative
-  z-index: $relative-z-index
+  @if $relative-z-index
+    z-index: $relative-z-index
   @if $relative-direction1
     @if $relative-value1 == 0 or $relative-value1 == auto or unit($relative-value1) == '%'
       #{$relative-direction1}: #{$relative-value1}
@@ -38,11 +41,19 @@
     @else
       +rem($relative-direction2, $relative-value2)
 
-=top($top-value)
-  +relative(auto, top, $top-value)
-=bottom($bottom-value)
-  +relative(auto, bottom, $bottom-value)
-=left($left-value)
-  +relative(auto, left, $left-value)
-=right($right-value)
-  +relative(auto, right, $right-value)
+=top($top-value, $z-index: false)
+  +relative(false, top, $top-value)
+  @if $z-index
+    z-index: $z-index
+=bottom($bottom-value, $z-index: false)
+  +relative(false, bottom, $bottom-value)
+  @if $z-index
+    z-index: $z-index
+=left($left-value, $z-index: false)
+  +relative(false, left, $left-value)
+  @if $z-index
+    z-index: $z-index
+=right($right-value, $z-index: false)
+  +relative(false, right, $right-value)
+  @if $z-index
+    z-index: $z-index
