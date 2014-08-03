@@ -65,3 +65,20 @@ input[type=submit], x:-moz-any-link
 
 input[type="file"]::-webkit-file-upload-button
   cursor: pointer !important
+
+// selection
+
+*::selection
+  background: $selection-bg-color
+  color: $selection-tx-color
+*::-moz-selection
+  background: $selection-bg-color
+  color: $selection-tx-color
+
+#{$all-text-inputs}
+  *::selection
+    background: $input-selection-bg-color
+    color: $input-selection-tx-color
+  *::-moz-selection
+    background: $input-selection-bg-color
+    color: $input-selection-tx-color
