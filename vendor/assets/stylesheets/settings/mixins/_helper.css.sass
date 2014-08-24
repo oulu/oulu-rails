@@ -28,6 +28,14 @@
   display: block
   text-decoration: none
 
+=hover-link-reverse($modifire-class: false)
+  text-decoration: underline
+  &:hover,
+  &:active
+    text-decoration: none
+  @if $modifire-class
+    #{$modifire-class}: none
+
 =letter-spacing-center($space-width)
   @if $space-width
     +rem('letter-spacing', $space-width)
