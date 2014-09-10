@@ -24,3 +24,9 @@
       @return true
   @else if type-of($value) == color
     @return complement($value)
+
+@function plus($value)
+  @if $value >= 0
+    @return $value
+  @else
+    @return reverse($value)

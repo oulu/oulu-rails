@@ -1,0 +1,13 @@
+=reset-margin($directions: all)
+  @if $directions == 'all'
+    margin: 0
+  @else
+    @each $direction in $directions
+      margin-#{$direction}: 0
+
+=reset-padding($directions: all)
+  @if $directions == 'all'
+    padding: 0
+  @else
+    @each $direction in $directions
+      padding-#{$direction}: 0
