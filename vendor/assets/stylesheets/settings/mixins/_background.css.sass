@@ -22,7 +22,7 @@
     @if background-image($bg-img)
       background-image: image_url("#{$bg-img}")
     @if $bg-position
-      +bg-ps-rp-ac($bg-repeat)
+      +bg-ps($bg-position)
     @if $bg-repeat
       +bg-sz-rp-ac($bg-repeat)
     @if $bg-attachment
