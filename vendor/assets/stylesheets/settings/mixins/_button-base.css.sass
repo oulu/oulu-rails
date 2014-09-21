@@ -1,28 +1,28 @@
-=button-base($fz: 12px, $ht: 30px, $fw: bold, $wd: auto, $bk: false, $ct: false, $i-fz: 14px, $i-ps: false)
-  +rem('font-size', $fz)
-  +rem('height', $ht)
-  +rem('line-height', $ht)
-  font-weight: $fw
-  +rem('width', $wd)
+=button-base($font-size: 12px, $height: 30px, $font-weight: bold, $width: auto, $is-block: false, $is-center: false, $icon-font-size: 14px, $icon-position: false)
+  +rem('font-size', $font-size)
+  +rem('height', $height)
+  +rem('line-height', $height)
+  font-weight: $font-weight
+  +rem('width', $width)
   text-decoration: none
   +relative(1)
   text-align: center
-  @if $bk == "true"
+  @if $is-block == "true"
     display: block
   @else
     +inline-block
-  @if $ct == "true"
+  @if $is-center == "true"
     margin-left: auto
     margin-right: auto
-  @if $i-fz
+  @if $icon-font-size
     i
-      +text-block($i-fz, $ht)
-      +rem('width', $ht)
+      +text-block($icon-font-size, $height)
+      +rem('width', $height)
       display: block
       text-align: center
-    @if $i-ps == "left"
+    @if $icon-position == "left"
       i
         +absolute(left, 0, top, 0)
-    @else if $i-ps == "right"
+    @else if $icon-position == "right"
       i
         +absolute(right, 0, top, 0)

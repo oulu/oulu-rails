@@ -1,0 +1,15 @@
+@function px-em($px, $base-px: $baseline-px)
+  @if $px == 0
+    @return 0
+  @else if px($px)
+    @return (strip-units($px) / strip-units($base-px)) * 1em
+  @else if em($px)
+    @return $px
+
+@function em-px($em, $base-px: $baseline-px)
+  @if $em == 0
+    @return 0
+  @else if em($em)
+    @return (strip-units($em) * strip-units($base-px)) * 1px
+  @else if px($em)
+    @return $em

@@ -1,14 +1,14 @@
-=table($tb-mb: 24px, $tb-scroll: false)
+=table($margin-bottom: 24px, $tb-scroll: false)
   min-width: 100%
-  +rem('margin-bottom', $tb-mb)
+  +rem('margin-bottom', $margin-bottom)
   @if $tb-scroll
     min-width: 100%
   @else
     width: 100%
 
-=table-cell($tc-v-al: middle, $tc-pd: 8px 12px, $tc-nowrap: false)
-  +rem('padding', $tc-pd)
-  vertical-align: $tc-v-al
+=table-cell($vertical-align: middle, $padding: 8px 12px, $is-nowrap: false)
+  +rem('padding', $padding)
+  vertical-align: $vertical-align
   +box-sizing(border-box)
-  @if $tc-nowrap
+  @if $is-nowrap
     white-space: nowrap
