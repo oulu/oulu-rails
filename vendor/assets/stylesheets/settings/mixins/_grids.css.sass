@@ -57,8 +57,7 @@ $break-points: $break-point-xs-namespace, $break-point-sm-namespace, $break-poin
 // デバイスごとの media query を作る
 =break-points($break-point: $break-point-xs-namespace)
   @if $screen-xs and $break-point == $break-point-xs-namespace
-    @media only screen and (max-width: $screen-xs)
-      @content
+    @content
   @else if $screen-sm and $break-point == $break-point-sm-namespace
     @media only screen and (min-width: $screen-xs)
       @content
