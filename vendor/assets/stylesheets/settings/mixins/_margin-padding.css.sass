@@ -1,11 +1,23 @@
 // horizontal
-=horizontal-mg($margin: 0px)
-  +rem('margin-left', $margin)
-  +rem('margin-right', $margin)
+=horizontal-mg($margins: 0px)
+  @each $position in $horizontal
+    @if length($margins) == 2
+      @if $position == nth($horizontal, 1)
+        +rem('margin-#{$position}', nth($margins, 1))
+      @else
+        +rem('margin-#{$position}', nth($margins, 2))
+    @else
+      +rem('margin-#{$position}', $margins)
 
-=horizontal-pd($padding: 0px)
-  +rem('padding-left', $padding)
-  +rem('padding-right', $padding)
+=horizontal-pd($paddings: 0px)
+  @each $position in $horizontal
+    @if length($paddings) == 2
+      @if $position == nth($horizontal, 1)
+        +rem('padding-#{$position}', nth($paddings, 1))
+      @else
+        +rem('padding-#{$position}', nth($paddings, 2))
+    @else
+      +rem('padding-#{$position}', $paddings)
 
 =horizontal-mg-auto($margin-height: false, $margin-bottom: false)
   +horizontal-mg(auto)
@@ -15,13 +27,25 @@
     +rem('margin-bottom', $margin-bottom)
 
 // vertical
-=vertical-mg($margin: 0px)
-  +rem('margin-top', $margin)
-  +rem('margin-bottom', $margin)
+=vertical-mg($margins: 0px)
+  @each $position in $vertical
+    @if length($margins) == 2
+      @if $position == nth($horizontal, 1)
+        +rem('margin-#{$position}', nth($margins, 1))
+      @else
+        +rem('margin-#{$position}', nth($margins, 2))
+    @else
+      +rem('margin-#{$position}', $margins)
 
-=vertical-pd($padding: 0px)
-  +rem('padding-top', $padding)
-  +rem('padding-bottom', $padding)
+=vertical-pd($paddings: 0px)
+  @each $position in $vertical
+    @if length($paddings) == 2
+      @if $position == nth($horizontal, 1)
+        +rem('padding-#{$position}', nth($paddings, 1))
+      @else
+        +rem('padding-#{$position}', nth($paddings, 2))
+    @else
+      +rem('padding-#{$position}', $paddings)
 
 =margin($margins: false)
   @if length($margins) == 1

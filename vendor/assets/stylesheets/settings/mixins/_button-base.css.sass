@@ -12,8 +12,7 @@
   @else
     +inline-block
   @if $is-center == "true"
-    margin-left: auto
-    margin-right: auto
+    +horizontal-mg-auto
   @if $icon-font-size
     i
       +text-block($icon-font-size, $height)

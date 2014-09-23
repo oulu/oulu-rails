@@ -1,7 +1,8 @@
-+ie($version: all)
-  @if $version == 'all'
++ie($versions: all)
+  @if $versions == 'all'
     &.is-ie
       @content
   @else
-    &.is-ie#{$version}
-      @content
+    @each $version in $versions
+      &.is-ie#{$version}
+        @content

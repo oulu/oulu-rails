@@ -11,19 +11,6 @@
   +transition-duration($transition-duration)
   +transition-timing-function($transition-timing)
 
-=square-block($square-block-size: 10px, $square-block-height: false, $square-block-line-height: false)
-  +rem('width', $square-block-size)
-  @if not ($square-block-height == false or $square-block-height == "")
-    +rem('height', $square-block-height)
-  @else
-    +rem('height', $square-block-size)
-  @if not ($square-block-line-height == false or $square-block-line-height == "")
-    +rem('line-height', $square-block-line-height)
-  @if not ($square-block-height == false or $square-block-height == "")
-    +rem('line-height', $square-block-height)
-  @else
-    +rem('line-height', $square-block-size)
-
 =block-link
   display: block
   text-decoration: none
@@ -49,10 +36,6 @@
   &.placeholder
     @content
 
-=reset-text
-  margin: 0
-  padding: 0
-
 =size($width, $height: false)
   @if $height
     +rem('width', $width)
@@ -60,3 +43,16 @@
   @else
     +rem('width', $width)
     +rem('height', $width)
+
+=square-block($square-block-size: 10px, $square-block-height: false, $square-block-line-height: false)
+  +rem('width', $square-block-size)
+  @if $square-block-height
+    +rem('height', $square-block-height)
+  @else
+    +rem('height', $square-block-size)
+  @if $square-block-line-height
+    +rem('line-height', $square-block-line-height)
+  @else if $square-block-height
+    +rem('line-height', $square-block-height)
+  @else
+    +rem('line-height', $square-block-size)
