@@ -109,3 +109,19 @@ $break-points: $break-point-xs-namespace, $break-point-sm-namespace, $break-poin
     @for $i from 1 through $columns-count
       #{$column-namespace}#{$break-point}#{$column-offset-namespace}#{$i}
         +column-offset($i)
+
+=columns($gutter-width)
+  // カラムをサイズごとに作る
+  @each $break-point in $break-points
+    +break-points(#{$break-point})
+      @for $i from 1 through $columns-count
+        #{$column-namespace}#{$break-point}#{$i}
+          +column($i)
+
+=column-offsets($gutter-width)
+  // オフセットカラムをサイズごとに作る
+  @each $break-point in $break-points
+    +break-points(#{$break-point})
+      @for $i from 1 through $columns-count
+        #{$column-namespace}#{$break-point}#{$column-offset-namespace}#{$i}
+          +column-offset($i)
