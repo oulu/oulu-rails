@@ -85,10 +85,10 @@ $break-points: $break-point-xs-namespace, $break-point-sm-namespace, $break-poin
     clear: both
 
 // カラムの基本設定
-=column($number)
+=column($number, $columns-gutter-width: $gutter-width)
   +rem('width', 100 / $columns-count * $number * 1%)
   +rem('min-height', 1px)
-  +horizontal-pd($gutter-width / 2)
+  +horizontal-pd($columns-gutter-width / 2)
   float: left
   +box-sizing(border-box)
 
@@ -110,17 +110,17 @@ $break-points: $break-point-xs-namespace, $break-point-sm-namespace, $break-poin
       #{$column-namespace}#{$break-point}#{$column-offset-namespace}#{$i}
         +column-offset($i)
 
-=columns($gutter-width, $row: false)
+=grid-columns($columns-gutter-width: $gutter-width, $row: false)
   // カラムをサイズごとに作る
   @each $break-point in $break-points
     +break-points(#{$break-point})
       @for $i from 1 through $columns-count
         #{$column-namespace}#{$break-point}#{$i}
-          +column($i)
+          +column($i, $columns-gutter-width)
   @if $row
     #{$row-class-name}
       // カラムのマージン分だけ両サイドにネガティブマージンを取る
-      +horizontal-mg(($gutter-width / 2) * -1)
+      +horizontal-mg(($columns-gutter-width / 2) * -1)
       // clearfix
       +rem('min-height', 1px)
       &:before,
@@ -130,7 +130,7 @@ $break-points: $break-point-xs-namespace, $break-point-sm-namespace, $break-poin
       &:after
         clear: both
 
-=column-offsets($gutter-width, $row: false)
+=grid-column-offsets($columns-gutter-width: $gutter-width, $row: false)
   // オフセットカラムをサイズごとに作る
   @each $break-point in $break-points
     +break-points(#{$break-point})
@@ -140,7 +140,7 @@ $break-points: $break-point-xs-namespace, $break-point-sm-namespace, $break-poin
   @if $row
     #{$row-class-name}
       // カラムのマージン分だけ両サイドにネガティブマージンを取る
-      +horizontal-mg(($gutter-width / 2) * -1)
+      +horizontal-mg(($columns-gutter-width / 2) * -1)
       // clearfix
       +rem('min-height', 1px)
       &:before,
