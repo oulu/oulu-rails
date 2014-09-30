@@ -1,49 +1,54 @@
 =border($border-positions: all, $border-widths: 1px, $border-style: solid, $border-color: black, $border-background-color: false)
-  @if $border-positions == "all"
-    +rem('border-width', $border-widths)
-    @if $border-background-color
-      +rgba($border-color, $border-background-color, border-color)
-    @else
-      border-color: $border-color
-    border-style: $border-style
-  @else if $border-positions == "horizontal"
-    @each $position in $horizontal
-      // $border-widthsの値が複数あった場合
-      @if length($border-widths) == 2
-        @if $position == nth($horizontal, 1)
-          +rem('border-#{$position}-width', nth($border-widths, 1))
-        @else
-          +rem('border-#{$position}-width', nth($border-widths, 2))
-      @else
-        +rem('border-#{$position}-width', $border-widths)
-      @if $border-background-color
-        +rgba($border-color, $border-background-color, border-#{$position}-color)
-      @else
-        border-#{$position}-color: $border-color
-      border-#{$position}-style: $border-style
-  @else if $border-positions == "vertical"
-    @each $position in $vertical
-      // $border-widthsの値が複数あった場合
-      @if length($border-widths) == 2
-        @if $position == nth($vertical, 1)
-          +rem('border-#{$position}-width', nth($border-widths, 1))
-        @else
-          +rem('border-#{$position}-width', nth($border-widths, 2))
-      @else
-        +rem('border-#{$position}-width', $border-widths)
-      @if $border-background-color
-        +rgba($border-color, $border-background-color, border-#{$position}-color)
-      @else
-        border-#{$position}-color: $border-color
-      border-#{$position}-style: $border-style
+  @if map($border-positions)
+    @each $key, $value in ($border-positions)
+      border:
+        #{$key}: $value
   @else
-    @each $border-position in $border-positions
-      +rem('border-#{$border-position}-width', $border-widths)
+    @if $border-positions == "all"
+      +rem('border-width', $border-widths)
       @if $border-background-color
-        +rgba($border-color, $border-background-color, border-#{$border-position}-color)
+        +rgba($border-color, $border-background-color, border-color)
       @else
-        border-#{$border-position}-color: $border-color
-      border-#{$border-position}-style: $border-style
+        border-color: $border-color
+      border-style: $border-style
+    @else if $border-positions == "horizontal"
+      @each $position in $horizontal
+        // $border-widthsの値が複数あった場合
+        @if length($border-widths) == 2
+          @if $position == nth($horizontal, 1)
+            +rem('border-#{$position}-width', nth($border-widths, 1))
+          @else
+            +rem('border-#{$position}-width', nth($border-widths, 2))
+        @else
+          +rem('border-#{$position}-width', $border-widths)
+        @if $border-background-color
+          +rgba($border-color, $border-background-color, border-#{$position}-color)
+        @else
+          border-#{$position}-color: $border-color
+        border-#{$position}-style: $border-style
+    @else if $border-positions == "vertical"
+      @each $position in $vertical
+        // $border-widthsの値が複数あった場合
+        @if length($border-widths) == 2
+          @if $position == nth($vertical, 1)
+            +rem('border-#{$position}-width', nth($border-widths, 1))
+          @else
+            +rem('border-#{$position}-width', nth($border-widths, 2))
+        @else
+          +rem('border-#{$position}-width', $border-widths)
+        @if $border-background-color
+          +rgba($border-color, $border-background-color, border-#{$position}-color)
+        @else
+          border-#{$position}-color: $border-color
+        border-#{$position}-style: $border-style
+    @else
+      @each $border-position in $border-positions
+        +rem('border-#{$border-position}-width', $border-widths)
+        @if $border-background-color
+          +rgba($border-color, $border-background-color, border-#{$border-position}-color)
+        @else
+          border-#{$border-position}-color: $border-color
+        border-#{$border-position}-style: $border-style
 
 =border-gradient($border-widths: 1px, $border-color: white, $base-shade: 1%, $gradient-ratio: $major-eleventh)
   +rem('border-width', $border-widths)

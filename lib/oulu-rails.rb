@@ -14,7 +14,7 @@ module OuluRails
   end
 end
 
-module RemoveSelector
+module AddFunctions
   def remove_selector(string)
     assert_type string, :String
     return Sass::Script::String.new(string.value.gsub(/(\.|#)/, ""))
@@ -22,5 +22,5 @@ module RemoveSelector
 end
 
 module Sass::Script::Functions
-  include RemoveSelector
+  include AddFunctions
 end
