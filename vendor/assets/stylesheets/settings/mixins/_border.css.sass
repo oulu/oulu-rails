@@ -1,8 +1,22 @@
-=border($border-positions: all, $border-widths: 1px, $border-style: solid, $border-color: black, $border-background-color: false)
+=rem-border($position, $values)
+  @each $value in $values
+    @if border-width($value)
+      +rem('border-#{$position}-width', $value)
+    @else if border-color($value)
+      border-#{$position}-color: $value
+    @else if border-style($value)
+      border-#{$position}-style: $value
+
+=border($border-positions: false, $border-widths: false, $border-style: false, $border-color: false, $border-background-color: false)
   @if map($border-positions)
     @each $key, $value in $border-positions
-      border:
-        #{$key}: $value
+      +rem-border($key, $value)
+      @if $border-widths
+        +rem-border($key, $border-widths)
+      @if $border-style
+        +rem-border($key, $border-widths)
+      @if $border-color
+        +rem-border($key, $border-color)
   @else
     @if $border-positions == "all"
       +rem('border-width', $border-widths)
