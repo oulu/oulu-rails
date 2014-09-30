@@ -1,6 +1,6 @@
 =border($border-positions: all, $border-widths: 1px, $border-style: solid, $border-color: black, $border-background-color: false)
   @if map($border-positions)
-    @each $key, $value in ($border-positions)
+    @each $key, $value in $border-positions
       border:
         #{$key}: $value
   @else
