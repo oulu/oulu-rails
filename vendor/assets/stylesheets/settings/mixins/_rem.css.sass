@@ -7,7 +7,7 @@
 
 $baseline-px: 10px
 
-=base-font
+=base-font-size
   font-size: $baseline-px
   font-size: strip-units($baseline-px / 10) * 1rem
 
@@ -15,7 +15,7 @@ $baseline-px: 10px
   // 9px以下のfont-sizeを使う設定（IE8不可）
   @if px($px-values) or list($px-values)
     @if $property == "font-size" and $px-values < 10px
-      +base-font
+      +base-font-size
       +scale3d(strip-units($px-values / strip-units($baseline-px)), strip-units($px-values/ strip-units($baseline-px)), 1)
       +transform-origin(0, 0)
     @else
@@ -41,7 +41,6 @@ $baseline-px: 10px
             $rem-values: append($rem-values, $value)
           @else
             $rem-values: append($rem-values, $value / $baseline-rem)
-
         // Return the property and its list of converted values
         @if $important
           #{$property}: $rem-values !important
