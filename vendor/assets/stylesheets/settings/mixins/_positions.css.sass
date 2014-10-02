@@ -3,12 +3,13 @@
     $position-variables-value-order: index($position-variables-values, $position-variables-value)
     $next-position-variables-value-order: $position-variables-value-order + 1
     $previous-position-variables-value-order: $position-variables-value-order - 1
+    $previous-position-variables-value: if(first_order($position-variables-values, $position-variables-value), null, nth($position-variables-values, $previous-position-variables-value-order))
     @if odd($position-variables-value-order) and position($position-variables-value)
       +rem($position-variables-value, nth($position-variables-values, $next-position-variables-value-order))
     @else if even($position-variables-value-order) and position($position-variables-value)
       +rem($position-variables-value, nth($position-variables-values, $next-position-variables-value-order))
     @if not position($position-variables-value)
-      @if first_order($position-variables-values, $position-variables-value) or not position(nth($position-variables-values, $previous-position-variables-value-order))
+      @if first_order($position-variables-values, $position-variables-value) or not position($previous-position-variables-value)
         z-index: $position-variables-value
 
 =position-list($position-list-values)
