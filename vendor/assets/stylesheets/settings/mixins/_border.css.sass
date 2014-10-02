@@ -63,8 +63,3 @@
         @else
           border-#{$border-position}-color: $border-color
         border-#{$border-position}-style: $border-style
-
-=border-gradient($border-widths: 1px, $border-color: white, $base-shade: 1%, $gradient-ratio: $major-eleventh)
-  +rem('border-width', $border-widths)
-  border-style: solid
-  border-color: shade($border-color, ms(1, $base-shade, $gradient-ratio)) shade($border-color, ms(2, $base-shade, $gradient-ratio)) shade($border-color, ms(3, $base-shade, $gradient-ratio))

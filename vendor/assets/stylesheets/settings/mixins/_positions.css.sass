@@ -1,27 +1,41 @@
-=absolute($absolute-direction1: left, $absolute-value1: 0, $absolute-direction2: false, $absolute-value2: 0, $absolute-z-index: false)
+=position-values($position-values)
+  @each $values in $position-values
+    @if length($values) >= 2
+      #{nth($values, 1)}: nth($values, 2)
+
+=absolute($value1: left, $value2: 0, $value3: false, $value4: 0, $value5: false)
   position: absolute
-  +rem($absolute-direction1, $absolute-value1)
-  @if $absolute-direction2
-    +rem($absolute-direction2, $absolute-value2)
-  @if $absolute-z-index
-    z-index: $absolute-z-index
+  @if length($value1) == 1
+    +rem($value1, $value2)
+    @if $value3
+      +rem($value3, $value4)
+    @if $value5
+      z-index: $value5
+  @else
+    +position-values($value1 $value2 $value3 $value4 $value5)
 
-=fixed($fixed-direction1: left, $fixed-value1: 0, $fixed-direction2: false, $fixed-value2: 0, $fixed-z-index: false)
+=fixed($value1: left, $value2: 0, $value3: false, $value4: 0, $value5: false)
   position: fixed
-  +rem($fixed-direction1, $fixed-value1)
-  @if $fixed-value2
-    +rem($fixed-direction2, $fixed-value2)
-  @if $fixed-z-index
-    z-index: $fixed-z-index
+  @if length($value1) == 1
+    +rem($value1, $value2)
+    @if $value3
+      +rem($value3, $value4)
+    @if $value5
+      z-index: $value5
+  @else
+    +position-values($value1 $value2 $value3 $value4 $value5)
 
-=relative($relative-z-index: false, $relative-direction1: false, $relative-value1: false, $relative-direction2: false, $relative-value2: false)
+=relative($value1: false, $value2: false, $value3: false, $value4: false, $value5: false)
   position: relative
-  @if $relative-z-index
-    z-index: $relative-z-index
-  @if $relative-direction1
-    +rem($relative-direction1, $relative-value1)
-  @if $relative-direction2
-    +rem($relative-direction2, $relative-value2)
+  @if length($value1) == 1
+    @if $value1
+      z-index: $value1
+    @if $value2
+      +rem($value2, $value3)
+    @if $value4
+      +rem($value4, $value5)
+  @else
+    +position-values($value1 $value2 $value3 $value4 $value5)
 
 =top($top-value, $z-index: false)
   +relative(false, top, $top-value)
