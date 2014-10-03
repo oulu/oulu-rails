@@ -49,19 +49,11 @@
   @else
     +position-list($value1 $value2 $value3 $value4 $value5)
 
-=top($top-value, $z-index: false)
-  +relative(false, top, $top-value)
-  @if $z-index
-    z-index: $z-index
-=bottom($bottom-value, $z-index: false)
-  +relative(false, bottom, $bottom-value)
-  @if $z-index
-    z-index: $z-index
-=left($left-value, $z-index: false)
-  +relative(false, left, $left-value)
-  @if $z-index
-    z-index: $z-index
-=right($right-value, $z-index: false)
-  +relative(false, right, $right-value)
-  @if $z-index
-    z-index: $z-index
+=top($position-value, $z-index: false)
+  +relative(if($z-index, $z-index, false), top, $position-value)
+=bottom($position-value, $z-index: false)
+  +relative(if($z-index, $z-index, false), bottom, $position-value)
+=left($position-value, $z-index: false)
+  +relative(if($z-index, $z-index, false), left, $position-value)
+=right($position-value, $z-index: false)
+  +relative(if($z-index, $z-index, false), right, $position-value)
