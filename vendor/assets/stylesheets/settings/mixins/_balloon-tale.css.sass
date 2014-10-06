@@ -1,4 +1,4 @@
-=baloon-tale-after($tale-position: bottom, $tale-color: #ccc, $tale-width: 12px, $tale-height: 16px, $baloon-boder-width: false, $tale-position-manual-direction: false, $tale-position-manual-value: false)
+=baloon-tale-after($tale-position: bottom, $tale-color: #ccc, $tale-width: 12px, $tale-height: 16px, $baloon-boder-width: null, $tale-position-manual-direction: null, $tale-position-manual-value: null)
   &:after
     content: ""
     +border(all, $tale-height $tale-width, solid, transparent)
@@ -32,7 +32,7 @@
           +absolute($tale-position, $tale-width*2*-1 +2, top, 50%)
 
 
-=baloon-tale($tale-position: bottom, $tale-color: #ccc, $tale-width: 12px, $tale-height: 16px, $baloon-boder-width: false, $tale-position-manual-direction: false, $tale-position-manual-value: false)
+=baloon-tale($tale-position: bottom, $tale-color: #ccc, $tale-width: 12px, $tale-height: 16px, $baloon-boder-width: null, $tale-position-manual-direction: null, $tale-position-manual-value: null)
   &:before
     content: ""
     +border(all, $tale-height $tale-width, solid, transparent)

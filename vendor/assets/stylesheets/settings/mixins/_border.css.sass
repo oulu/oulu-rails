@@ -7,7 +7,7 @@
     @else if border-style($value)
       border-#{$position}-style: $value
 
-=border($value1: false, $value2: false, $value3: false, $value4: false, $value5: false)
+=border($value1: null, $value2: null, $value3: null, $value4: null, $value5: null)
   @if map($value1)
     @each $key, $value in $value1
       +rem-border($key, $value)

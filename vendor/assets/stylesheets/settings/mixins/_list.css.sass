@@ -1,4 +1,4 @@
-=list($margin-left: 16px, $margin-bottom: 24px, $list-style-type: disc, $list-style-potision: outside, $base-font-size: $baseline-px, $icon-size: $baseline-px, $icon-margin-right: false, $icon-y-potition: false)
+=list($margin-left: 16px, $margin-bottom: 24px, $list-style-type: disc, $list-style-potision: outside, $base-font-size: $baseline-px, $icon-size: $baseline-px, $icon-margin-right: null, $icon-y-potition: null)
   +rem('margin-left', $margin-left)
   +rem('margin-bottom', $margin-bottom)
   @if $list-style-type
@@ -18,6 +18,6 @@
         display: block
         &:before
           +fa
-          +text-block($icon-size, 1, false)
-          content: "#{$list-style-potision}"
+          +text-block($icon-size, 1, null)
+          content: '#{$list-style-potision}'
           +absolute(left, 0, top, $icon-y-potition)

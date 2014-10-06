@@ -110,7 +110,7 @@ $break-points: $break-point-xs-namespace, $break-point-sm-namespace, $break-poin
       #{$column-namespace}#{$break-point}#{$column-offset-namespace}#{$i}
         +column-offset($i)
 
-=grid-columns($columns-gutter-width: $gutter-width, $row: false)
+=grid-columns($columns-gutter-width: $gutter-width, $row: null)
   // カラムをサイズごとに作る
   @each $break-point in $break-points
     +break-points(#{$break-point})
@@ -130,7 +130,7 @@ $break-points: $break-point-xs-namespace, $break-point-sm-namespace, $break-poin
       &:after
         clear: both
 
-=grid-column-offsets($columns-gutter-width: $gutter-width, $row: false)
+=grid-column-offsets($columns-gutter-width: $gutter-width, $row: null)
   // オフセットカラムをサイズごとに作る
   @each $break-point in $break-points
     +break-points(#{$break-point})

@@ -16,7 +16,7 @@
  *=========================================
 
 %filter-washout
-  +filter('filter', sepia(10%) saturate(0.8) brightness(1.5) contrast(0.8))
+  +filter(sepia(10%) saturate(0.8) brightness(1.5) contrast(0.8))
   position: relative
   &:after
     +background-image(radial-gradient(center, ellipse cover, rgba(white, 0) 40%, rgba(white, 0.9) 100%))
@@ -27,7 +27,7 @@
  *=========================================
 
 %filter-nikki
-  +filter('filter', saturate(1.3) brightness(1.1) contrast(1.1))
+  +filter(saturate(1.3) brightness(1.1) contrast(1.1))
   position: relative
 
 /* =========================================
@@ -35,7 +35,7 @@
  *=========================================
 
 %filter-deadwood
-  +filter('filter', sepia(40%) brightness(1.4) saturate(0.8))
+  +filter(sepia(40%) brightness(1.4) saturate(0.8))
   position: relative
   &:after
     background: black
@@ -46,7 +46,7 @@
  *=========================================
 
 %filter-sanfran
-  +filter('filter', brightness(1.2) contrast(0.8) saturate(2) sepia(0.1))
+  +filter(brightness(1.2) contrast(0.8) saturate(2) sepia(0.1))
   position: relative
   &:after
     +background-image(radial-gradient(center, ellipse cover, rgba(white, 0) 0%, rgba(white, 0.5) 100%))
@@ -57,7 +57,7 @@
  *=========================================
 
 %filter-noire
-  +filter('filter', grayscale(90%) contrast(1.3))
+  +filter(grayscale(90%) contrast(1.3))
   position: relative
   &:after
     +background-image(radial-gradient(center, ellipse cover, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 82%, rgba(0, 0, 0, 0.69) 83%, rgba(0, 0, 0, 1) 90%))
@@ -69,7 +69,7 @@
  *=========================================
 
 %filter-neptune
-  +filter('filter', brightness(1.4) contrast(1) saturate(1))
+  +filter(brightness(1.4) contrast(1) saturate(1))
   position: relative
   &:after
     +background-image(radial-gradient(center, ellipse cover, rgba(125, 185, 232, 0) 0%, rgba(30, 87, 153, 1) 100%))
@@ -80,7 +80,7 @@
  *=========================================
 
 %filter-lomo
-  +filter('filter', contrast(1.3) saturate(1.2) brightness(140%))
+  +filter(contrast(1.3) saturate(1.2) brightness(140%))
   position: relative
   &:after
     -webkit-filter: radial-gradient(center, ellipse cover, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 92%, rgba(0, 0, 0, 0.69) 93%, rgba(0, 0, 0, 1) 100%)
@@ -92,7 +92,7 @@
  *=========================================
 
 %filter-warming
-  +filter('filter', sepia(10%) saturate(0.9) brightness(140%))
+  +filter(sepia(10%) saturate(0.9) brightness(140%))
   position: relative
   &:after
     +rgba-background-inline(rgba(236, 138, 0, 0.2))
@@ -104,7 +104,7 @@
  *=========================================
 
 %filter-cooling
-  +filter('filter', sepia(10%) saturate(0.9) brightness(140%))
+  +filter(sepia(10%) saturate(0.9) brightness(140%))
   position: relative
   &:after
     background-color: rgba(0, 109, 255, 0.35)
@@ -116,7 +116,7 @@
  *=========================================
 
 %filter-pro
-  +filter('filter', sepia(15%) contrast(1.7) saturate(0.7))
+  +filter(sepia(15%) contrast(1.7) saturate(0.7))
   position: relative
 
 /* =========================================
@@ -124,7 +124,7 @@
  *=========================================
 
 %filter-casablanca
-  +filter('filter', grayscale(90%) contrast(0.8) brightness(110%))
+  +filter(grayscale(90%) contrast(0.8) brightness(110%))
   position: relative
   &:after
     +background-image(radial-gradient(center, ellipse cover, rgba(white, 0) 0%, rgba(white, 0.9) 100%))
@@ -135,7 +135,7 @@
  *=========================================
 
 %filter-glassic
-  +filter('filter', brightness(90%) contrast(1.2))
+  +filter(brightness(90%) contrast(1.2))
   position: relative
   &:after
     +background-image(linear-gradient(left bottom, rgba(244, 244, 244, 0.3) 0%, rgba(244, 244, 244, 0.3) 60%, rgba(244, 244, 244, 0.7) 60%, rgba(255, 255, 255, 1) 100%))
@@ -148,7 +148,7 @@
  *=========================================
 
 =filter-custom($var: none)
-  +filter('filter', $var)
+  +filter($var)
   position: relative
   &:after
     content: ""

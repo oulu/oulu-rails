@@ -3,15 +3,15 @@
     @if $value == "top" or $value == "bottom" or $value == "left" or $value == "right" or $value == "center"
       @return true
     @else
-      @return false
+      @return null
   @else
-    @return false
+    @return null
 
 @function border-position($value)
   @if string($value)
     @if $value == "top" or $value == "bottom" or $value == "left" or $value == "right" or $value == "all" or $value == "horizontal" or $value == "vertical"
       @return true
     @else
-      @return false
+      @return null
   @else
-    @return false
+    @return null

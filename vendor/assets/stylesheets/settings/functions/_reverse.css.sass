@@ -19,8 +19,8 @@
       @return $value*-1
   @else if type-of($value) == bool
     @if type-of($value) == true
-      @return false
-    @else if type-of($value) == false
+      @return null
+    @else if type-of($value) == null
       @return true
   @else if type-of($value) == color
     @return complement($value)

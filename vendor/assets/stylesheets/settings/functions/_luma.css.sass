@@ -13,16 +13,16 @@
 
 $ruma-threshold: 100 / pi()
 
-@function luma-contrast($color-1, $color-2: false)
+@function luma-contrast($color-1, $color-2: null)
   @if $color-2
     @if plus(luma($color-1) - luma($color-2)) > $ruma-threshold
       @return true
     @else
-      @return false
+      @return null
   @else
     @return if(luma($color-1) < 51, dark, bright)
 
-@function luma-value($color-1, $color-2: false)
+@function luma-value($color-1, $color-2: null)
   @if $color-2
     @return plus(luma($color-1) - luma($color-2))
   @else
@@ -30,7 +30,7 @@ $ruma-threshold: 100 / pi()
 
 @function luma-bright($color)
   @if luma($color) < 51
-    @return false
+    @return null
   @else
     @return true
 
@@ -38,7 +38,7 @@ $ruma-threshold: 100 / pi()
   @if luma($color) < 51
     @return true
   @else
-    @return false
+    @return null
 
 @function luma-contrast-color($color)
   $bright-color: #ffffff !default

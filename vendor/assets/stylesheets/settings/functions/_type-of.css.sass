@@ -2,28 +2,28 @@
   @if type-of($value) == number
     @return true
   @else
-    @return false
+    @return null
 
 @function unitless-number($value)
   @if number($value) and unit($value) == ""
     @return true
   @else
-    @return false
+    @return null
 
 @function color($value)
   @if type-of($value) == color
     @return true
   @else
-    @return false
+    @return null
 
 @function string($value)
   @if type-of($value) == string
     @return true
   @else
-    @return false
+    @return null
 
 @function list($value)
   @if type-of($value) == list
     @return true
   @else
-    @return false
+    @return null

@@ -1,11 +1,11 @@
 @import url(//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800)
-=open-sans($fw: 400, $ls: 0, $fs: false, $tx-rendering: true)
+=open-sans($fw: 400, $ls: 0, $fs: null, $tx-rendering: true)
   // $fw: フォントの太さ, $ls: 字間, $fs: フォントスタイル
   font-family: 'Open Sans', sans-serif
   font-weight: $fw
   @if not $ls == 0
     +rem('letter-spacing', $ls)
-  @if (not $fs == false)
+  @if (not $fs == null)
     font-style: italic
   @if $tx-rendering
     text-rendering: optimizelegibility

@@ -3,7 +3,7 @@
 $sprite-map: sprite-map("sprites/*.png", $layout: smart)
 $map-img: sprite-url($sprite-map)
 
-=sprite-background($name, $background-size: false, $background-repeat: false)
+=sprite-background($name, $background-size: null, $background-repeat: null)
   // block;
   background-image: $map-img
   $pos: sprite-position($sprite-map, $name)

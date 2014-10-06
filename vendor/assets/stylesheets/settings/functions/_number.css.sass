@@ -2,16 +2,16 @@
   @if ceil($value/2) != $value/2
     @return true
   @else
-    @return false
+    @return null
 
 @function even($value)
   @if ceil($value/2) == $value/2
     @return true
   @else
-    @return false
+    @return null
 
 @function first_order($values, $value)
   @if index($values, $value) == 1
     @return true
   @else
-    @return false
+    @return null

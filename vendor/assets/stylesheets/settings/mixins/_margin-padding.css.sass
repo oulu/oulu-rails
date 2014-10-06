@@ -19,7 +19,7 @@
     @else
       +rem('padding-#{$position}', $paddings)
 
-=horizontal-margin-auto($margin-height: false, $margin-bottom: false)
+=horizontal-margin-auto($margin-height: null, $margin-bottom: null)
   +horizontal-margin(auto)
   @if $margin-height
     +rem('margin-top', $margin-height)
@@ -47,7 +47,7 @@
     @else
       +rem('padding-#{$position}', $paddings)
 
-=margin($margins: false)
+=margin($margins: null)
   @if length($margins) == 1
     +rem('margin', $margins)
   @else if length($margins) == 2
@@ -63,7 +63,7 @@
     +rem('margin-bottom', nth($margins, 3))
     +rem('margin-left', nth($margins, 4))
 
-=padding($paddings: false)
+=padding($paddings: null)
   @if length($paddings) == 1
     +rem('padding', $paddings)
   @else if length($paddings) == 2

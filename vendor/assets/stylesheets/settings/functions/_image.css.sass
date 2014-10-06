@@ -3,6 +3,6 @@
     @if number(str-index($value, '.jpg')) or number(str-index($value, '.png')) or number(str-index($value, '.gif')) or number(str-index($value, '.svg'))
       @return true
     @else
-      @return false
+      @return null
   @else
-    @return false
+    @return null

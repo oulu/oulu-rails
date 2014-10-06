@@ -1,4 +1,4 @@
-=table($margin-bottom: 24px, $table-scroll: false)
+=table($margin-bottom: 24px, $table-scroll: null)
   min-width: 100%
   +rem('margin-bottom', $margin-bottom)
   @if $table-scroll
@@ -6,7 +6,7 @@
   @else
     width: 100%
 
-=table-cell($vertical-align: middle, $padding: 8px 12px, $is-nowrap: false)
+=table-cell($vertical-align: middle, $padding: 8px 12px, $is-nowrap: null)
   +rem('padding', $padding)
   vertical-align: $vertical-align
   +box-sizing(border-box)

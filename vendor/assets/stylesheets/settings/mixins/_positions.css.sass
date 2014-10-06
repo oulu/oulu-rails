@@ -24,7 +24,7 @@
     @else
       z-index: $position-map-value
 
-=absolute($value1: left, $value2: 0, $value3: false, $value4: 0, $value5: false)
+=absolute($value1: left, $value2: 0, $value3: null, $value4: 0, $value5: null)
   position: absolute
   @if map($value1)
     +position-map($value1)
@@ -33,7 +33,7 @@
   @else
     +position-list($value1 $value2 $value3 $value4 $value5)
 
-=fixed($value1: left, $value2: 0, $value3: false, $value4: 0, $value5: false)
+=fixed($value1: left, $value2: 0, $value3: null, $value4: 0, $value5: null)
   position: fixed
   @if map($value1)
     +position-map($value1)
@@ -42,18 +42,18 @@
   @else
     +position-list($value1 $value2 $value3 $value4 $value5)
 
-=relative($value1: false, $value2: false, $value3: false, $value4: false, $value5: false)
+=relative($value1: null, $value2: null, $value3: null, $value4: null, $value5: null)
   position: relative
   @if length($value1) == 1
     +position-variables($value1 $value2 $value3 $value4 $value5)
   @else
     +position-list($value1 $value2 $value3 $value4 $value5)
 
-=top($position-value, $z-index: false)
-  +relative(if($z-index, $z-index, false), top, $position-value)
-=bottom($position-value, $z-index: false)
-  +relative(if($z-index, $z-index, false), bottom, $position-value)
-=left($position-value, $z-index: false)
-  +relative(if($z-index, $z-index, false), left, $position-value)
-=right($position-value, $z-index: false)
-  +relative(if($z-index, $z-index, false), right, $position-value)
+=top($position-value, $z-index: null)
+  +relative(if($z-index, $z-index, null), top, $position-value)
+=bottom($position-value, $z-index: null)
+  +relative(if($z-index, $z-index, null), bottom, $position-value)
+=left($position-value, $z-index: null)
+  +relative(if($z-index, $z-index, null), left, $position-value)
+=right($position-value, $z-index: null)
+  +relative(if($z-index, $z-index, null), right, $position-value)

@@ -3,11 +3,11 @@
     @if $value >= 100
       @return true
     @else
-      @return false
+      @return null
   @else if string($value)
     @if $value == "bold" or $value == "normal"
       @return true
     @else
-      @return false
+      @return null
   @else
-    @return false
+    @return null

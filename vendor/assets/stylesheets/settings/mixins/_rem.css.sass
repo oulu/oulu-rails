@@ -11,7 +11,7 @@ $baseline-px: 10px
   font-size: $baseline-px
   font-size: strip-units($baseline-px / 10) * 1rem
 
-=rem($property, $px-values, $important: false)
+=rem($property, $px-values, $important: null)
   // 9px以下のfont-sizeを使う設定（IE8不可）
   @if px($px-values) or list($px-values)
     @if $property == "font-size" and $px-values < 10px

@@ -15,7 +15,7 @@
   display: block
   text-decoration: none
 
-=hover-link-reverse($modifire-class: false)
+=hover-link-reverse($modifire-class: null)
   text-decoration: underline
   &:hover,
   &:active
@@ -36,7 +36,7 @@
   &.placeholder
     @content
 
-=size($width, $height: false)
+=size($width, $height: null)
   @if $height
     +rem('width', $width)
     +rem('height', $height)
@@ -44,7 +44,7 @@
     +rem('width', $width)
     +rem('height', $width)
 
-=square-block($square-block-size: 10px, $square-block-height: false, $square-block-line-height: false)
+=square-block($square-block-size: 10px, $square-block-height: null, $square-block-line-height: null)
   +rem('width', $square-block-size)
   @if $square-block-height
     +rem('height', $square-block-height)
