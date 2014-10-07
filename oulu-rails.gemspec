@@ -15,12 +15,11 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = OuluRails::VERSION
 
-  gem.add_dependency("oily_png")
   gem.add_dependency("modular-scale")
+  gem.add_dependency("oily_png")
   gem.add_dependency("ceaser-easing")
   gem.add_dependency("compass-rgbapng")
   gem.add_dependency("SassyLists")
   gem.add_dependency("toolkit")
   gem.add_dependency("sassy-maps")
-
 end
