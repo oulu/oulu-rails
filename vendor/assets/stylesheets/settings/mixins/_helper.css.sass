@@ -37,12 +37,16 @@
     @content
 
 =size($width, $height: null)
-  @if $height
+  @if length($width) == 2
+    +rem('width', nth($width, 1))
+    +rem('height', nth($width, 2))
+  @else if $height
     +rem('width', $width)
     +rem('height', $height)
   @else
     +rem('width', $width)
     +rem('height', $width)
+
 
 =square-block($square-block-size: 10px, $square-block-height: null, $square-block-line-height: null)
   +rem('width', $square-block-size)
