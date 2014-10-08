@@ -16,7 +16,7 @@ Gem::Specification.new do |gem|
   gem.version       = OuluRails::VERSION
 
   gem.add_dependency("sass-rails", "~> 5.0.0.beta1")
-  gem.add_dependency("compass-rails")
+  gem.add_dependency("compass-rails", "~> 2.0.0")
   gem.add_dependency("modular-scale")
   gem.add_dependency("oily_png")
   gem.add_dependency("ceaser-easing")
