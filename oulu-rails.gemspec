@@ -17,10 +17,10 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency("sass-rails", "~> 5.0.0.beta1")
   gem.add_dependency("compass-rails", "~> 2.0.0")
+  gem.add_dependency("compass-rgbapng")
   gem.add_dependency("modular-scale")
   gem.add_dependency("oily_png")
   gem.add_dependency("ceaser-easing")
-  gem.add_dependency("compass-rgbapng")
   gem.add_dependency("SassyLists")
   gem.add_dependency("toolkit")
   gem.add_dependency("sassy-maps")
