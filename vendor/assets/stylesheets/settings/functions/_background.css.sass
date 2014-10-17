@@ -6,10 +6,32 @@
 
 @function background-position($value)
   @if list($value)
-    @if position(nth($value, 1)) or number(nth($value, 2))
+    @if str-slice(nth($value, 1), 1, 1) != '/'
+      @if position(nth($value, 1)) or position(nth($value, 2))
+        @return true
+      @else if number(nth($value, 1)) or number(nth($value, 2))
+        @return true
+      @else
+        @return null
+    @else
+      @return null
+  @else
+    @return null
+
+@function background-size($value)
+  @if string($value)
+    @if $value == 'auto' or $value == 'contain' or $value == 'cover'
+      @return true
+    @else if str-slice($value, 2)== 'auto' or $value == 'contain' or $value == 'cover'
       @return true
     @else
       @return null
+  @else if list($value)
+    @if str-slice(nth($value, 1), 1, 1) == '/'
+      @if number(nth($value, 1)) or number(nth($value, 2))
+        @return true
+      @else
+        @return null
   @else
     @return null
 
@@ -23,31 +45,14 @@
     @return null
 
 @function background-attachment($value)
-  @if string($value)
-    @if $value == 'fixed' or $value == 'scroll'
-      @return true
-    @else
-      @return null
+  @if $value == 'fixed' or $value == 'scroll'
+    @return true
   @else
     @return null
 
 @function background-image($value)
   @if string($value)
     @if image($value)
-      @return true
-    @else
-      @return null
-  @else
-    @return null
-
-@function background-size($value)
-  @if string($value)
-    @if $value == 'auto' or $value == 'contain' or $value == 'cover'
-      @return true
-    @else
-      @return null
-  @else if list($value)
-    @if number(nth($value, 1)) or number(nth($value, 2))
       @return true
     @else
       @return null

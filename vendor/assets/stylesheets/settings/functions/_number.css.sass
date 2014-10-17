@@ -10,8 +10,25 @@
   @else
     @return null
 
-@function first_order($values, $value)
-  @if index($values, $value) == 1
+@function unitless-number($value)
+  @if number($value) and unit($value) == ""
+    @return true
+  @else
+    @return null
+
+@function strip-units($number)
+  // strip the units
+  // That works. strip-units(13.48cm) will return 13.48
+  @return $number / ($number * 0 + 1)
+
+@function px($value)
+  @if number($value) and unit($value) == "px"
+    @return true
+  @else
+    @return null
+
+@function em($value)
+  @if number($value) and unit($value) == "em"
     @return true
   @else
     @return null

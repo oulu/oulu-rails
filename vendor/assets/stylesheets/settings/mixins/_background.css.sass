@@ -1,31 +1,33 @@
-=background-position($value)
-  @if background-position($value)
-    background-position: $value
-=background-size($value)
-  @if background-size($value)
-    +rem('background-size', $value)
-=background-repeat-attachment($value)
-  @if background-repeat($value)
-    background-repeat: $value
-  @if background-repeat($value)
-    background-attachment: $value
-=background-position-repeat-attachment($value)
-  +background-position($value)
-  +background-repeat-attachment($value)
-=background-size-repeat-attachment($value)
-  +background-size($value)
-  +background-repeat-attachment($value)
+=bg-size($value)
+  @if list($value)
+    @if str-slice(nth($value, 1), 1, 1) == '/'
+      $bg-size-value: str-slice(nth($value, 1), 2) nth($value, 2)
+      +background-size($bg-size-value)
+    @else
+      +background-size($value)
+  @else
+    @if str-slice(nth($value, 1), 1, 1) == '/'
+      $bg-size-value: str-slice(nth($value, 1), 2)
+      +background-size($bg-size-value)
+    @else
+      +background-size($value)
 
-=bg($background-color: transparent, $background-img: null, $background-position: null, $background-repeat: null, $background-attachment: null, $background-size: null)
-  background-color: $background-color
-  @if $background-img
-    @if background-image($background-img)
-      background-image: image_url("#{$background-img}")
-    @if $background-position
-      +background-position($background-position)
-    @if $background-repeat
-      +background-size-repeat-attachment($background-repeat)
-    @if $background-attachment
-      +background-size-repeat-attachment($background-attachment)
-    @if $background-size
-      +background-size-repeat-attachment($background-size)
+// どこでも background-color と background-image と background-position と background-repeat が書ける設定
+=background-basics($value)
+  @if background-color($value)
+    background-color: $value
+  @else if background-image($value)
+    background-image: image_url("#{$value}")
+  @else if background-position($value)
+    background-position: $value
+  @else if background-repeat($value)
+    background-repeat: $value
+  @else if background-attachment($value)
+    background-attachment: $value
+  @else if background-size($value)
+    +bg-size($value)
+
+=bg($value1: null)
+  @for $i from 1 through 5
+    @if length($value1) >= $i
+      +background-basics(nth($value1, $i))

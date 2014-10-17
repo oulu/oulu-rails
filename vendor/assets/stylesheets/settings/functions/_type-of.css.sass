@@ -4,12 +4,6 @@
   @else
     @return null
 
-@function unitless-number($value)
-  @if number($value) and unit($value) == ""
-    @return true
-  @else
-    @return null
-
 @function color($value)
   @if type-of($value) == color
     @return true
@@ -18,12 +12,6 @@
 
 @function string($value)
   @if type-of($value) == string
-    @return true
-  @else
-    @return null
-
-@function list($value)
-  @if type-of($value) == list
     @return true
   @else
     @return null

@@ -1,49 +1,41 @@
-// どこでも $font-weight と $text-align と $color が書ける設定
-=font-weight-text-align-color($value)
-  @if $value
-    @if font-weight($value)
-      font-weight: $value
-    @else if text-align($value)
-      text-align: $value
-    @else if color($value)
-      color: $value
+// どこでも font-weight と text-align と color と +top() が書ける設定
+=text-block-options($value)
+  @if font-weight($value)
+    font-weight: $value
+  @else if text-align($value)
+    text-align: $value
+  @else if color($value)
+    color: $value
+  @else if px($value)
+    +top($value)
 
-=text-block($font-size: 16px, $line-height: null, $margin-bottom: null, $font-weight: null, $text-align: null, $top: null, $color: null)
-  // $font-size
-  +rem('font-size', $font-size)
-  +font-weight-text-align-color($font-size)
-  // $line-height
-  @if $line-height
-    @if px($line-height)
-      +rem('line-height', $line-height)
-    @else if unitless-number($line-height)
-      $rem-line-height: round($font-size * $line-height)
-      +rem('line-height', $rem-line-height)
-    +font-weight-text-align-color($line-height)
-  // $margin-bottom
-  @if $margin-bottom
-    @if px($margin-bottom)
-      +rem('margin-bottom', $margin-bottom)
-    @else if unitless-number($line-height)
-      @if px($font-size)
-        $rem-mb: round($font-size * $margin-bottom)
-        +rem('margin-bottom', $rem-mb)
-    +font-weight-text-align-color($margin-bottom)
-  // $font-weight
-  @if $font-weight
-    @if px($font-weight)
-      +top($font-weight)
-    +font-weight-text-align-color($font-weight)
-  // $text-align
-  @if $text-align
-    @if px($text-align)
-      +top($text-align)
-    +font-weight-text-align-color($text-align)
-  // $top
-  @if $top
-    @if px($top)
-      +top($top)
-  +font-weight-text-align-color($top)
-  // $color
-  @if $color
-    +font-weight-text-align-color($color)
+// +text-block($font-size $line-height $margin-bottom, $font-weight $text-align $color $top)
+=text-block($value1: 16px, $value2: null, $value3: null, $value4: null, $value5: null, $value6: null, $value7: null)
+  @if list($value1)
+    +rem('font-size', nth($value1, 1))
+    +rem('line-height', nth($value1, 2))
+    @if length($value1) >= 3
+      +rem('margin-bottom', nth($value1, 3))
+    @if ($value2)
+      @for $i from 1 through 4
+        @if length($value2) >= $i
+          +text-block-options(nth($value2, $i))
+  @else
+    // 以下ver1で削除予定
+    +rem('font-size', $value1)
+    @if $value2
+      @if px($value2)
+        +rem('line-height', $value2)
+      @else if unitless-number($value2)
+        $rem-line-height: round($value1 * $value2)
+        +rem('line-height', $rem-line-height)
+    @if $value3
+      @if px($value3)
+        +rem('margin-bottom', $value3)
+      @else if unitless-number($value2)
+        @if px($value1)
+          $rem-mb: round($value1 * $value3)
+          +rem('margin-bottom', $rem-mb)
+    $values: $value4, $value5, $value6, $value7
+    @each $value in $values
+      +text-block-options($value)
