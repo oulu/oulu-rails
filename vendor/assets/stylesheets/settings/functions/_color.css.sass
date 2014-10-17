@@ -12,7 +12,7 @@ $green-magic-number: 691
 $blue-magic-number: 68
 $brightness-divisor: $red-magic-number + $green-magic-number + $blue-magic-number
 
-@function brightness-value($color)
+@function brightness_value($color)
   // Extract color components
   $red-component: red($color)
   $green-component: green($color)
@@ -22,14 +22,14 @@ $brightness-divisor: $red-magic-number + $green-magic-number + $blue-magic-numbe
   // Convert to percentage and return
   @return 100% * $number / 255
 
-@function contrasting-color($color, $light, $dark)
-  @if brightness-value($color) < 65%
+@function contrasting_color($color, $light, $dark)
+  @if brightness_value($color) < 65%
     @return $light
   @else
     @return $dark
 
 // 使い方
-//color: contrasting-color($bg-color, $light-text-color, $dark-text-color)
+//color: contrasting_color($bg-color, $light-text-color, $dark-text-color)
 // $bg-colorが暗かったら$light-text-colorが選択される
 // $bg-colorが明るかったらｍ暗かったら$light-text-colorが選択される
 
@@ -41,11 +41,11 @@ $brightness-divisor: $red-magic-number + $green-magic-number + $blue-magic-numbe
 
 //.dark-background
   //background: $dark-background-color
-  //color: contrasting-color($dark-background-color, $light-text-color, $dark-text-color)
+  //color: contrasting_color($dark-background-color, $light-text-color, $dark-text-color)
 
 //.light-background
   //background: $light-background-color
-  //color: contrasting-color($light-background-color, $light-text-color, $dark-text-color)
+  //color: contrasting_color($light-background-color, $light-text-color, $dark-text-color)
 
 // http://codepen.io/MadeByMike/pen/FoBjq
 
@@ -62,7 +62,7 @@ $brightness-divisor: $red-magic-number + $green-magic-number + $blue-magic-numbe
 
 $ruma-threshold: 100 / pi()
 
-@function luma-contrast($color-1, $color-2: null)
+@function luma_contrast($color-1, $color-2: null)
   @if $color-2
     @if abs(luma($color-1) - luma($color-2)) > $ruma-threshold
       @return true
@@ -71,37 +71,37 @@ $ruma-threshold: 100 / pi()
   @else
     @return if(luma($color-1) < 51, dark, bright)
 
-@function luma-value($color-1, $color-2: null)
+@function luma_value($color-1, $color-2: null)
   @if $color-2
     @return abs(luma($color-1) - luma($color-2))
   @else
     @return luma($color-1)
 
-@function luma-bright($color)
+@function luma_bright($color)
   @if luma($color) < 51
     @return null
   @else
     @return true
 
-@function luma-dark($color)
+@function luma_dark($color)
   @if luma($color) < 51
     @return true
   @else
     @return null
 
-@function luma-contrast-color($color)
+@function luma_contrast_color($color)
   $bright-color: #ffffff !default
   $dark-color: #000000 !default
-  @if luma-contrast($color) == bright
+  @if luma_contrast($color) == bright
     @return $bright-color
   @else
     @return $dark-color
 
-@function luma-add-contrast($background-color, $candidate-color)
-  @if luma-contrast($background-color, $candidate-color)
+@function luma_add_contrast($background-color, $candidate-color)
+  @if luma_contrast($background-color, $candidate-color)
     @return $candidate-color
   @else
-    @if luma-dark($background-color)
-      @return tint($candidate-color, reverse(percentage(luma-value($background-color, $candidate-color)*0.01))/1.618)
+    @if luma_dark($background-color)
+      @return tint($candidate-color, reverse(percentage(luma_value($background-color, $candidate-color)*0.01))/1.618)
     @else
-      @return shade($candidate-color, reverse(percentage(luma-value($background-color, $candidate-color)*0.01))/1.618)
+      @return shade($candidate-color, reverse(percentage(luma_value($background-color, $candidate-color)*0.01))/1.618)

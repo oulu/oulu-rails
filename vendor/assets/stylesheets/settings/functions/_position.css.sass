@@ -1,8 +1,5 @@
 @function position($value)
-  @if string($value)
-    @if $value == "top" or $value == "bottom" or $value == "left" or $value == "right" or $value == "center"
-      @return true
-    @else
-      @return null
+  @if $value == "top" or $value == "bottom" or $value == "left" or $value == "right" or $value == "center"
+    @return true
   @else
     @return null

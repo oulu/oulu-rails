@@ -1,10 +1,10 @@
 =rem-border($position, $values)
   @each $value in $values
-    @if border-width($value)
+    @if border_width($value)
       +rem('border-#{$position}-width', $value)
-    @else if border-color($value)
+    @else if border_color($value)
       border-#{$position}-color: $value
-    @else if border-style($value)
+    @else if border_style($value)
       border-#{$position}-style: $value
 
 =border($value1: null, $value2: null, $value3: null, $value4: null, $value5: null)
