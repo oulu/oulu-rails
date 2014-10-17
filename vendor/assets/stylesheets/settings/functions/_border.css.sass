@@ -1,12 +1,3 @@
-@function border-position($value)
-  @if string($value)
-    @if $value == 'top' or $value == 'right' or $value == 'bottom' or $value == 'left' or $value == 'horizontal' or $value == 'vertical'
-      @return true
-    @else
-      @return null
-  @else
-    @return null
-
 @function border-color($value)
   @if color($value)
     @return true
@@ -20,10 +11,13 @@
     @return null
 
 @function border-style($value)
-  @if string($value)  
-    @if $value == 'none' or $value == 'hidden' or $value == 'solid' or $value == 'double' or $value == 'groove' or $value == 'ridge' or $value == 'inset' or $value == 'outset' or $value == 'dashed' or $value == 'dotted'
-      @return true
-    @else
-      @return null
+  @if $value == 'none' or $value == 'hidden' or $value == 'solid' or $value == 'double' or $value == 'groove' or $value == 'ridge' or $value == 'inset' or $value == 'outset' or $value == 'dashed' or $value == 'dotted'
+    @return true
+  @else
+    @return null
+
+@function border-position($value)
+  @if $value == "top" or $value == "bottom" or $value == "left" or $value == "right" or $value == "all" or $value == "horizontal" or $value == "vertical"
+    @return true
   @else
     @return null

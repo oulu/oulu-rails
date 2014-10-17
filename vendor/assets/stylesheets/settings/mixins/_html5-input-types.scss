@@ -1,3 +1,17 @@
+// https://github.com/thoughtbot/bourbon/blob/master/app/assets/stylesheets/functions/_assign.scss
+
+@function assign-inputs($inputs, $pseudo: null) {
+  $list : ();
+
+  @each $input in $inputs {
+    $input: unquote($input);
+    $input: if($pseudo, $input + ":" + $pseudo, $input);
+    $list: append($list, $input, comma);
+  }
+
+  @return $list;
+}
+
 //************************************************************************//
 // Generate a variable ($all-text-inputs) with a list of all html5
 // input types that have a text-based input, excluding textarea.

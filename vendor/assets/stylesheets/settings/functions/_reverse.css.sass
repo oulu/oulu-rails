@@ -12,21 +12,15 @@
       @return 'normal'
     @else if $value == 'normal'
       @return 'bold'
-  @else if type-of($value) == number
+  @else if number($value)
     @if unit($value) == '%'
       @return (100 - $value)
     @else
       @return $value*-1
-  @else if type-of($value) == bool
-    @if type-of($value) == true
-      @return null
-    @else if type-of($value) == null
+  @else if bool($value)
+    @if $value == true
+      @return false
+    @else if $value == false
       @return true
-  @else if type-of($value) == color
+  @else if color($value)
     @return complement($value)
-
-@function plus($value)
-  @if $value >= 0
-    @return $value
-  @else
-    @return reverse($value)

@@ -2,7 +2,7 @@
   +rem('margin-left', $margin-left)
   +rem('margin-bottom', $margin-bottom)
   @if $list-style-type
-    @if list-style-type($list-style-type)
+    @if list_style_type($list-style-type)
       list-style-type: $list-style-type
       list-style-position: $list-style-potision
     @else if $list-style-type == "fa"
@@ -10,7 +10,7 @@
       +rem('font-size', $base-font-size)
       >li
         @if $icon-margin-right
-          $padding-size: em-px($icon-size, $base-font-size) + em-px($icon-margin-right, $base-font-size)
+          $padding-size: em_to_px($icon-size, $base-font-size) + em_to_px($icon-margin-right, $base-font-size)
           +rem('padding-left', $padding-size)
         @else
           +rem('padding-left', $icon-size)

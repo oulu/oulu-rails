@@ -1,0 +1,28 @@
+@function text_align($value)
+  @if $value == "left" or $value == "right" or $value == "center"
+    @return true
+  @else
+    @return null
+
+@function font_weight($value)
+  @if $value == "bold" or $value == "normal"
+    @return true
+  @else if unitless_number($value)
+    @if $value >= 100
+      @return true
+    @else
+      @return null
+  @else
+    @return null
+
+@function font_style($value)
+  @if $value == "normal" or $value == "italic" or $value == "oblique"
+    @return true
+  @else
+    @return null
+
+@function list_style_type($value)
+  @if $value == "disc" or $value == "circle" or $value == "square" or $value == "lower-roman" or $value == "upper-roman" or $value == "lower-greek" or $value == "decimal" or $value == "decimal-leading-zero" or $value == "lower-latin" or $value == "lower-alpha" or $value == "upper-latin" or $value == "upper-alpha" or $value == "cjk-ideographic" or $value == "hiragana" or $value == "katakana" or $value == "hiragana-iroha" or $value == "katakana-iroha" or $value == "hebrew" or $value == "armenian" or $value == "georgian"
+    @return true
+  @else
+    @return null

@@ -1,10 +1,10 @@
-@function background-color($value)
+@function background_color($value)
   @if color($value)
     @return true
   @else
     @return null
 
-@function background-position($value)
+@function background_position($value)
   @if list($value)
     @if str-slice(nth($value, 1), 1, 1) != '/'
       @if position(nth($value, 1)) or position(nth($value, 2))
@@ -18,7 +18,7 @@
   @else
     @return null
 
-@function background-size($value)
+@function background_size($value)
   @if string($value)
     @if $value == 'auto' or $value == 'contain' or $value == 'cover'
       @return true
@@ -35,7 +35,7 @@
   @else
     @return null
 
-@function background-repeat($value)
+@function background_repeat($value)
   @if string($value)
     @if $value == 'no-repeat' or $value == 'repeat' or $value == 'repeat-x' or $value == 'repeat-y'
       @return true
@@ -44,7 +44,7 @@
   @else
     @return null
 
-@function background-attachment($value)
+@function background_attachment($value)
   @if $value == 'fixed' or $value == 'scroll'
     @return true
   @else

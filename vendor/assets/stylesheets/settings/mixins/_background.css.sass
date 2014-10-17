@@ -2,32 +2,32 @@
   @if list($value)
     @if str-slice(nth($value, 1), 1, 1) == '/'
       $bg-size-value: str-slice(nth($value, 1), 2) nth($value, 2)
-      +background-size($bg-size-value)
+      +background_size($bg-size-value)
     @else
-      +background-size($value)
+      +background_size($value)
   @else
     @if str-slice(nth($value, 1), 1, 1) == '/'
       $bg-size-value: str-slice(nth($value, 1), 2)
-      +background-size($bg-size-value)
+      +background_size($bg-size-value)
     @else
-      +background-size($value)
+      +background_size($value)
 
 // どこでも background-color と background-image と background-position と background-repeat が書ける設定
 =background-basics($value)
-  @if background-color($value)
+  @if background_color($value)
     background-color: $value
   @else if background-image($value)
     background-image: image_url("#{$value}")
-  @else if background-position($value)
+  @else if background_position($value)
     background-position: $value
-  @else if background-repeat($value)
+  @else if background_repeat($value)
     background-repeat: $value
-  @else if background-attachment($value)
+  @else if background_attachment($value)
     background-attachment: $value
-  @else if background-size($value)
+  @else if background_size($value)
     +bg-size($value)
 
-=bg($value1: null)
+=bg($value)
   @for $i from 1 through 5
     @if length($value1) >= $i
-      +background-basics(nth($value1, $i))
+      +background-basics(nth($value, $i))

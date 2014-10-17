@@ -1,8 +1,8 @@
 // どこでも font-weight と text-align と color と +top() が書ける設定
 =text-block-options($value)
-  @if font-weight($value)
+  @if font_weight($value)
     font-weight: $value
-  @else if text-align($value)
+  @else if text_align($value)
     text-align: $value
   @else if color($value)
     color: $value
@@ -26,13 +26,13 @@
     @if $value2
       @if px($value2)
         +rem('line-height', $value2)
-      @else if unitless-number($value2)
+      @else if unitless_number($value2)
         $rem-line-height: round($value1 * $value2)
         +rem('line-height', $rem-line-height)
     @if $value3
       @if px($value3)
         +rem('margin-bottom', $value3)
-      @else if unitless-number($value2)
+      @else if unitless_number($value2)
         @if px($value1)
           $rem-mb: round($value1 * $value3)
           +rem('margin-bottom', $rem-mb)

@@ -1,3 +1,9 @@
+@function number($value)
+  @if type-of($value) == number
+    @return true
+  @else
+    @return null
+
 @function odd($value)
   @if ceil($value/2) != $value/2
     @return true
@@ -10,16 +16,16 @@
   @else
     @return null
 
-@function unitless-number($value)
-  @if number($value) and unit($value) == ""
+@function strip_units($number)
+  // strip the units
+  // That works. strip_units(13.48cm) will return 13.48
+  @return $number / ($number * 0 + 1)
+
+@function unitless_number($value)
+  @if number($value) and unitless($value)
     @return true
   @else
     @return null
-
-@function strip-units($number)
-  // strip the units
-  // That works. strip-units(13.48cm) will return 13.48
-  @return $number / ($number * 0 + 1)
 
 @function px($value)
   @if number($value) and unit($value) == "px"
@@ -32,3 +38,19 @@
     @return true
   @else
     @return null
+
+@function px_to_em($px, $base-px: $baseline-px)
+  @if $px == 0
+    @return 0
+  @else if px($px)
+    @return (strip_units($px) / strip_units($base-px)) * 1em
+  @else if em($px)
+    @return $px
+
+@function em_to_px($em, $base-px: $baseline-px)
+  @if $em == 0
+    @return 0
+  @else if em($em)
+    @return (strip_units($em) * strip_units($base-px)) * 1px
+  @else if px($em)
+    @return $em
