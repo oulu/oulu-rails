@@ -7,6 +7,8 @@
     @else if border_style($value)
       border-#{$position}-style: $value
 
+// 使い方
+// +border(all, 1px, solid, rgba(0, 0, 0, .4), white)
 =border($value1: null, $value2: null, $value3: null, $value4: null, $value5: null)
   @if map($value1)
     @each $key, $value in $value1
@@ -41,7 +43,7 @@
     @else if $value1 == "vertical"
       @each $position in $vertical
         // $value2の値が複数あった場合
-        @if length($value2) == 2
+        @if list($value2)
           @if $position == nth($vertical, 1)
             +rem('border-#{$position}-width', nth($value2, 1))
           @else
