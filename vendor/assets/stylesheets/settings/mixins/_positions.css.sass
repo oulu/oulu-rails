@@ -14,7 +14,7 @@
 
 =position-list($position-list-values)
   @each $position-list-value in $position-list-values
-    @if length($position-list-value) >= 2
+    @if list($position-list-value)
       #{nth($position-list-value, 1)}: nth($position-list-value, 2)
 
 =position-map($position-map-values)

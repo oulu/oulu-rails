@@ -21,3 +21,27 @@
     @return true
   @else
     @return null
+
+@function all($value)
+  @if $value == "all"
+    @return true
+  @else
+    @return null
+
+@function horizontal($value)
+  @if $value == "horizontal"
+    @return true
+  @else
+    @return null
+
+@function vertical($value)
+  @if $value == "vertical"
+    @return true
+  @else
+    @return null
+
+@function four_direction($value)
+  @if $value == "top" or $value == "bottom" or $value == "left" or $value == "right"
+    @return true
+  @else
+    @return null

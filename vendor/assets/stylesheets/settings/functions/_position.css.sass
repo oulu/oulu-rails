@@ -3,3 +3,45 @@
     @return true
   @else
     @return null
+
+@function top($value)
+  @if $value == "top"
+    @return true
+  @else
+    @return null
+
+@function bottom($value)
+  @if $value == "bottom"
+    @return true
+  @else
+    @return null
+
+@function left($value)
+  @if $value == "left"
+    @return true
+  @else
+    @return null
+
+@function right($value)
+  @if $value == "right"
+    @return true
+  @else
+    @return null
+
+@function center($value)
+  @if $value == "center"
+    @return true
+  @else
+    @return null
+
+@function position_vertical($value)
+  @if $value == 'bottom' or $value == 'top'
+    @return true
+  @else
+    @return null
+
+@function position_horizontal($value)
+  @if $value == 'left' or $value == 'right'
+    @return true
+  @else
+    @return null

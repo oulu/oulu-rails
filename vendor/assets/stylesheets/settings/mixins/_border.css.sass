@@ -1,65 +1,29 @@
-=rem-border($position, $values)
-  @each $value in $values
-    @if border_width($value)
-      +rem('border-#{$position}-width', $value)
-    @else if border_color($value)
-      border-#{$position}-color: $value
-    @else if border_style($value)
-      border-#{$position}-style: $value
+=assign-border-position($border-position, $border-values)
+  border-#{$border-position}:
+    @for $i from 1 through length($border-values)
+      @if border-width(nth($border-values, $i))
+        +rem('width', nth($border-values, $i))
+      @else if border-style(nth($border-values, $i))
+        style: nth($border-values, $i)
+      @else if border-color(nth($border-values, $i))
+        color: nth($border-values, $i)
 
 // 使い方
-// +border(all, 1px, solid, rgba(0, 0, 0, .4), white)
-=border($value1: null, $value2: null, $value3: null, $value4: null, $value5: null)
-  @if map($value1)
-    @each $key, $value in $value1
-      +rem-border($key, $value)
-      $border-values: $value2 $value3 $value4 $value5
-      @each $border-value in $border-values
-        @if $border-value
-          +rem-border($key, $border-value)
-  @else
-    @if $value1 == "all"
-      +rem('border-width', $value2)
-      @if $value5
-        +rgba($value4, $value5, border-color)
-      @else
-        border-color: $value4
-      border-style: $value3
-    @else if $value1 == "horizontal"
-      @each $position in $horizontal
-        // $value2の値が複数あった場合
-        @if length($value2) == 2
-          @if $position == nth($horizontal, 1)
-            +rem('border-#{$position}-width', nth($value2, 1))
-          @else
-            +rem('border-#{$position}-width', nth($value2, 2))
-        @else
-          +rem('border-#{$position}-width', $value2)
-        @if $value5
-          +rgba($value4, $value5, border-#{$position}-color)
-        @else
-          border-#{$position}-color: $value4
-        border-#{$position}-style: $value3
-    @else if $value1 == "vertical"
-      @each $position in $vertical
-        // $value2の値が複数あった場合
-        @if list($value2)
-          @if $position == nth($vertical, 1)
-            +rem('border-#{$position}-width', nth($value2, 1))
-          @else
-            +rem('border-#{$position}-width', nth($value2, 2))
-        @else
-          +rem('border-#{$position}-width', $value2)
-        @if $value5
-          +rgba($value4, $value5, border-#{$position}-color)
-        @else
-          border-#{$position}-color: $value4
-        border-#{$position}-style: $value3
-    @else
-      @each $border-position in $value1
-        +rem('border-#{$border-position}-width', $value2)
-        @if $value5
-          +rgba($value4, $value5, border-#{$border-position}-color)
-        @else
-          border-#{$border-position}-color: $value4
-        border-#{$border-position}-style: $value3
+// +border(vertical left, solid white 4px)
+=border($value1: null, $value2: null)
+  @for $i from 1 through length($value1)
+    @if all(nth($value1, $i))
+      $border-positions: $all
+      @each $border-position in $border-positions
+        +assign-border-position($border-position, $value2)
+    @else if vertical(nth($value1, $i))
+      $border-positions: $vertical
+      @each $border-position in $border-positions
+        +assign-border-position($border-position, $value2)
+    @else if horizontal(nth($value1, $i))
+      $border-positions: $horizontal
+      @each $border-position in $border-positions
+        +assign-border-position($border-position, $value2)
+    @else if four_direction(nth($value1, $i))
+      $border-position: nth($value1, $i)
+      +assign-border-position($border-position, $value2)
