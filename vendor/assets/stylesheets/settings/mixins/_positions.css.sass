@@ -1,53 +1,25 @@
-=position-variables($position-variables-values)
-  @each $position-variables-value in $position-variables-values
-    $position-variables-value-order: index($position-variables-values, $position-variables-value)
-    $next-position-variables-value-order: $position-variables-value-order + 1
-    $previous-position-variables-value-order: $position-variables-value-order - 1
-    $previous-position-variables-value: if(first_order($position-variables-values, $position-variables-value), null, nth($position-variables-values, $previous-position-variables-value-order))
-    @if odd($position-variables-value-order) and position($position-variables-value)
-      +rem($position-variables-value, nth($position-variables-values, $next-position-variables-value-order))
-    @else if even($position-variables-value-order) and position($position-variables-value)
-      +rem($position-variables-value, nth($position-variables-values, $next-position-variables-value-order))
-    @if not position($position-variables-value)
-      @if first_order($position-variables-values, $position-variables-value) or not position($previous-position-variables-value)
-        z-index: $position-variables-value
+=position-list($value1, $value2, $value3)
+  @if length($value1) == 2
+    #{nth($value1, 1)}: nth($value1, 2)
+  @else
+    z-index: nth($value1, 1)
+  @if length($value2) == 2
+    #{nth($value2, 1)}: nth($value2, 2)
+  @else
+    z-index: nth($value2, 1)
+  z-index: $value3
 
-=position-list($position-list-values)
-  @each $position-list-value in $position-list-values
-    @if list($position-list-value)
-      #{nth($position-list-value, 1)}: nth($position-list-value, 2)
-
-=position-map($position-map-values)
-  @each $key, $position-map-value in $position-map-values
-    @if position($key)
-      +rem($key, $position-map-value)
-    @else
-      z-index: $position-map-value
-
-=absolute($value1: left, $value2: 0, $value3: null, $value4: 0, $value5: null)
+=absolute($value1: null, $value2: null, $value3: null)
   position: absolute
-  @if map($value1)
-    +position-map($value1)
-  @else if length($value1) == 1
-    +position-variables($value1 $value2 $value3 $value4 $value5)
-  @else
-    +position-list($value1 $value2 $value3 $value4 $value5)
+  +position-list($value1, $value2, $value3)
 
-=fixed($value1: left, $value2: 0, $value3: null, $value4: 0, $value5: null)
+=fixed($value1: null, $value2: null, $value3: null)
   position: fixed
-  @if map($value1)
-    +position-map($value1)
-  @else if length($value1) == 1
-    +position-variables($value1 $value2 $value3 $value4 $value5)
-  @else
-    +position-list($value1 $value2 $value3 $value4 $value5)
+  +position-list($value1, $value2, $value3)
 
-=relative($value1: null, $value2: null, $value3: null, $value4: null, $value5: null)
+=relative($value1: null, $value2: null, $value3: null)
   position: relative
-  @if length($value1) == 1
-    +position-variables($value1 $value2 $value3 $value4 $value5)
-  @else
-    +position-list($value1 $value2 $value3 $value4 $value5)
+  +position-list($value1, $value2, $value3)
 
 =top($position-value, $z-index: null)
   +relative(if($z-index, $z-index, null), top, $position-value)

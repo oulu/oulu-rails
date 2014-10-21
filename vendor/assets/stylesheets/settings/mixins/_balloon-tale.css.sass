@@ -13,7 +13,6 @@
   //$tale-border
   $tale-border-color: if(length($tale-border) >= 1, nth($tale-border, 1), null)
   $tale-border-width: if(length($tale-border) >= 2, nth($tale-border, 2), null)
-  content: $parent-boder-width
   &:#{if($tale-border, after, before)}
     position: absolute
     content: ""
