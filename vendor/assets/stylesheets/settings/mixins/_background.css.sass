@@ -27,7 +27,7 @@
   @else if background_size($value)
     +bg-size($value)
 
+// +bg(black 'image.png' (left center) no-repeat fixed (/ 20px 30px))
 =bg($value)
-  @for $i from 1 through 5
-    @if length($value) >= $i
-      +background-basics(nth($value, $i))
+  @for $i from 1 through length($value)
+    +background-basics(nth($value, $i))
