@@ -36,13 +36,13 @@
   &.placeholder
     @content
 
-=size($size)
-  @if length($size) == 2
-    +rem('width', nth($width, 1))
-    +rem('height', nth($width, 2))
+=size($sizes)
+  @if length($sizes) == 2
+    +rem('width', nth($sizes, 1))
+    +rem('height', nth($sizes, 2))
   @else
-    +rem('width', $width)
-
+    +rem('width', nth($sizes, 1))
+    +rem('height', nth($sizes, 1))
 
 =square-block($square-block-size: 10px, $square-block-height: null, $square-block-line-height: null)
   +rem('width', $square-block-size)
