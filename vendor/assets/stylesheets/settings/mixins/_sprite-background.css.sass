@@ -9,9 +9,9 @@ $map-img: sprite-url($sprite-map)
   $pos: sprite-position($sprite-map, $name)
   background-position: nth($pos, 1) / 2 nth($pos, 2) / 2
   @if $background-size
-    +background_size($background-size)
+    +background-size($background-size)
   @else
-    +background_size(ceil(image-width(sprite-path($sprite-map)) / 2) auto)
+    +background-size(ceil(image-width(sprite-path($sprite-map)) / 2) auto)
   @if $background-repeat
     background-repeat: $background-repeat
   @else

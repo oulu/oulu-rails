@@ -14,3 +14,8 @@
   @if ($value2)
     @for $i from 1 through length($value2)
       +text-block-options(nth($value2, $i))
+
+=letter-spacing-center($space-width)
+  @if $space-width
+    +rem('letter-spacing', $space-width)
+    +rem('text-indent', $space-width)

@@ -2,15 +2,15 @@
   @if list($value)
     @if str-slice(nth($value, 1), 1, 1) == '/'
       $bg-size-value: str-slice(nth($value, 1), 2) nth($value, 2)
-      +background_size($bg-size-value)
+      +background-size($bg-size-value)
     @else
-      +background_size($value)
+      +background-size($value)
   @else
     @if str-slice(nth($value, 1), 1, 1) == '/'
       $bg-size-value: str-slice(nth($value, 1), 2)
-      +background_size($bg-size-value)
+      +background-size($bg-size-value)
     @else
-      +background_size($value)
+      +background-size($value)
 
 // どこでも background-color と background-image と background-position と background-repeat が書ける設定
 =background-basics($value)

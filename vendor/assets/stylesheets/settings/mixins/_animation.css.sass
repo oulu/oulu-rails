@@ -1,0 +1,15 @@
+// https://gist.github.com/ericam/1607696
+=keyframes($name)
+  @-webkit-keyframes #{$name}
+    @content
+  @-moz-keyframes #{$name}
+    @content
+  @-ms-keyframes #{$name}
+    @content
+  @keyframes #{$name}
+    @content
+
+=transition($transition-duration: .5s, $transition-property: all, $transition-timing: ease-in)
+  +transition-property($transition-property)
+  +transition-duration($transition-duration)
+  +transition-timing-function($transition-timing)

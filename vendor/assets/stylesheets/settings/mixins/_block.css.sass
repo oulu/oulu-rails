@@ -6,36 +6,6 @@
   +rem('margin-left', $block-width / 2 * -1)
   +box-sizing(border-box)
 
-=transition($transition-duration: .5s, $transition-property: all, $transition-timing: ease-in)
-  +transition-property($transition-property)
-  +transition-duration($transition-duration)
-  +transition-timing-function($transition-timing)
-
-=block-link
-  display: block
-  text-decoration: none
-
-=hover-link-reverse($modifire-class: null)
-  text-decoration: underline
-  &:hover,
-  &:active
-    text-decoration: none
-  @if $modifire-class
-    #{$modifire-class}: none
-
-=letter-spacing-center($space-width)
-  @if $space-width
-    +rem('letter-spacing', $space-width)
-    +rem('text-indent', $space-width)
-
-=placeholder
-  &::-webkit-input-placeholder
-    @content
-  &:-moz-placeholder
-    @content
-  &.placeholder
-    @content
-
 =size($sizes)
   @if length($sizes) == 2
     +rem('width', nth($sizes, 1))

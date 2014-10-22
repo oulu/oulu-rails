@@ -16,9 +16,9 @@
   @else
     @return null
 
-@function strip_units($number)
+@function strip_unit($number)
   // strip the units
-  // That works. strip_units(13.48cm) will return 13.48
+  // That works. strip_unit(13.48cm) will return 13.48
   @return $number / ($number * 0 + 1)
 
 @function unitless_number($value)
@@ -39,11 +39,17 @@
   @else
     @return null
 
+@function percent($value)
+  @if number($value) and unit($value) == "%"
+    @return true
+  @else
+    @return null
+
 @function px_to_em($px, $base-px: $baseline-px)
   @if $px == 0
     @return 0
   @else if px($px)
-    @return (strip_units($px) / strip_units($base-px)) * 1em
+    @return (strip_unit($px) / strip_unit($base-px)) * 1em
   @else if em($px)
     @return $px
 
@@ -51,6 +57,6 @@
   @if $em == 0
     @return 0
   @else if em($em)
-    @return (strip_units($em) * strip_units($base-px)) * 1px
+    @return (strip_unit($em) * strip_unit($base-px)) * 1px
   @else if px($em)
     @return $em
