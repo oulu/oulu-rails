@@ -1,18 +1,18 @@
 =balloon-tale($tale, $tale-position-manual: null, $tale-border: null)
   // $tale
-  $tale-direction: nth($tale, 1)
-  $tale-color: nth($tale, 2)
-  $tale-width: nth($tale, 3)
-  $tale-height: nth($tale, 4)
-  $parent-boder-width: if(length($tale) == 5, nth($tale, 5), 0)
+  $tale-direction: optional_nth($tale, 1)
+  $tale-color: optional_nth($tale, 2)
+  $tale-width: optional_nth($tale, 3)
+  $tale-height: optional_nth($tale, 4)
+  $parent-boder-width: if(length($tale) >= 5, nth($tale, 5), 0)
   //$tale-position-manual
-  $tale-position-manual-direction1: if(length($tale-position-manual) >= 1, nth($tale-position-manual, 1), null)
-  $tale-position-manual-value1: if(length($tale-position-manual) >= 2, nth($tale-position-manual, 2), null)
-  $tale-position-manual-direction2: if(length($tale-position-manual) >= 3, nth($tale-position-manual, 3), null)
-  $tale-position-manual-value2: if(length($tale-position-manual) >= 4, nth($tale-position-manual, 4), null)
+  $tale-position-manual-direction1: optional_nth($tale-position-manual, 1)
+  $tale-position-manual-value1: optional_nth($tale-position-manual, 2)
+  $tale-position-manual-direction2: optional_nth($tale-position-manual, 3)
+  $tale-position-manual-value2: optional_nth($tale-position-manual, 4)
   //$tale-border
-  $tale-border-color: if(length($tale-border) >= 1, nth($tale-border, 1), null)
-  $tale-border-width: if(length($tale-border) >= 2, nth($tale-border, 2), null)
+  $tale-border-color: optional_nth($tale-border, 1)
+  $tale-border-width: optional_nth($tale-border, 2)
   &:#{if($tale-border, after, before)}
     position: absolute
     content: ""

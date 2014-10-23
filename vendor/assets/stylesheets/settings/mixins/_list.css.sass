@@ -1,23 +1,21 @@
-=list($margin-left: 16px, $margin-bottom: 24px, $list-style-type: disc, $list-style-potision: outside, $base-font-size: $baseline-px, $icon-size: $baseline-px, $icon-margin-right: null, $icon-y-potition: null)
-  +rem('margin-left', $margin-left)
-  +rem('margin-bottom', $margin-bottom)
-  @if $list-style-type
-    @if list_style_type($list-style-type)
-      list-style-type: $list-style-type
-      list-style-position: $list-style-potision
-    @else if $list-style-type == "fa"
+// +list(12px 24px, fa '\f192', 12px 3px 8px)
+=list($margins: null, $list-style: null, $icon-position: null)
+  +rem('margin-left', optional_nth($margins, 1))
+  +rem('margin-bottom', optional_nth($margins, 2))
+  content: nth($list-style, 1) == "fa"
+  @for $i from 1 through length($list-style)
+    @if list_style_type(nth($list-style, $i))
+      list-style-type: nth($list-style, $i)
+    @else if list_style_position(nth($list-style, $i))
+      list-style-position: nth($list-style, $i)
+    @else if nth($list-style, $i) == "fa"
       list-style-type: none
-      +rem('font-size', $base-font-size)
       >li
-        @if $icon-margin-right
-          $padding-size: em_to_px($icon-size, $base-font-size) + em_to_px($icon-margin-right, $base-font-size)
-          +rem('padding-left', $padding-size)
-        @else
-          +rem('padding-left', $icon-size)
         +relative
         display: block
+        +rem('padding-left', optional_nth($icon-position, 1) + optional_nth($icon-position, 3))
         &:before
           +fa
-          +text-block($icon-size, 1, null)
-          content: '#{$list-style-potision}'
-          +absolute(left, 0, top, $icon-y-potition)
+          +text-block(optional_nth($icon-position, 1) optional_nth($icon-position, 1))
+          content: '#{optional_nth($list-style, $i + 1)}'
+          +absolute(left 0, top optional_nth($icon-position, 2))

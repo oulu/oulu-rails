@@ -1,21 +1,16 @@
-$sizes: 0, 4, 8, 12, 16, 20, 24, 28, 32, 40, 48, 56, 64
-
-@each $prefix in $sizes
+@for $i from 0 through 16
   body
-    .is-mgb-#{$prefix}
-      +rem('margin-bottom', #{$prefix}px)
+    .is-mgb-#{$i*4}
+      +rem('margin-bottom', #{$i*4}px)
 
-@each $prefix in $sizes
   body
-    .is-mgt-#{$prefix}
-      +rem('margin-top', #{$prefix}px)
+    .is-mgt-#{$i*4}
+      +rem('margin-top', #{$i*4}px)
 
-@each $prefix in $sizes
   body
-    .is-pdb-#{$prefix}
-      +rem('padding-bottom', #{$prefix}px)
+    .is-pdb-#{$i*4}
+      +rem('padding-bottom', #{$i*4}px)
 
-@each $prefix in $sizes
   body
-    .is-pdt-#{$prefix}
-      +rem('padding-top', #{$prefix}px)
+    .is-pdt-#{$i*4}
+      +rem('padding-top', #{$i*4}px)

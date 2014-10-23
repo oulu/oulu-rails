@@ -1,0 +1,5 @@
+@function cursor($value)
+  @if $value == "top" or $value == "bottom" or $value == "left" or $value == "right" or $value == "all" or $value == "horizontal" or $value == "vertical"
+    @return true
+  @else
+    @return null

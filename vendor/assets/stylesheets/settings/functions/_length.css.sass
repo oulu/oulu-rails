@@ -1,0 +1,20 @@
+// $nのときにtrue
+@function equal_nth($value, $n)
+  @if length($value) == $n
+    @return ture
+  @else
+    @return null
+
+// $n以上のときにtrue
+@function or_more_nth($value, $n)
+  @if length($value) >= $n
+    @return ture
+  @else
+    @return null
+
+// $n以上のときだけ$valueを出す
+@function optional_nth($value, $n)
+  @if or_more_nth($value, $n)
+    @return nth($value, $n)
+  @else
+    @return null
