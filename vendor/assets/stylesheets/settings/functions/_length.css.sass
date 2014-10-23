@@ -13,8 +13,10 @@
     @return null
 
 // $n以上のときだけ$valueを出す
-@function optional_nth($value, $n)
+@function optional_nth($value, $n, $false-value: null)
   @if or_more_nth($value, $n)
     @return nth($value, $n)
+  @else if $false-value
+    @return $false-value
   @else
     @return null

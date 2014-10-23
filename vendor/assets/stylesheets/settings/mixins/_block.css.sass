@@ -1,25 +1,28 @@
-=center-block($block-width: 300px, $block-height: 300px, $block-z-index: 1)
+=center-block($values)
+  $block-width: optional_nth($values, 1)
+  $block-height: optional_nth($values, 2)
+  $block-z-index: optional_nth($values, 3)
   +rem('width', $block-width)
   +rem('height', $block-height)
-  +fixed(left, 50%, top, 50%, $block-z-index)
+  +fixed(left 50%, top 50%, $block-z-index)
   +rem('margin-top', $block-height / 2 * -1)
   +rem('margin-left', $block-width / 2 * -1)
   +box-sizing(border-box)
 
-=size($sizes)
-  @if length($sizes) == 2
-    +rem('width', nth($sizes, 1))
-    +rem('height', nth($sizes, 2))
+=size($values)
+  @if equal_nth($values, 2)
+    +rem('width', nth($values, 1))
+    +rem('height', nth($values, 2))
   @else
-    +rem('width', nth($sizes, 1))
-    +rem('height', nth($sizes, 1))
+    +rem('width', nth($values, 1))
+    +rem('height', nth($values, 1))
 
-=square-block($square-block-size: 10px, $square-block-height: null, $square-block-line-height: null)
+=square-block($values)
+  $square-block-size: optional_nth($values, 1)
+  $square-block-height: optional_nth($values, 2)
+  $square-block-line-height: optional_nth($values, 3)
   +rem('width', $square-block-size)
-  @if $square-block-height
-    +rem('height', $square-block-height)
-  @else
-    +rem('height', $square-block-size)
+  +rem('height', if($square-block-height, $square-block-height, $square-block-size))
   @if $square-block-line-height
     +rem('line-height', $square-block-line-height)
   @else if $square-block-height

@@ -4,7 +4,7 @@
   $tale-color: optional_nth($tale, 2)
   $tale-width: optional_nth($tale, 3)
   $tale-height: optional_nth($tale, 4)
-  $parent-boder-width: if(length($tale) >= 5, nth($tale, 5), 0)
+  $parent-boder-width: optional_nth($tale, 5, 0)
   //$tale-position-manual
   $tale-position-manual-direction1: optional_nth($tale-position-manual, 1)
   $tale-position-manual-value1: optional_nth($tale-position-manual, 2)
