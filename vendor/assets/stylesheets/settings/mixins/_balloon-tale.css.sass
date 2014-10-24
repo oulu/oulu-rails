@@ -28,17 +28,18 @@
         left: 50%
         +rem('margin-left', $tale-width*-1)
       +rem($tale-direction, $tale-height*-1*2 - if($tale-border, 0, $parent-boder-width))
-      $tale-position-manuals: ($tale-position-manual-direction1: $tale-position-manual-value1, $tale-position-manual-direction2: $tale-position-manual-value2)
-      @each $key, $value in $tale-position-manuals
-        @if position_horizontal($key)
-          // manual が left or right の場合
-          +rem($key, $value - if($tale-border, 0, $parent-boder-width))
-        @else if $tale-direction == $key
-          // 矢印の向きと manual で指定する方向が同じ場合
-          +rem($key, $value - $tale-height - if($tale-border, 0, $parent-boder-width))
-        @else if reverse($tale-direction) == $key
-          // 上向き矢印 で manual が bottom の場合 or 下向き矢印 で manual が top の場合
-          +rem($key, $value - if($tale-border, 0, $parent-boder-width))
+      @if $tale-position-manual
+        $tale-position-manuals: ($tale-position-manual-direction1: $tale-position-manual-value1, $tale-position-manual-direction2: $tale-position-manual-value2)
+        @each $key, $value in $tale-position-manuals
+          @if position_horizontal($key)
+            // manual が left or right の場合
+            +rem($key, $value - if($tale-border, 0, $parent-boder-width))
+          @else if $tale-direction == $key
+            // 矢印の向きと manual で指定する方向が同じ場合
+            +rem($key, $value - $tale-height - if($tale-border, 0, $parent-boder-width))
+          @else if reverse($tale-direction) == $key
+            // 上向き矢印 で manual が bottom の場合 or 下向き矢印 で manual が top の場合
+            +rem($key, $value - if($tale-border, 0, $parent-boder-width))
     @if position_horizontal($tale-direction)
       // 矢印の向きが左右
       @if not $tale-position-manual or (length($tale-position-manual) == 2 and position_horizontal($tale-position-manual-direction1))
@@ -46,17 +47,18 @@
         top: 50%
         +rem('margin-top', $tale-height*-1)
       +rem($tale-direction, $tale-width*-1*2 - if($tale-border, 0, $parent-boder-width))
-      $tale-position-manuals: ($tale-position-manual-direction1: $tale-position-manual-value1, $tale-position-manual-direction2: $tale-position-manual-value2)
-      @each $key, $value in $tale-position-manuals
-        @if position_vertical($key)
-          // manual が top or bottom の場合
-          +rem($key, $value)
-        @else if $tale-direction == $key
-          // 矢印の向きと manual で指定する方向が同じ場合
-          +rem($key, $value - $tale-width - if($tale-border, 0, $parent-boder-width))
-        @else if reverse($tale-direction) == $key
-          // 左向き矢印 で manual が right の場合 or 右向き矢印 で manual が left の場合
-          +rem($key, $value - if($tale-border, 0, $parent-boder-width))
+      @if $tale-position-manual
+        $tale-position-manuals: ($tale-position-manual-direction1: $tale-position-manual-value1, $tale-position-manual-direction2: $tale-position-manual-value2)
+        @each $key, $value in $tale-position-manuals
+          @if position_vertical($key)
+            // manual が top or bottom の場合
+            +rem($key, $value)
+          @else if $tale-direction == $key
+            // 矢印の向きと manual で指定する方向が同じ場合
+            +rem($key, $value - $tale-width - if($tale-border, 0, $parent-boder-width))
+          @else if reverse($tale-direction) == $key
+            // 左向き矢印 で manual が right の場合 or 右向き矢印 で manual が left の場合
+            +rem($key, $value - if($tale-border, 0, $parent-boder-width))
 
   @if $tale-border
     // tale border があるとき - 以下 tale-border の設定
@@ -75,17 +77,18 @@
           left: 50%
           +rem('margin-left', $tale-width*-1 - $tale-border-width)
         +rem($tale-direction, $tale-height*-1*2 - $tale-border-width*2)
-        $tale-position-manuals: ($tale-position-manual-direction1: $tale-position-manual-value1, $tale-position-manual-direction2: $tale-position-manual-value2)
-        @each $key, $value in $tale-position-manuals
-          @if position_horizontal($key)
-            // manual が left or right の場合
-            +rem($key, $value - $tale-border-width)
-          @else if $tale-direction == $key
-            // 矢印の向きと manual で指定する方向が同じ場合
-            +rem($key, $value - $tale-height - $tale-border-width*2)
-          @else if reverse($tale-direction) == $key
-            // 上向き矢印 で manual が bottom の場合 or 下向き矢印 で manual が top の場合
-            +rem($key, $value)
+        @if $tale-position-manual
+          $tale-position-manuals: ($tale-position-manual-direction1: $tale-position-manual-value1, $tale-position-manual-direction2: $tale-position-manual-value2)
+          @each $key, $value in $tale-position-manuals
+            @if position_horizontal($key)
+              // manual が left or right の場合
+              +rem($key, $value - $tale-border-width)
+            @else if $tale-direction == $key
+              // 矢印の向きと manual で指定する方向が同じ場合
+              +rem($key, $value - $tale-height - $tale-border-width*2)
+            @else if reverse($tale-direction) == $key
+              // 上向き矢印 で manual が bottom の場合 or 下向き矢印 で manual が top の場合
+              +rem($key, $value)
       @if position_horizontal($tale-direction)
         // 矢印の向きが左右
         @if not $tale-position-manual or (length($tale-position-manual) == 2 and position_horizontal($tale-position-manual-direction1))
@@ -93,14 +96,15 @@
           top: 50%
           +rem('margin-top', $tale-height*-1 - $tale-border-width)
         +rem($tale-direction, $tale-width*-1*2 - $tale-border-width*2)
-        $tale-position-manuals: ($tale-position-manual-direction1: $tale-position-manual-value1, $tale-position-manual-direction2: $tale-position-manual-value2)
-        @each $key, $value in $tale-position-manuals
-          @if position_vertical($key)
-            // manual が top or bottom の場合
-            +rem($key, $value - $tale-border-width)
-          @else if $tale-direction == $key
-            // 矢印の向きと manual で指定する方向が同じ場合
-            +rem($key, $value - $tale-width - $tale-border-width*2)
-          @else if reverse($tale-direction) == $key
-            // 左向き矢印 で manual が right の場合 or 右向き矢印 で manual が left の場合
-            +rem($key, $value)
+        @if $tale-position-manual
+          $tale-position-manuals: ($tale-position-manual-direction1: $tale-position-manual-value1, $tale-position-manual-direction2: $tale-position-manual-value2)
+          @each $key, $value in $tale-position-manuals
+            @if position_vertical($key)
+              // manual が top or bottom の場合
+              +rem($key, $value - $tale-border-width)
+            @else if $tale-direction == $key
+              // 矢印の向きと manual で指定する方向が同じ場合
+              +rem($key, $value - $tale-width - $tale-border-width*2)
+            @else if reverse($tale-direction) == $key
+              // 左向き矢印 で manual が right の場合 or 右向き矢印 で manual が left の場合
+              +rem($key, $value)
