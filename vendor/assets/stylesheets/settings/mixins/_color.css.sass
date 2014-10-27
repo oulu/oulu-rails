@@ -1,0 +1,9 @@
+=rgba($foreground, $backdrop: white, $property: "background-color")
+  #{$property}: mix(fade-in($foreground, 1), $backdrop, percentage(opacity($foreground)))
+  // Browsers without color opacity
+  #{$property}: $foreground
+  // Decent browsers
+  #{$property}: mix(fade-in($foreground, 1), $backdrop, percentage(opacity($foreground)))\9
+  // IE8
+  @if $property == "background-color"
+    +rgba-background($foreground)
