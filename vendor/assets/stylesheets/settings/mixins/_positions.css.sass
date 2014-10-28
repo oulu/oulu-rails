@@ -1,25 +1,22 @@
-=position-list($value1, $value2, $value3)
-  @if length($value1) == 2
-    #{nth($value1, 1)}: nth($value1, 2)
-  @else
-    z-index: nth($value1, 1)
-  @if length($value2) == 2
-    #{nth($value2, 1)}: nth($value2, 2)
-  @else
-    z-index: nth($value2, 1)
-  z-index: $value3
+=position-list($value1, $value2, $value3, $value4, $value5)
+  $values: $value1 $value2 $value3 $value4 $value5
+  @each $value in $values
+    @if optional_nth($value, 2)
+      #{nth($value, 1)}: nth($value, 2)
+    @else
+      z-index: nth($value, 1)
 
-=absolute($value1: null, $value2: null, $value3: null)
+=absolute($value1: null, $value2: null, $value3: null, $value4: null, $value5: null)
   position: absolute
-  +position-list($value1, $value2, $value3)
+  +position-list($value1, $value2, $value3, $value4, $value5)
 
-=fixed($value1: null, $value2: null, $value3: null)
+=fixed($value1: null, $value2: null, $value3: null, $value4: null, $value5: null)
   position: fixed
-  +position-list($value1, $value2, $value3)
+  +position-list($value1, $value2, $value3, $value4, $value5)
 
-=relative($value1: null, $value2: null, $value3: null)
+=relative($value1: null, $value2: null, $value3: null, $value4: null, $value5: null)
   position: relative
-  +position-list($value1, $value2, $value3)
+  +position-list($value1, $value2, $value3, $value4, $value5)
 
 =top($position-value, $z-index: null)
   +relative(top $position-value, $z-index)
