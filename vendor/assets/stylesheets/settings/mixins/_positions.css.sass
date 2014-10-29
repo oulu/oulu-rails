@@ -2,7 +2,7 @@
   $values: $value1 $value2 $value3 $value4 $value5
   @each $value in $values
     @if optional_nth($value, 2)
-      #{nth($value, 1)}: nth($value, 2)
+      +rem(nth($value, 1), nth($value, 2))
     @else
       z-index: nth($value, 1)
 
