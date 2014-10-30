@@ -1,5 +1,5 @@
 =assign-border-position($border-position, $border-values)
-  border-#{$border-position}:
+  #{if($border-position, border-#{$border-position}, border)}:
     @for $i from 1 through length($border-values)
       @if border-width(nth($border-values, $i))
         +rem('width', nth($border-values, $i))
@@ -13,9 +13,7 @@
 =border($value1: null, $value2: null)
   @for $i from 1 through length($value1)
     @if all(nth($value1, $i))
-      $border-positions: $all
-      @each $border-position in $border-positions
-        +assign-border-position($border-position, $value2)
+      +assign-border-position(false, $value2)
     @else if vertical(nth($value1, $i))
       $border-positions: $vertical
       @each $border-position in $border-positions
@@ -25,5 +23,6 @@
       @each $border-position in $border-positions
         +assign-border-position($border-position, $value2)
     @else if four_direction(nth($value1, $i))
-      $border-position: nth($value1, $i)
-      +assign-border-position($border-position, $value2)
+      $border-positions: nth($value1, $i)
+      @each $border-position in $border-positions
+        +assign-border-position($border-position, $value2)

@@ -1,14 +1,3 @@
-=center-block($values)
-  $block-width: optional_nth($values, 1)
-  $block-height: optional_nth($values, 2)
-  $block-z-index: optional_nth($values, 3)
-  +rem('width', $block-width)
-  +rem('height', $block-height)
-  +fixed(left 50%, top 50%, $block-z-index)
-  +rem('margin-top', $block-height / 2 * -1)
-  +rem('margin-left', $block-width / 2 * -1)
-  +box-sizing(border-box)
-
 =size($values)
   @if equal_nth($values, 2)
     +rem('height', nth($values, 1))
@@ -16,6 +5,16 @@
   @else
     +rem('width', nth($values, 1))
     +rem('height', nth($values, 1))
+
+=center-block($values)
+  $block-width: optional_nth($values, 1)
+  $block-height: optional_nth($values, 2)
+  $block-z-index: optional_nth($values, 3)
+  +size($block-height $block-width)
+  +fixed(left 50%, top 50%, $block-z-index)
+  +rem('margin-top', $block-height / 2 * -1)
+  +rem('margin-left', $block-width / 2 * -1)
+  +box-sizing(border-box)
 
 =square-block($values)
   $square-block-size: optional_nth($values, 1)

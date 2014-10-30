@@ -1,85 +1,57 @@
-// horizontal
-// $horizontal: left right
-=horizontal-margin($margins: null)
-  @each $position in $horizontal
-    @if equal_nth($margins, 2)
-      @if $position == nth($horizontal, 1)
-        +rem('margin-#{$position}', nth($margins, 1))
+=margin($value1, $value2: null)
+  @if number(nth($value1, 1))
+    @if equal_nth($value1, 1)
+      +rem('margin', $value1)
+    @else if equal_nth($value1, 2)
+      +rem('margin-top', nth($value1, 1))
+      +rem('margin-bottom', nth($value1, 2))
+    @else if equal_nth($value1, 3)
+      +rem('margin-top', nth($value1, 1))
+      +rem('margin-bottom', nth($value1, 3))
+      +horizontal-margin(nth($value1, 2))
+    @else if equal_nth($value1, 4)
+      +rem('margin-top', nth($value1, 1))
+      +rem('margin-right', nth($value1, 2))
+      +rem('margin-bottom', nth($value1, 3))
+      +rem('margin-left', nth($value1, 4))
+  @else
+    @each $position in $value1
+      @if $position == 'all'
+        +rem('margin', $value2)
+      @else if $position == 'vertical'
+        +rem('margin-top', $value2)
+        +rem('margin-bottom', $value2)
+      @else if $position == 'horizontal'
+        +rem('margin-left', $value2)
+        +rem('margin-right', $value2)
       @else
-        +rem('margin-#{$position}', nth($margins, 2))
-    @else
-      +rem('margin-#{$position}', $margins)
+        +rem('margin-#{$position}', $value2)
 
-=horizontal-padding($paddings: null)
-  @each $position in $horizontal
-    @if length($paddings) == 2
-      @if $position == nth($horizontal, 1)
-        +rem('padding-#{$position}', nth($paddings, 1))
+=padding($value1: null, $value: null)
+  @if number(nth($value1, 1))
+    @if equal_nth($value1, 1)
+      +rem('padding', $value1)
+    @else if equal_nth($value1, 2)
+      +rem('padding-top', nth($value1, 1))
+      +rem('padding-bottom', nth($value1, 2))
+    @else if equal_nth($value1, 3)
+      +rem('padding-top', nth($value1, 1))
+      +rem('padding-bottom', nth($value1, 3))
+      +horizontal-padding(nth($value1, 2))
+    @else if equal_nth($value1, 4)
+      +rem('padding-top', nth($value1, 1))
+      +rem('padding-right', nth($value1, 2))
+      +rem('padding-bottom', nth($value1, 3))
+      +rem('padding-left', nth($value1, 4))
+  @else
+    @each $position in $value1
+      @if $position == 'all'
+        +rem('padding', $value)
+      @else if $position == 'vertical'
+        +rem('padding-top', $value)
+        +rem('padding-bottom', $value)
+      @else if $position == 'horizontal'
+        +rem('padding-left', $value)
+        +rem('padding-right', $value)
       @else
-        +rem('padding-#{$position}', nth($paddings, 2))
-    @else
-      +rem('padding-#{$position}', $paddings)
-
-=horizontal-margin-auto($margins: null)
-  +horizontal-margin(auto)
-  @if equal_nth($margins, 2)
-    +rem('margin-top', nth($margins, 1))
-    +rem('margin-bottom', nth($margins, 2))
-  @else if equal_nth($margins, 1)
-    +rem('margin-top', nth($margins, 1))
-    +rem('margin-bottom', nth($margins, 1))
-
-
-// vertical
-// $vertical: top bottom
-=vertical-margin($margins: null)
-  @each $position in $vertical
-    @if list($margins)
-      @if $position == nth($horizontal, 1)
-        +rem('margin-#{$position}', nth($margins, 1))
-      @else
-        +rem('margin-#{$position}', nth($margins, 2))
-    @else
-      +rem('margin-#{$position}', $margins)
-
-=vertical-padding($paddings: null)
-  @each $position in $vertical
-    @if list($paddings)
-      @if $position == nth($horizontal, 1)
-        +rem('padding-#{$position}', nth($paddings, 1))
-      @else
-        +rem('padding-#{$position}', nth($paddings, 2))
-    @else
-      +rem('padding-#{$position}', $paddings)
-
-=margin($margins: null)
-  @if equal_nth($margins, 1)
-    +rem('margin', $margins)
-  @else if equal_nth($margins, 2)
-    +rem('margin-top', nth($margins, 1))
-    +rem('margin-bottom', nth($margins, 2))
-  @else if equal_nth($margins, 3)
-    +rem('margin-top', nth($margins, 1))
-    +rem('margin-bottom', nth($margins, 3))
-    +horizontal-margin(nth($margins, 2))
-  @else if equal_nth($margins, 4)
-    +rem('margin-top', nth($margins, 1))
-    +rem('margin-right', nth($margins, 2))
-    +rem('margin-bottom', nth($margins, 3))
-    +rem('margin-left', nth($margins, 4))
-
-=padding($paddings: null)
-  @if equal_nth($paddings, 1)
-    +rem('padding', $paddings)
-  @else if equal_nth($paddings, 2)
-    +rem('padding-top', nth($paddings, 1))
-    +rem('padding-bottom', nth($paddings, 2))
-  @else if equal_nth($paddings, 3)
-    +rem('padding-top', nth($paddings, 1))
-    +rem('padding-bottom', nth($paddings, 3))
-    +horizontal-padding(nth($paddings, 2))
-  @else if equal_nth($paddings, 4)
-    +rem('padding-top', nth($paddings, 1))
-    +rem('padding-right', nth($paddings, 2))
-    +rem('padding-bottom', nth($paddings, 3))
-    +rem('padding-left', nth($paddings, 4))
+        +rem('padding-#{$position}', $value)

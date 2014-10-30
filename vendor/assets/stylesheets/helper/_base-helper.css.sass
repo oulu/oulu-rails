@@ -1,8 +1,8 @@
 .#{$wrapper-class-name}
   +rem('max-width', $wrapper-max-width)
   +box-sizing(border-box)
-  +horizontal-margin(auto)
-  +horizontal-padding($wrapper-horizontal-padding)
+  +margin(horizontal, auto)
+  +padding(horizontal, $wrapper-horizontal-padding)
   clear: both
 
 // state
@@ -75,14 +75,14 @@ body
 
 // layout
 .is-center-block
-  +horizontal-margin(auto)
+  +margin(horizontal, auto)
   display: block
 .is-center
   display: block
-  +horizontal-margin(auto)
+  +margin(horizontal, auto)
 .is-horizontal-center
   display: block
-  +horizontal-margin(auto)
+  +margin(horizontal, auto)
 
 // vertical
 .is-vertical-center
