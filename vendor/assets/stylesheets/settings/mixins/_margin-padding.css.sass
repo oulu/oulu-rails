@@ -14,6 +14,12 @@
       +rem('margin-right', nth($value1, 2))
       +rem('margin-bottom', nth($value1, 3))
       +rem('margin-left', nth($value1, 4))
+  @else if length($value1) == 1 and nth($value1, 1) == 'vertical'
+    +rem('margin-top', if(list($value2), nth($value2, 1), $value2))
+    +rem('margin-bottom', if(list($value2),nth($value2, 2), $value2))
+  @else if length($value1) == 1 and nth($value1, 1) == 'horizontal'
+    +rem('margin-left', if(list($value2), nth($value2, 1), $value2))
+    +rem('margin-right', if(list($value2),nth($value2, 2), $value2))
   @else
     @each $position in $value1
       @if $position == 'all'
@@ -27,7 +33,7 @@
       @else
         +rem('margin-#{$position}', $value2)
 
-=padding($value1: null, $value: null)
+=padding($value1: null, $value2: null)
   @if number(nth($value1, 1)) or nth($value1, 1) == 'auto'
     @if equal_nth($value1, 1)
       +rem('padding', $value1)
@@ -43,15 +49,21 @@
       +rem('padding-right', nth($value1, 2))
       +rem('padding-bottom', nth($value1, 3))
       +rem('padding-left', nth($value1, 4))
+  @else if length($value1) == 1 and nth($value1, 1) == 'vertical'
+    +rem('padding-top', if(list($value2), nth($value2, 1), $value2))
+    +rem('padding-bottom', if(list($value2),nth($value2, 2), $value2))
+  @else if length($value1) == 1 and nth($value1, 1) == 'horizontal'
+    +rem('padding-left', if(list($value2), nth($value2, 1), $value2))
+    +rem('padding-right', if(list($value2),nth($value2, 2), $value2))
   @else
     @each $position in $value1
       @if $position == 'all'
-        +rem('padding', $value)
+        +rem('padding', $value2)
       @else if $position == 'vertical'
-        +rem('padding-top', $value)
-        +rem('padding-bottom', $value)
+        +rem('padding-top', $value2)
+        +rem('padding-bottom', $value2)
       @else if $position == 'horizontal'
-        +rem('padding-left', $value)
-        +rem('padding-right', $value)
+        +rem('padding-left', $value2)
+        +rem('padding-right', $value2)
       @else
-        +rem('padding-#{$position}', $value)
+        +rem('padding-#{$position}', $value2)
