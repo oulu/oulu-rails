@@ -1,5 +1,5 @@
 =margin($value1, $value2: null)
-  @if number(nth($value1, 1))
+  @if number(nth($value1, 1)) or nth($value1, 1) == 'auto'
     @if equal_nth($value1, 1)
       +rem('margin', $value1)
     @else if equal_nth($value1, 2)
@@ -8,7 +8,7 @@
     @else if equal_nth($value1, 3)
       +rem('margin-top', nth($value1, 1))
       +rem('margin-bottom', nth($value1, 3))
-      +horizontal-margin(nth($value1, 2))
+      +margin(horizontal, nth($value1, 2))
     @else if equal_nth($value1, 4)
       +rem('margin-top', nth($value1, 1))
       +rem('margin-right', nth($value1, 2))
@@ -28,7 +28,7 @@
         +rem('margin-#{$position}', $value2)
 
 =padding($value1: null, $value: null)
-  @if number(nth($value1, 1))
+  @if number(nth($value1, 1)) or nth($value1, 1) == 'auto'
     @if equal_nth($value1, 1)
       +rem('padding', $value1)
     @else if equal_nth($value1, 2)
@@ -37,7 +37,7 @@
     @else if equal_nth($value1, 3)
       +rem('padding-top', nth($value1, 1))
       +rem('padding-bottom', nth($value1, 3))
-      +horizontal-padding(nth($value1, 2))
+      +padding(horizontal, nth($value1, 2))
     @else if equal_nth($value1, 4)
       +rem('padding-top', nth($value1, 1))
       +rem('padding-right', nth($value1, 2))
