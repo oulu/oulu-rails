@@ -8,14 +8,6 @@
       @return 'right'
     @else if $value == 'right'
       @return 'left'
-    @else if $value == 'bold'
-      @return 'normal'
-    @else if $value == 'normal'
-      @return 'bold'
-    @else if $value == 'italic'
-      @return 'normal'
-    @else if $value == 'oblique'
-      @return 'normal'
   @else if number($value)
     @if unit($value) == '%'
       @return (100 - $value)
@@ -27,4 +19,4 @@
     @else if $value == false
       @return true
   @else if color($value)
-    @return complement($value)
+    @return invert($value)
