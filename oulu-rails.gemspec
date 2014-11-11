@@ -6,7 +6,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["machida@fjord.jp"]
   gem.description   = %q{Sass tools for machida}
   gem.summary       = %q{Sass tools for machida}
-  gem.homepage      = "http://fjord.jp"
+  gem.homepage      = "http://oulu.github.io/"
 
   gem.files         = Dir["{lib,vendor}/**/*"] + ["MIT-LICENSE", "README.md"]
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
