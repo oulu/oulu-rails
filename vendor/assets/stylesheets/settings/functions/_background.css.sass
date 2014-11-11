@@ -22,7 +22,7 @@
   @if string($value)
     @if $value == 'auto' or $value == 'contain' or $value == 'cover'
       @return true
-    @else if str-slice($value, 2)== 'auto' or $value == 'contain' or $value == 'cover'
+    @else if str-slice($value, 2) == 'auto' or $value == 'contain' or $value == 'cover'
       @return true
     @else
       @return null
@@ -36,11 +36,8 @@
     @return null
 
 @function background_repeat($value)
-  @if string($value)
-    @if $value == 'no-repeat' or $value == 'repeat' or $value == 'repeat-x' or $value == 'repeat-y'
-      @return true
-    @else
-      @return null
+  @if $value == 'no-repeat' or $value == 'repeat' or $value == 'repeat-x' or $value == 'repeat-y'
+    @return true
   @else
     @return null
 
@@ -51,10 +48,7 @@
     @return null
 
 @function background-image($value)
-  @if string($value)
-    @if image($value)
-      @return true
-    @else
-      @return null
+  @if image($value)
+    @return true
   @else
     @return null

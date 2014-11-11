@@ -48,12 +48,12 @@ $ruma-threshold: 100 / pi() !default
     @return null
 
 @function luma_contrast_color($color)
-  $bright-color: #ffffff !default
-  $dark-color: #000000 !default
-  @if luma_contrast($color) == bright
-    @return $bright-color
+  $luma-contrast-bright-color: #000000 !default
+  $luma-contrast-dark-color: #ffffff !default
+  @if luma_which($color) == bright
+    @return $luma-contrast-bright-color
   @else
-    @return $dark-color
+    @return $luma-contrast-dark-color
 
 @function luma_add_contrast($background-color, $candidate-color)
   @if luma_contrast($background-color, $candidate-color)

@@ -1,8 +1,8 @@
 @function image($value)
   @if string($value)
-    @if number(str-index($value, '.jpg')) or number(str-index($value, '.png')) or number(str-index($value, '.gif')) or number(str-index($value, '.svg'))
-      @return true
-    @else
-      @return null
+    $image-extensions: '.jpg' '.jpeg' '.gif' '.png' '.tiff' '.tif'
+    @each $image-extension in $image-extensions
+      @if number(str-index(to-lower-case($value), $image-extension))
+        @return true
   @else
     @return null
