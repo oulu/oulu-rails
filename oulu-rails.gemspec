@@ -4,8 +4,8 @@ require File.expand_path('../lib/oulu-rails/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.authors       = ["machida"]
   gem.email         = ["machida@fjord.jp"]
-  gem.description   = %q{Sass tools for machida}
-  gem.summary       = %q{Sass tools for machida}
+  gem.description   = %q{A mixin library for Sass.}
+  gem.summary       = %q{A mixin library for Sass.}
   gem.homepage      = "http://oulu.github.io/"
 
   gem.files         = Dir["{lib,vendor}/**/*"] + ["MIT-LICENSE", "README.md"]

@@ -2,7 +2,9 @@
   @if string($value)
     $image-extensions: '.jpg' '.jpeg' '.gif' '.png' '.tiff' '.tif'
     @each $image-extension in $image-extensions
-      @if number(str-index(to-lower-case($value), $image-extension))
+      @if number(str-index(to-lower-case($value), if'.jpg')) or number(str-index(to-lower-case($value), '.jpeg')) or number(str-index(to-lower-case($value), '.gif')) or number(str-index(to-lower-case($value), '.png')) or number(str-index(to-lower-case($value), '.tiff')) or number(str-index(to-lower-case($value), '.tif')) or number(str-index(to-lower-case($value), '.bmp')) or number(str-index(to-lower-case($value), '.pct')) or number(str-index(to-lower-case($value), '.jpe')) or number(str-index(to-lower-case($value), '.jfif')) or number(str-index(to-lower-case($value), '.dib'))
         @return true
+      @else
+        @return null
   @else
     @return null
