@@ -4,6 +4,24 @@
   @else
     @return null
 
+@function number_list($values)
+  @if list($values)
+    @each $value in $values
+      @if number($value)
+        @return true
+      @else
+        @return null
+  @else
+    @return null
+
+@function optional_number_list($values)
+  @if type-of($values) == number
+    @return true
+  @else if number_list($values)
+    @return true
+  @else
+    @return null
+
 @function odd($number)
   @if ceil($number/2) != $number/2
     @return true

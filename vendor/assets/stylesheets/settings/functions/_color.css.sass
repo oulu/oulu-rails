@@ -4,6 +4,24 @@
   @else
     @return null
 
+@function color_list($values)
+  @if list($values)
+    @each $value in $values
+      @if color($value)
+        @return true
+      @else
+        @return null
+  @else
+    @return null
+
+@function optional_color_list($values)
+  @if color($values)
+    @return true
+  @else if color_list($values)
+    @return true
+  @else
+    @return null
+
 @function luma($color)
   // Adapted from: https://gist.github.com/voxpelli/6304812
   $rgba: red($color), green($color), blue($color)
