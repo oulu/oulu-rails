@@ -1,16 +1,42 @@
 =reset-margin($directions: all)
   @if $directions == 'all'
     margin: 0
+  @else if $directions == 'horizontal'
+    margin-left: 0
+    margin-right: 0
+  @else if $directions == 'vertical'
+    margin-top: 0
+    margin-bottom: 0
   @else
     @each $direction in $directions
-      margin-#{$direction}: 0
+      @if $direction == 'horizontal'
+        margin-left: 0
+        margin-right: 0
+      @else if $direction == 'vertical'
+        margin-top: 0
+        margin-bottom: 0
+      @else
+        margin-#{$direction}: 0
 
 =reset-padding($directions: all)
   @if $directions == 'all'
     padding: 0
+  @else if $directions == 'horizontal'
+    padding-left: 0
+    padding-right: 0
+  @else if $directions == 'vertical'
+    padding-top: 0
+    padding-bottom: 0
   @else
     @each $direction in $directions
-      padding-#{$direction}: 0
+      @if $direction == 'horizontal'
+        padding-left: 0
+        padding-right: 0
+      @else if $direction == 'vertical'
+        padding-top: 0
+        padding-bottom: 0
+      @else
+        padding-#{$direction}: 0
 
 =reset-text
   margin: 0

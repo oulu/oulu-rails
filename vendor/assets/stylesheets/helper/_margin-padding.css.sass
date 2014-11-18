@@ -1,16 +1,38 @@
-@for $i from 0 through 16
-  body
+body
+  @for $i from 0 through 16
+    .is-margin-bottom-#{$i*4}
+      +rem('margin-bottom', #{$i*4}px)
+    .is-margin-top-#{$i*4}
+      +rem('margin-top', #{$i*4}px)
+    .is-margin-left-#{$i*4}
+      +rem('margin-left', #{$i*4}px)
+    .is-margin-right-#{$i*4}
+      +rem('margin-right', #{$i*4}px)
+    .is-margin-horizontal-#{$i*4}
+      +margin(horizontal, #{$i*4}px)
+    .is-padding-bottom-#{$i*4}
+      +rem('padding-bottom', #{$i*4}px)
+    .is-padding-top-#{$i*4}
+      +rem('padding-top', #{$i*4}px)
+    .is-padding-left-#{$i*4}
+      +rem('padding-left', #{$i*4}px)
+    .is-padding-right-#{$i*4}
+      +rem('padding-right', #{$i*4}px)
+
+    // will delete next ver
     .is-mgb-#{$i*4}
       +rem('margin-bottom', #{$i*4}px)
-
-  body
     .is-mgt-#{$i*4}
       +rem('margin-top', #{$i*4}px)
-
-  body
+    .is-mgl-#{$i*4}
+      +rem('margin-left', #{$i*4}px)
+    .is-mgr-#{$i*4}
+      +rem('margin-right', #{$i*4}px)
     .is-pdb-#{$i*4}
       +rem('padding-bottom', #{$i*4}px)
-
-  body
     .is-pdt-#{$i*4}
       +rem('padding-top', #{$i*4}px)
+    .is-pdl-#{$i*4}
+      +rem('padding-left', #{$i*4}px)
+    .is-pdr-#{$i*4}
+      +rem('padding-right', #{$i*4}px)
