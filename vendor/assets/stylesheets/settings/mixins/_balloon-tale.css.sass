@@ -28,7 +28,10 @@
         // manual が 一つだけ指定 上下方向 の場合
         left: 50%
         +rem('margin-left', $tale-width*-1)
-      +rem($tale-direction, $tale-height*-1*2 - if($tale-border, 0, $parent-boder-width))
+      @if $tale-direction == top
+        +rem($tale-direction, $tale-height*-1*2 + $parent-boder-width)
+      @else
+        +rem($tale-direction, $tale-height*-1*2 + $parent-boder-width*2)
       @if $tale-position-manual
         $tale-position-manuals: ($tale-position-manual-direction1: $tale-position-manual-value1, $tale-position-manual-direction2: $tale-position-manual-value2)
         @each $key, $value in $tale-position-manuals
@@ -77,7 +80,10 @@
           // manual が 一つだけ指定 上下方向 の場合
           left: 50%
           +rem('margin-left', $tale-width*-1 - $tale-border-width)
-        +rem($tale-direction, $tale-height*-1*2 - $tale-border-width*2)
+        @if $tale-direction == top
+          +rem($tale-direction, $tale-height*-1*2 - $tale-border-width*1.5)
+        @else
+          +rem($tale-direction, $tale-height*-1*2 - $tale-border-width)
         @if $tale-position-manual
           $tale-position-manuals: ($tale-position-manual-direction1: $tale-position-manual-value1, $tale-position-manual-direction2: $tale-position-manual-value2)
           @each $key, $value in $tale-position-manuals
