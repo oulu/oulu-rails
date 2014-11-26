@@ -16,30 +16,10 @@
   font-weight: bold
   @if $text-rendering
     text-rendering: optimizelegibility
+    font-style: italic
 
 =serif($text-rendering: true)
   font-family: $basic-serif
   *font-family: $basic-legacy-ie-sans-serif
   @if $text-rendering
     text-rendering: optimizelegibility
-
-=is-ja
-  &.is-ja
-    @content
-
-=is-bold-ja
-  &.is-bold-ja
-    @content
-
-=webfont-ja-sans-selif
-  @if $fw == 'bold' or $fw > 500
-    +is-bold-ja
-      +basic-bold-font
-  @else
-    +is-ja
-      +basic-font
-
-=clear-type
-  +transform-origin(0, 0)
-  +scale(1, 1.01)
-  -ms-transform: scale(1, 1.02)
