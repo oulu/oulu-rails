@@ -7,8 +7,8 @@
     +rem('height', nth($values, 1))
 
 =center-block($values)
-  $block-width: optional_nth($values, 1)
-  $block-height: optional_nth($values, 2)
+  $block-height: optional_nth($values, 1)
+  $block-width: optional_nth($values, 2)
   $block-z-index: optional_nth($values, 3)
   +size($block-height $block-width)
   +fixed(left 50%, top 50%, $block-z-index)
