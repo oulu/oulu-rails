@@ -4,6 +4,12 @@
   @else
     @return null
 
+@function vertical_align($value)
+  @if $value == "baseline" or $value == "top" or $value == "middle" or $value == "bottom" or $value == "text-top" or $value == "text-bottom" or $value == "super" or $value == "sub" or $value == "sub"
+    @return true
+  @else
+    @return null
+
 @function font_weight($value)
   @if $value == "bold" or $value == "normal"
     @return true
@@ -29,6 +35,12 @@
 
 @function list_style_position($value)
   @if $value == "outside" or $value == "inside"
+    @return true
+  @else
+    @return null
+
+@function white_space($value)
+  @if $value == "normal" or $value == "pre" or $value == "nowrap"
     @return true
   @else
     @return null

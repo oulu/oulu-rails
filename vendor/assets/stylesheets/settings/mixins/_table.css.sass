@@ -1,14 +1,30 @@
-=table($margin-bottom: 24px, $table-scroll: null)
-  min-width: 100%
-  +rem('margin-bottom', $margin-bottom)
-  @if $table-scroll
-    min-width: 100%
-  @else
-    width: 100%
-
-=table-cell($vertical-align: middle, $padding: 8px 12px, $is-nowrap: null)
+=table-cell-assign($value)
+  $padding: if(list($value), if(unit_number(nth($value, 1)), $value, null), if(unit_number($value), $value, null))
+  white-space: if(white_space($value), $value, null)
+  background-color: if(color($value), $value, null)
+  vertical-align: if(vertical_align($value), $value, null)
   +rem('padding', $padding)
-  vertical-align: $vertical-align
+
+// +table-row($white #eeeeee, (bottom, solid 1px black))
+=table-row($value1, $value2)
+  @if $value1
+    @if list($value1)
+      &:nth-child(odd)
+        background-color: nth($value1, 1)
+      &:nth-child(even)
+        background-color: nth($value1, 2)
+    @else if color($value1)
+      background-color: nth($value1, 1)
+  @if $value2
+    +border(nth($value2, 1), nth($value2, 2))
+
+// +table-cell(middle (12px 16px) no_wrap $white, (14px 1.8 1.4em, black bold center), (bottom, solid 1px black))
+=table-cell($value1, $value2, $value3)
   +box-sizing(border-box)
-  @if $is-nowrap
-    white-space: nowrap
+  @if $value1
+    @for $i from 1 through length($value1)
+      +table-cell-assign(nth($value1, $i))
+  @if $value2
+    +text-block(nth($value2, 1), optional_nth($value2, 2, false))
+  @if $value3
+    +border(nth($value3, 1), nth($value3, 2))

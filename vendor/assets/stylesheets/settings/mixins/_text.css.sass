@@ -3,6 +3,7 @@
   font-weight: if(font_weight($value), $value, null)
   text-align: if(text_align($value), $value, null)
   color: if(color($value), $value, null)
+  white-space: if(white_space($value), $value, null)
   @if px($value)
     +top($value, null)
 

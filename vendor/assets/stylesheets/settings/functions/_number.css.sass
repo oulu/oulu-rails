@@ -40,6 +40,12 @@
   @if number($number)
     @return $number / ($number * 0 + 1)
 
+@function unit_number($value)
+  @if number($value) and not unitless($value)
+    @return true
+  @else
+    @return null
+
 @function unitless_number($value)
   @if number($value) and unitless($value)
     @return true
