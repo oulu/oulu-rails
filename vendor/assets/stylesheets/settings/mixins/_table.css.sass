@@ -1,12 +1,15 @@
 =table-cell-assign($value)
-  $padding: if(list($value), if(unit_number(nth($value, 1)), $value, null), if(unit_number($value), $value, null))
+  @if list($value)
+    @if unit_number(nth($value, 1))
+      +rem('padding', $value)
+    @if direction(nth($value, 1))
+      +padding(nth($value, 1), nth($value, 2))
   white-space: if(white_space($value), $value, null)
   background-color: if(color($value), $value, null)
   vertical-align: if(vertical_align($value), $value, null)
-  +rem('padding', $padding)
 
 // +table-row($white #eeeeee, (bottom, solid 1px black))
-=table-row($value1, $value2)
+=table-row($value1: nul, $value2: nul)
   @if $value1
     @if list($value1)
       &:nth-child(odd)
@@ -19,7 +22,7 @@
     +border(nth($value2, 1), nth($value2, 2))
 
 // +table-cell(middle (12px 16px) no_wrap $white, (14px 1.8 1.4em, black bold center), (bottom, solid 1px black))
-=table-cell($value1, $value2, $value3)
+=table-cell($value1: null, $value2: null, $value3: null)
   +box-sizing(border-box)
   @if $value1
     @for $i from 1 through length($value1)

@@ -1,0 +1,90 @@
+@function time($value)
+  @if unit_number($value) and unit($value) == 's'
+    @return ture
+  @else
+    @return null
+
+@function timing_function($value)
+  @if string($value)
+    @if $value == 'ease' or $value == 'linear' or $value == 'ease-in' or $value == 'ease-out' or $value == 'ease-in-out' or str-slice($value, 1, 12) == 'cubic-bezier'
+      @return ture
+    @else
+      @return null
+  @else
+    @return null
+
+@function delay($value)
+  @if string($value) and str-slice($value, 1, 1) == '/' and str-slice($value, -1, -1) == 's'
+    @return str-slice($value, 2)
+  @else
+    @return null
+
+//////////////////
+// transition
+//////////////////
+
+@function transition_duration($value)
+  @return time($value)
+
+@function transition_timing_function($value)
+  @return timing_function($value)
+
+@function transition_delay($value)
+  @return delay($value)
+
+@function transition-property($value)
+  @if string($value)
+    @if not transition_timing_function($value) or not transition_duration($value) or not transition_delay($value)
+      @return ture
+    @else
+      @return null
+  @else if list($value)
+    @return ture
+  @else
+    @return null
+
+//////////////////
+// animation
+//////////////////
+
+@function animation_duration($value)
+  @return time($value)
+
+@function animation_timing_function($value)
+  @return timing_function($value)
+
+@function animation_delay($value)
+  @return delay($value)
+
+@function animation_iteration_count($value)
+  @if unitless_number($value) or (string($value) and $value == 'infinite')
+    @return ture
+  @else
+    @return null
+
+@function animation_direction($value)
+  @if string($value) and ($value == 'normal' or $value == 'alternate')
+    @return ture
+  @else
+    @return null
+
+@function animation_fill_mode($value)
+  @if string($value) and ($value == 'nonel' or $value == 'forwards' or $value == 'backwards' or $value == 'both')
+    @return ture
+  @else
+    @return null
+
+@function animation_play_state($value)
+  @if string($value) and ($value == 'running' or $value == 'paused')
+    @return ture
+  @else
+    @return null
+
+@function animation_name($value)
+  @if string($value)
+    @if not animation_timing_function($value) or not animation_duration($value) or not animation_iteration_count($value) or not animation_direction($value) or not animation_fill_mode($value) or not animation_play_state($value)
+      @return ture
+    @else
+      @return null
+  @else
+    @return null

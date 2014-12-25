@@ -23,7 +23,7 @@
     @if $value == 'auto' or $value == 'contain' or $value == 'cover'
       @return true
     @else if str-slice($value, 2) == 'auto' or $value == 'contain' or $value == 'cover'
-      @return true
+      @return $value
     @else
       @return null
   @else if list($value)

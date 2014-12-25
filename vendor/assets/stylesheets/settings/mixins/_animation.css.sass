@@ -1,15 +1,56 @@
-// https://gist.github.com/ericam/1607696
-=keyframes($name)
-  @-webkit-keyframes #{$name}
-    @content
-  @-moz-keyframes #{$name}
-    @content
-  @-ms-keyframes #{$name}
-    @content
-  @keyframes #{$name}
-    @content
+// どこでも transition が書ける設定
+=transition-basics($value)
+  @if transition_duration($value)
+    +transition-duration($value)
+  @else if transition_timing_function($value)
+    +transition-timing-function($value)
+  @else if transition_delay($value)
+    +transition-delay(transition_delay($value))
+  @else if transition_property($value)
+    +transition-property($value)
 
-=transition($transition-duration: .5s, $transition-property: all, $transition-timing: ease-in)
-  +transition-property($transition-property)
-  +transition-duration($transition-duration)
-  +transition-timing-function($transition-timing)
+=transition($value)
+  @for $i from 1 through length($value)
+    +transition-basics(nth($value, $i))
+
+// どこでも animation が書ける設定
+=animation-basics($value)
+  @if animation_name($value)
+    +animation-name($value)
+    $animation-name: $value
+  @else if animation_duration($value)
+    +animation-duration($value)
+  @else if animation_timing_function($value)
+    +animation-timing-function($value)
+  @else if animation_delay($value)
+    +animation-delay(animation_delay($value))
+  @else if animation_iteration_count($value)
+    +animation-iteration-count($value)
+  @else if animation_direction($value)
+    +animation-direction($value)
+  @else if animation_fill_mode($value)
+    +animation-fill-mode($value)
+  @else if animation_play_state($value)
+    +animation-play-state($value)
+
+=animations($value1: null, $value2: null, $value3: null, $value4: null, $value5: null, $value6: null)
+  $list: $value1 $value2 $value3 $value4 $value5 $value6
+  $added-animation-names: null
+  @each $value in $list
+    @for $i from 1 through length($value)
+      @if animation_name(nth($value, $i))
+        // +animation-name(nth($value, $i))
+      @else if animation_duration(nth($value, $i))
+        // +animation-duration(nth($value, $i))
+      @else if animation_timing_function(nth($value, $i))
+        // +animation-timing-function(nth($value, $i))
+      @else if animation_delay(nth($value, $i))
+        // +animation-delay(animation_delay(nth($value, $i)))
+      @else if animation_iteration_count(nth($value, $i))
+        // +animation-iteration-count(nth($value, $i))
+      @else if animation_direction(nth($value, $i))
+        // +animation-direction(nth($value, $i))
+      @else if animation_fill_mode(nth($value, $i))
+        // +animation-fill-mode(nth($value, $i))
+      @else if animation_play_state(nth($value, $i))
+        // +animation-play-state(nth($value, $i))
