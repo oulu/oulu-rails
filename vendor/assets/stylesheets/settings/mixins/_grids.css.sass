@@ -38,7 +38,6 @@ $screen-md-max: ($screen-lg-min - 1) !default
   @media only screen and (max-width: $screen-lg)
     @content
 
-
 // カラムのラッパーのクラス名
 $row-class-name: '.row' !default
 // カラムのネームスペース ※classの".（カンマ）"もネームスペースの一部
@@ -50,6 +49,7 @@ $break-point-xs-namespace: 'xs-' !default
 $break-point-sm-namespace: 'sm-' !default
 $break-point-md-namespace: 'md-' !default
 $break-point-lg-namespace: 'lg-' !default
+$break-point-xl-namespace: 'xl-' !default
 
 // ブレイクポイントを配列にする
 $break-points: $break-point-xs-namespace, $break-point-sm-namespace, $break-point-md-namespace, $break-point-lg-namespace
@@ -67,7 +67,7 @@ $break-points: $break-point-xs-namespace, $break-point-sm-namespace, $break-poin
   @else if $screen-lg and $break-point == $break-point-lg-namespace
     @media only screen and (min-width: $screen-md)
       @content
-  @else if $screen-xl and $break-point == $break-point-xl-namespace
+  @else if $break-point == $break-point-xl-namespace
     @media only screen and (min-width: $screen-lg)
       @content
 
@@ -77,24 +77,18 @@ $break-points: $break-point-xs-namespace, $break-point-sm-namespace, $break-poin
   +margin(horizontal, ($gutter-width / 2) * -1)
   // clearfix
   +rem('min-height', 1px)
-  &:before,
-  &:after
-    display: table
-    content: " "
-  &:after
-    clear: both
+  +pie-clearfix
 
 // カラムの基本設定
 =column($number, $columns-gutter-width: $gutter-width)
   +rem('width', 100 / $columns-count * $number * 1%)
-  +rem('min-height', 1px)
   +padding(horizontal, $columns-gutter-width / 2)
-  float: left
   +box-sizing(border-box)
+  float: left
 
 // カラムをサイズごとに作る
 @each $break-point in $break-points
-  +break-points(#{$break-point})
+  +break-points($break-point)
     @for $i from 1 through $columns-count
       #{$column-namespace}#{$break-point}#{$i}
         +column($i)
@@ -105,47 +99,46 @@ $break-points: $break-point-xs-namespace, $break-point-sm-namespace, $break-poin
 
 // オフセットカラムをサイズごとに作る
 @each $break-point in $break-points
-  +break-points(#{$break-point})
+  +break-points($break-point)
     @for $i from 1 through $columns-count
       #{$column-namespace}#{$break-point}#{$column-offset-namespace}#{$i}
         +column-offset($i)
 
-function
-
-=grid-columns($columns-gutter-width: $gutter-width, $grid-columns-row-class-name: '.row')
+=grid-columns($values)
+  $columns-gutter-width: 0 !default
+  $temp-columns-count: 12 !default
+  $temp-break-points: 'xs', 'sm', 'md', 'lg' !default
+  $grid-columns-row-class-name: '.row' !default
+  $offsets: false !default
+  @for $i from 1 through length($values)
+    @if gutter_width(nth($values, $i))
+      $columns-gutter-width: nth($values, $i)
+    @else if columns_count(nth($values, $i))
+      $temp-columns-count: nth($values, $i)
+    @else if break_point(nth($values, $i))
+      $temp-break-points: nth($values, $i)
+    @else if row_class_name(nth($values, $i))
+      $grid-columns-row-class-name: nth($values, $i)
+    @else if offsets(nth($values, $i))
+      $offsets: nth($values, $i)
   #{$grid-columns-row-class-name}
     // カラムのマージン分だけ両サイドにネガティブマージンを取る
     +margin(horizontal, ($columns-gutter-width / 2) * -1)
-    // clearfix
-    +rem('min-height', 1px)
-    &:before,
-    &:after
-      display: table
-      content: " "
-    &:after
-      clear: both
-  // カラムをサイズごとに作る
-  @each $break-point in $break-points
-    +break-points(#{$break-point})
-      @for $i from 1 through $columns-count
-        #{$column-namespace}#{$break-point}#{$i}
-          +column($i, $columns-gutter-width)
-
-=grid-column-offsets($columns-gutter-width: $gutter-width, $grid-columns-row-class-name: '.row')
-  #{$grid-columns-row-class-name}
-    // カラムのマージン分だけ両サイドにネガティブマージンを取る
-    +margin(horizontal, ($columns-gutter-width / 2) * -1)
-    // clearfix
-    +rem('min-height', 1px)
-    &:before,
-    &:after
-      display: table
-      content: " "
-    &:after
-      clear: both
-  // オフセットカラムをサイズごとに作る
-  @each $break-point in $break-points
-    +break-points(#{$break-point})
-      @for $i from 1 through $columns-count
-        #{$column-namespace}#{$break-point}#{$column-offset-namespace}#{$i}
-          +column-offset($i)
+    +pie-clearfix
+    // カラムをサイズごとに作る
+    $break-points: ()
+    @each $temp-break-point in $temp-break-points
+      $break-points: append($break-points, if($temp-break-point == 'xs', $break-point-xs-namespace, null))
+      $break-points: append($break-points, if($temp-break-point == 'sm', $break-point-sm-namespace, null))
+      $break-points: append($break-points, if($temp-break-point == 'md', $break-point-md-namespace, null))
+      $break-points: append($break-points, if($temp-break-point == 'lg', $break-point-lg-namespace, null))
+      $break-points: append($break-points, if($temp-break-point == 'xl', $break-point-xl-namespace, null))
+    content: $temp-columns-count
+    @each $break-point in $break-points
+      +break-points($break-point)
+        @for $i from 1 through $temp-columns-count
+          #{$column-namespace}#{$break-point}#{$i}
+            +column($i, $columns-gutter-width)
+          @if $offsets
+            #{$column-namespace}#{$break-point}#{$column-offset-namespace}#{$i}
+              +column-offset($i)
