@@ -1,8 +1,8 @@
-.#{$wrapper-class-name}
-  +rem('max-width', $wrapper-max-width)
+.#{$container-class-name}
+  +rem('max-width', $container-max-width)
   +box-sizing(border-box)
   +margin(horizontal, auto)
-  +padding(horizontal, $wrapper-horizontal-padding)
+  +padding(horizontal, $container-horizontal-padding)
   clear: both
 
 // state
@@ -37,32 +37,9 @@
   -webkit-overflow-scrolling: touch
   width: 100%
   position: relative
-.is-max-wd
+.is-max-width-100
   width: 100%
   display: block
-
-.is-mgb-0
-  margin-bottom: 0 !important
-.is-pdt-0
-  padding-top: 0 !important
-.is-pd-0
-  padding: 0 !important
-
-body
-  .is-hidden
-    visibility: hidden
-    display: none
-    +opacity(0)
-  .is-invisible
-    margin-left: -99999px
-    position: absolute
-    visibility: hidden
-    +opacity(0)
-  .is-shown
-    +inline-block
-  .is-horizontal-closed
-    width: 0
-    overflow: hidden
 
 .is-z-index-100
   z-index: 100

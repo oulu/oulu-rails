@@ -1,8 +1,18 @@
-=dotted-line($color: rgba(#000, 1.0), $stripe: null)
-  $stripe-width: if(length($stripe) >= 1, nth($stripe, 1), 1px)
-  $gatter-width: if(length($stripe) >= 2, nth($stripe, 2), 4px)
-  $size: if(length($stripe) >= 3, nth($stripe, 3), 1px)
-  +background-image(linear-gradient(left, color-stops($color, $color (strip_unit($stripe-width)/(strip_unit($stripe-width) + strip_unit($gatter-width)))*100%, transparent (strip_unit($stripe-width)/(strip_unit($stripe-width) + strip_unit($gatter-width)))*100%, transparent 100%)))
+// +dotted-line(black, 20px 10px 4px)
+=dotted-line($stripe-color: rgba(#000, 1), $stripe: null)
+  $stripe-width: optional_nth($stripe, 1, 1px)
+  $gatter-width: optional_nth($stripe, 2, 4px)
+  $size: optional_nth($stripe, 3, 1px)
+  @if length($stripe-color) == 1
+    +background-image(linear-gradient(left, color-stops($stripe-color, $stripe-color (strip_unit($stripe-width)/(strip_unit($stripe-width) + strip_unit($gatter-width)))*100%, transparent (strip_unit($stripe-width)/(strip_unit($stripe-width) + strip_unit($gatter-width)))*100%, transparent 100%)))
+  @else
+    @if percent(nth($stripe-color, 2))
+      $mix-stripe-color: darken(nth($stripe-color, 1), nth($stripe-color, 2))
+      +background-image(linear-gradient(left, color-stops($mix-stripe-color, $mix-stripe-color (strip_unit($stripe-width)/(strip_unit($stripe-width) + strip_unit($gatter-width)))*100%, transparent (strip_unit($stripe-width)/(strip_unit($stripe-width) + strip_unit($gatter-width)))*100%, transparent 100%)))
+      background-color: nth($stripe-color, 1)
+    @else if color(nth($stripe-color, 2))
+      +background-image(linear-gradient(left, color-stops(nth($stripe-color, 1), nth($stripe-color, 1) (strip_unit($stripe-width)/(strip_unit($stripe-width) + strip_unit($gatter-width)))*100%, transparent (strip_unit($stripe-width)/(strip_unit($stripe-width) + strip_unit($gatter-width)))*100%, transparent 100%)))
+      background-color: nth($stripe-color, 2)
   +background-size(($stripe-width + $gatter-width) ($stripe-width + $gatter-width))
   +rem('height', $size)
 
@@ -11,8 +21,12 @@
   @if length($stripe-color) == 1
     +background-image(linear-gradient(-45deg, $stripe-color 25%, transparent 25%, transparent 50%, $stripe-color 50%, $stripe-color 75%, transparent 75%, transparent))
   @else
-    $mix-stripe-color: darken(nth($stripe-color, 1), nth($stripe-color, 2))
-    +background-image(linear-gradient(-45deg, $mix-stripe-color 25%, transparent 25%, transparent 50%, $mix-stripe-color 50%, $mix-stripe-color 75%, transparent 75%, transparent))
-    background-color: $background-color
+    @if percent(nth($stripe-color, 2))
+      $mix-stripe-color: darken(nth($stripe-color, 1), nth($stripe-color, 2))
+      +background-image(linear-gradient(-45deg, $mix-stripe-color 25%, transparent 25%, transparent 50%, $mix-stripe-color 50%, $mix-stripe-color 75%, transparent 75%, transparent))
+      background-color: nth($stripe-color, 1)
+    @else
+      +background-image(linear-gradient(-45deg, nth($stripe-color, 1) 25%, transparent 25%, transparent 50%, nth($stripe-color, 1) 50%, nth($stripe-color, 1) 75%, transparent 75%, transparent))
+      background-color: nth($stripe-color, 2)
   +background-size($size $size)
   +rem('height', $size)
