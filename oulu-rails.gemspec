@@ -15,13 +15,8 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = OuluRails::VERSION
 
-  gem.add_dependency("sass-rails", ">= 5.0.0.beta1")
+  gem.add_dependency("sass-rails", "= 5.0.0.beta1")
   gem.add_dependency("compass-rails", '~> 2.0', '>= 2.0.0')
   gem.add_dependency("compass-rgbapng", '~> 0.2', '>= 0.2.0')
-  gem.add_dependency("modular-scale", '~> 2.0', '>= 2.0.0')
   gem.add_dependency("oily_png", '~> 1.1', '>= 1.1.0')
-  gem.add_dependency("ceaser-easing", '~> 0.7', '>= 0.7.0')
-  gem.add_dependency("SassyLists", '~> 2.2', '>= 2.2.0')
-  gem.add_dependency("toolkit", '~> 2.5', '>= 2.5.0')
-  gem.add_dependency("sassy-maps", '~> 0.4', '>= 0.4.0')
 end
