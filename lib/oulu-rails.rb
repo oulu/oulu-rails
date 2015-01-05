@@ -1,6 +1,8 @@
 require 'oulu-rails/version'
 require 'sass'
-require 'compass'
+require 'compass-rails'
+require 'rgbapng'
+require 'modular-scale'
 
 module OuluRails
   class Engine < ::Rails::Engine
