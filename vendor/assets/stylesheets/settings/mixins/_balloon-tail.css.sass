@@ -1,0 +1,106 @@
+=balloon-tail-setting($tail-direction: false, $tail-color: false)
+  position: absolute
+  content: ""
+  display: block
+  +border(all, solid transparent)
+  +border(reverse($tail-direction), $tail-color)
+
+=tail-border-setting($tail-direction, $tail-width, $tail-height)
+  +border(horizontal, if(position_vertical($tail-direction), $tail-width, $tail-height))
+  +border(vertical, if(position_vertical($tail-direction), $tail-height, $tail-width))
+  +rem($tail-direction, $tail-height*2*-1)
+
+=tail-position-manual($tail-direction: false, $tail-border-color: false, $parent-boder-width: false, $tail-position-manuals: false)
+  @each $key, $value in $tail-position-manuals
+    @if position_vertical($tail-direction) and position_horizontal($key)
+      // 矢印の向きが上下で manual が left or right の場合
+      +rem($key, $value + if($tail-border-color, $parent-boder-width, 0))
+    @else if position_horizontal($tail-direction) and position_vertical($key)
+      // 矢印の向きが左右で manual が top or bottom の場合
+      +rem($key, $value + if($tail-border-color, $parent-boder-width, 0))
+    @else if $tail-direction == $key
+      // 矢印の向きと manual で指定する方向が同じ場合
+      +rem($key, $value - $tail-height*2 - if($tail-border-color, 0, $parent-boder-width))
+    @else if reverse($tail-direction) == $key
+      // 上向き矢印 で manual が bottom の場合 or 下向き矢印 で manual が top の場合
+      +rem($key, $value - if($tail-border-color, 0, $parent-boder-width))
+
+=tail-border-position-manual($tail-direction: false, $tail-position-manuals: false)
+  @each $key, $value in $tail-position-manuals
+    @if position_vertical($tail-direction) and position_horizontal($key)
+      //矢印の向きが上下で  manual が left or right の場合
+      +rem($key, $value)
+    @else if position_horizontal($tail-direction) and position_vertical($key)
+      // 矢印の向きが左右で manual が top or bottom の場合
+      +rem($key, $value)
+    @else if $tail-direction == $key
+      // 矢印の向きと manual で指定する方向が同じ場合
+      +rem($key, $value - $tail-height*2)
+    @else if reverse($tail-direction) == $key
+      // 上向き矢印 で manual が bottom の場合 or 下向き矢印 で manual が top の場合
+      +rem($key, $value)
+
+// +balloon-tail(top red 12px 16px 1px, left 20px, blck)
+=balloon-tail($tail, $tail-position-manual: false, $tail-border-color: false)
+  // $tail
+  $tail-direction: optional_nth($tail, 1)
+  $tail-color: optional_nth($tail, 2)
+  $tail-width: optional_nth($tail, 3, 0)
+  $tail-height: optional_nth($tail, 4, 0)
+  $parent-boder-width: optional_nth($tail, 5, 0)
+  //$tail-position-manual
+  $tail-position-manual-direction1: optional_nth($tail-position-manual, 1)
+  $tail-position-manual-value1: optional_nth($tail-position-manual, 2)
+  $tail-position-manual-direction2: optional_nth($tail-position-manual, 3)
+  $tail-position-manual-value2: optional_nth($tail-position-manual, 4)
+  $tail-position-manuals: ($tail-position-manual-direction1: $tail-position-manual-value1, $tail-position-manual-direction2: $tail-position-manual-value2)
+  &:#{if($tail-border-color, after, before)}
+    +balloon-tail-setting($tail-direction, $tail-color)
+    @if position_vertical($tail-direction)
+      // 矢印の向きが上下
+      +border(vertical, $tail-height)
+      +border(horizontal, $tail-width/2)
+      +rem($tail-direction, $tail-height*2*-1 - if($tail-border-color, 0, $parent-boder-width))
+      @if not $tail-position-manual or (length($tail-position-manual) == 2 and position_vertical($tail-position-manual-direction1))
+        // manual が 一つだけ指定 上下方向 の場合
+        left: 50%
+        +rem('margin-left', $tail-width*-1)
+      @if $tail-position-manual
+        +tail-position-manual($tail-direction, $tail-border-color, $parent-boder-width, $tail-position-manuals)
+    @if position_horizontal($tail-direction)
+      // 矢印の向きが左右
+      +border(horizontal, $tail-height)
+      +border(vertical, $tail-width/2)
+      +rem($tail-direction, $tail-height*2*-1 - if($tail-border-color, 0, $parent-boder-width))
+      @if not $tail-position-manual or (length($tail-position-manual) == 2 and position_horizontal($tail-position-manual-direction1))
+        // manual が 一つだけ指定 上下方向 の場合
+        top: 50%
+        +rem('margin-top', ($tail-width/2)*-1)
+      @if $tail-position-manual
+        +tail-position-manual($tail-direction, $tail-border-color, $parent-boder-width, $tail-position-manuals)
+
+  @if $tail-border-color
+    // tail border があるとき - 以下 tail-border の設定
+    &:before
+      $tail-width: round($tail-width + $parent-boder-width*2)/2
+      $tail-height: round($tail-height + $parent-boder-width)*1.5
+      $tail-color: $tail-border-color
+      +balloon-tail-setting($tail-direction, $tail-color)
+      @if position_vertical($tail-direction)
+        // 矢印の向きが上下
+        +tail-border-setting($tail-direction, $tail-width, $tail-height)
+        @if not $tail-position-manual or (length($tail-position-manual) == 2 and position_vertical($tail-position-manual-direction1))
+          // manual なし もしくは 一つだけ指定 上下方向 の場合
+          left: 50%
+          +rem('margin-left', round($tail-width*-1.5))
+        @if $tail-position-manual
+          +tail-border-position-manual($tail-direction, $tail-position-manuals)
+      @if position_horizontal($tail-direction)
+        // 矢印の向きが左右
+        +tail-border-setting($tail-direction, $tail-width, $tail-height)
+        @if not $tail-position-manual or (length($tail-position-manual) == 2 and position_horizontal($tail-position-manual-direction1))
+          // manual なし もしくは 一つだけ指定 左右方向 の場合
+          top: 50%
+          +rem('margin-top', $tail-width*-1)
+        @if $tail-position-manual
+          +tail-border-position-manual($tail-direction, $tail-position-manuals)

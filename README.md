@@ -6,7 +6,7 @@ sass tools for machida.
 Docs
 ----
 
--	[index](/docs/index.md)
+-	[docs](http://oulu.github.io/)
 
 Installation
 ------------
