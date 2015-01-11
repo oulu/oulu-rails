@@ -1,0 +1,12 @@
+@import url(//fonts.googleapis.com/css?family=Inconsolata:400,700)
+
+=inconsolata($fw: 400, $ls: 0, $fs: null, $tx-rendering: true)
+  // $fw: フォントの太さ, $ls: 字間, $fs: フォントスタイル
+  font-family: 'Inconsolata', monospace
+  font-weight: $fw
+  @if not $ls == 0
+    letter-spacing: $ls
+  @if (not $fs == null)
+    font-style: italic
+  @if $tx-rendering
+    text-rendering: optimizelegibility

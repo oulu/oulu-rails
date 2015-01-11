@@ -1,7 +1,7 @@
 oulu-rails
 ==========
 
-sass tools for machida.
+A mixin library for Sass.
 
 Docs
 ----
@@ -11,7 +11,7 @@ Docs
 Installation
 ------------
 
--	Add `source 'https://rails-assets.org'` at Gemfile.
+-	Add `source 'gem 'oulu-rails' ` at Gemfile.
 -	`$ bundle`
 -	Add `@import oulu` at app/assets/stylesheets/application.css.sass
 

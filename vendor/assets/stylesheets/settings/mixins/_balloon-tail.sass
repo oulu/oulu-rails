@@ -83,7 +83,7 @@
     // tail border があるとき - 以下 tail-border の設定
     &:before
       $tail-width: round($tail-width + $parent-boder-width*2)/2
-      $tail-height: round($tail-height + $parent-boder-width)*1.5
+      $tail-height: round($tail-height + $parent-boder-width*4)
       $tail-color: $tail-border-color
       +balloon-tail-setting($tail-direction, $tail-color)
       @if position_vertical($tail-direction)
