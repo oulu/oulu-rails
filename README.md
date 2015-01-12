@@ -11,9 +11,9 @@ Docs
 Installation
 ------------
 
--	Add `source 'gem 'oulu-rails' ` at Gemfile.
--	`$ bundle`
--	Add `@import oulu` at app/assets/stylesheets/application.css.sass
+-	Add `'gem 'oulu-rails' ` to your Gemfile.
+-	`$ bundle install`
+-	Add `@import oulu` to `app/assets/stylesheets/application.css.sass`
 
 Contributing
 ------------
