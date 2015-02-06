@@ -9,8 +9,8 @@ html
   // タップ時のハイライトカラー
   +experimental(tap-highlight-color, rgba(0, 0, 0, 0))
   // input以外はテキスト、画像の選択不可に
-  *:not(input)
-    +experimental(user-select, none)
+  // *:not(input)
+    // +experimental(user-select, none)
   // リンクの長時間タップでリンク内容をポップアップで表示させない場合
   +experimental(touch-callout, none)
 
@@ -23,6 +23,7 @@ textarea
   background-color: transparent
   outline: none
   +basic-font
+  -webkit-appearance: button
 
 img
   vertical-align: bottom

@@ -3,20 +3,19 @@
 =list($margins: null, $list-style: null, $icon-position: null)
   +rem('margin-left', optional_nth($margins, 1))
   +rem('margin-bottom', optional_nth($margins, 2))
-  @if nth($list-style, 1) == "fa"
-    @for $i from 1 through length($list-style)
-      @if list_style_type(nth($list-style, $i))
-        list-style-type: nth($list-style, $i)
-      @else if list_style_position(nth($list-style, $i))
-        list-style-position: nth($list-style, $i)
-      @else if nth($list-style, $i) == "fa"
-        list-style-type: none
-        >li
-          +relative
-          display: block
-          +rem('padding-left', optional_nth($icon-position, 1) + optional_nth($icon-position, 3))
-          &:before
-            +fa
-            +text-block(optional_nth($icon-position, 1) optional_nth($icon-position, 1))
-            content: '#{optional_nth($list-style, $i + 1)}'
-            +absolute(left 0, top optional_nth($icon-position, 2))
+  @for $i from 1 through length($list-style)
+    @if nth($list-style, $i) == "fa"
+      list-style-type: none
+      >li
+        +relative
+        display: block
+        +rem('padding-left', optional_nth($icon-position, 1) + optional_nth($icon-position, 3))
+        &:before
+          +fa
+          +text-block(optional_nth($icon-position, 1) optional_nth($icon-position, 1))
+          content: '#{optional_nth($list-style, $i + 1)}'
+          +absolute(left 0, top optional_nth($icon-position, 2))
+    @else if list_style_type(nth($list-style, $i))
+      list-style-type: nth($list-style, $i)
+    @else if list_style_position(nth($list-style, $i))
+      list-style-position: nth($list-style, $i)

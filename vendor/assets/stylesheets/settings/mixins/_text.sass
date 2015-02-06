@@ -19,3 +19,25 @@
 =letter-spacing-center($space-width: null)
   +rem('letter-spacing', $space-width)
   +rem('text-indent', $space-width)
+
+// brをアクティブにするサイズを設定
+=br($active-sizes)
+  br
+    display: none
+    @if ($active-sizes)
+      @for $i from 1 through length($active-sizes)
+        @if nth($value1, $i) == xs
+          +screen-xs
+            display: block
+        @else if nth($value1, $i) == sm
+          +screen-sm
+            display: block
+        @else if nth($value1, $i) == md
+          +screen-md
+            display: block
+        @else if nth($value1, $i) == lg
+          +screen-md
+            display: block
+        @else if nth($value1, $i) == xl
+          +screen-md
+            display: block
