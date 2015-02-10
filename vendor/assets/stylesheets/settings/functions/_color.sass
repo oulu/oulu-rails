@@ -51,7 +51,7 @@ $ruma-threshold: 100 / pi() !default
     @return luma($color-1)
 
 @function luma_which($color)
-  @return if(luma($color-1) < 51, dark, bright)
+  @return if(luma($color) < 51, dark, bright)
 
 @function luma_bright($color)
   @if luma($color) < 51
