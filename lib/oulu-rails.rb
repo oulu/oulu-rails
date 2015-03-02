@@ -22,7 +22,6 @@ module AddFunctions
         '\\' + i.to_s(16).upcase
     }.join(''), :string)
   end
-  declare :escape, :args => [:string]
 end
 
 module Sass::Script::Functions
