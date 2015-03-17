@@ -1,7 +1,11 @@
 =block-link
   display: block
   text-decoration: none
-  
+
+=inline-block-link($value: false)
+  +inline-block($value)
+  text-decoration: none
+
 =hover-link-reverse($modifire-class: null)
   text-decoration: underline
   &:hover,
