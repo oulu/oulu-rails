@@ -28,3 +28,12 @@
     +rem('line-height', $square-block-height)
   @else
     +rem('line-height', $square-block-size)
+
+=over-flow($values)
+  $over-flow-x: optional_nth($values, 1)
+  $over-flow-y: optional_nth($values, 2)
+  @if equal_nth($values, 2)
+    over-flow-x: $over-flow-x
+    over-flow-y: $over-flow-y
+  @else
+    over-flow: $over-flow-x
