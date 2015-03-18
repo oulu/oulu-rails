@@ -1,23 +1,3 @@
-// http://qiita.com/orangemittoo/items/1c9f32296836d3ea125e
-
-$sprites-images-directory: sprites !default
-$sprite-map: sprite-map("#{$sprites-images-directory}/*.png", $layout: smart)
-$map-img: sprite-url($sprite-map)
-
-=sprite-background($name, $background-size: null, $background-repeat: null)
-  // block;
-  background-image: $map-img
-  $pos: sprite-position($sprite-map, $name)
-  background-position: nth($pos, 1) / 2 nth($pos, 2) / 2
-  @if $background-size
-    +background-size($background-size)
-  @else
-    +background-size(ceil(image-width(sprite-path($sprite-map)) / 2) auto)
-  @if $background-repeat
-    background-repeat: $background-repeat
-  @else
-    background-repeat: no-repeat
-
 =bg-size($value)
   @if list($value)
     @if str-slice(nth($value, 1), 1, 1) == '/'

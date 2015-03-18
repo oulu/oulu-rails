@@ -16,6 +16,5 @@ Gem::Specification.new do |gem|
   gem.version       = OuluRails::VERSION
 
   gem.add_runtime_dependency("sass-rails", "~> 5.0")
-  gem.add_runtime_dependency("compass-rails", '~> 2.0', '>= 2.0.0')
   gem.add_runtime_dependency("bourbon")
 end
