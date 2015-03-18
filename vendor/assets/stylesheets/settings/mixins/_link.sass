@@ -3,8 +3,17 @@
   text-decoration: none
 
 =inline-block-link($value: false)
-  +inline-block($value)
+  display: inline-block
   text-decoration: none
+  vertical-align: $value
+
+=hover-link($modifire-class: null)
+  text-decoration: none
+  &:hover,
+  &:active
+    text-decoration: underline
+  @if $modifire-class
+    #{$modifire-class}: underline
 
 =hover-link-reverse($modifire-class: null)
   text-decoration: underline

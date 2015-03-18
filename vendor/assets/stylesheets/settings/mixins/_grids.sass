@@ -85,9 +85,8 @@ $break-points: $break-point-xs-namespace, $break-point-sm-namespace, $break-poin
 #{$row-class-name}
   // カラムのマージン分だけ両サイドにネガティブマージンを取る
   +margin(horizontal, ($gutter-width / 2) * -1)
-  // clearfix
   +rem('min-height', 1px)
-  +pie-clearfix
+  +clearfix
 
 // カラムの基本設定
 =column($number, $columns-gutter-width: $gutter-width)
@@ -134,7 +133,7 @@ $break-points: $break-point-xs-namespace, $break-point-sm-namespace, $break-poin
   #{$grid-columns-row-class-name}
     // カラムのマージン分だけ両サイドにネガティブマージンを取る
     +margin(horizontal, ($columns-gutter-width / 2) * -1)
-    +micro-clearfix
+    +clearfix
     // カラムをサイズごとに作る
     $break-points: ()
     @each $temp-break-point in $temp-break-points

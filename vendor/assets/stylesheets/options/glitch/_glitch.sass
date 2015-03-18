@@ -12,7 +12,7 @@
 =glitch($cl: white, $bg-col: black)
   +relative
   overflow: hidden
-  +inline-block
+  display: inline-block
   color: $cl
   &:after,
   &:before
@@ -24,8 +24,8 @@
   &:after
     +absolute(left 1px, top 0)
     +text-shadow(-1px 0 0 rgba(red, 0.4))
-    +experimental('animation', noise-anim 2s infinite linear alternate-reverse)
+    +animation(noise-anim 2s infinite linear alternate-reverse)
   &:before
     +absolute(left -1px, top 0)
     +text-shadow(1px 0 0 rgba(blue, 0.4))
-    +experimental('animation', noise-anim-2 3s infinite linear alternate-reverse)
+    +animation(noise-anim-2 3s infinite linear alternate-reverse)

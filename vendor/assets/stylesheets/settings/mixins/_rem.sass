@@ -16,8 +16,8 @@ $baseline-px: 10px !default
     @if $property == "font-size" and $px-values < 10px
       // 9px以下のfont-sizeを使う設定（IE8不可）
       +base-font-size
-      +scale3d(strip_unit($px-values / strip_unit($baseline-px)), strip_unit($px-values/ strip_unit($baseline-px)), 1)
-      +transform-origin(0, 0)
+      +transform(scale3d(strip_unit($px-values / strip_unit($baseline-px)) strip_unit($px-values/ strip_unit($baseline-px)) 1))
+      +transform-origin(0 0)
     @else
       // Convert the baseline into rems
       $baseline-rem: $baseline-px / 1rem
