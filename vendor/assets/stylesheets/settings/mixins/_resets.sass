@@ -1,40 +1,47 @@
+=reset-select
+  +appearance(none)
+  +border(none)
+  border: none
+  margin: 0
+  padding: 0
+  background: none transparent
+  vertical-align: middle
+  font-size: inherit
+  color: inherit
+  box-sizing: content-box
+  &:active,
+  &:focus
+    outline: none
+
 =reset-margin($directions: all)
-  @if $directions == 'all'
+  @if all($directions)
     margin: 0
-  @else if $directions == 'horizontal'
-    margin-left: 0
-    margin-right: 0
-  @else if $directions == 'vertical'
-    margin-top: 0
-    margin-bottom: 0
+  @else if horizontal($directions)
+    +margin(horizontal, 0)
+  @else if vertical($directions)
+    +margin(vertical, 0)
   @else
     @each $direction in $directions
-      @if $direction == 'horizontal'
-        margin-left: 0
-        margin-right: 0
-      @else if $direction == 'vertical'
-        margin-top: 0
-        margin-bottom: 0
+      @if horizontal($direction)
+        +margin(horizontal, 0)
+      @else if vertical($direction)
+        +margin(vertical, 0)
       @else
         margin-#{$direction}: 0
 
 =reset-padding($directions: all)
-  @if $directions == 'all'
+  @if all($directions)
     padding: 0
-  @else if $directions == 'horizontal'
-    padding-left: 0
-    padding-right: 0
-  @else if $directions == 'vertical'
-    padding-top: 0
-    padding-bottom: 0
+  @else if horizontal($directions)
+    +padding(horizontal, 0px)
+  @else if vertical($directions)
+    +padding(vertical, 0px)
   @else
     @each $direction in $directions
-      @if $direction == 'horizontal'
-        padding-left: 0
-        padding-right: 0
-      @else if $direction == 'vertical'
-        padding-top: 0
-        padding-bottom: 0
+      @if horizontal($direction)
+        +padding(horizontal, 0px)
+      @else if vertical($direction)
+        +padding(vertical, 0px)
       @else
         padding-#{$direction}: 0
 

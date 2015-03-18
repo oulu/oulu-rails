@@ -17,6 +17,5 @@ Gem::Specification.new do |gem|
 
   gem.add_runtime_dependency("sass-rails", "~> 5.0")
   gem.add_runtime_dependency("compass-rails", '~> 2.0', '>= 2.0.0')
-  gem.add_runtime_dependency("compass-rgbapng", '~> 0.2', '>= 0.2.0')
-  gem.add_runtime_dependency("oily_png", '~> 1.1', '>= 1.1.0')
+  gem.add_runtime_dependency("bourbon")
 end

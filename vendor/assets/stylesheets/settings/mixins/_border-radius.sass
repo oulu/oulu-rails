@@ -1,0 +1,45 @@
+// 使い方
+// +border-radius(vertical, 4px)
+
+=border-radius($value1: null, $value2: null)
+  @if number(nth($value1, 1))
+    +rem('border-radius', $value1)
+  @else
+    @for $i from 1 through length($value1)
+      @if nth($value1, $i) == 'all'
+        +rem('border-radius', $value2)
+      @else if vertical(nth($value1, $i))
+        +rem('border-top-radius', $value2)
+        +rem('border-bottom-radius', $value2)
+      @else if horizontal(nth($value1, $i))
+        +rem('border-left-radius', $value2)
+        +rem('border-right-radius', $value2)
+      @else if top(nth($value1, $i))
+        +rem('border-top-radius', $value2)
+      @else if bottom(nth($value1, $i))
+        +rem('border-bottom-radius', $value2)
+      @else if left(nth($value1, $i))
+        +rem('border-left-radius', $value2)
+      @else if right(nth($value1, $i))
+        +rem('border-right-radius', $value2)
+
+// 使い方
+// +reset-border-radius(vertical, 4px)
+=reset-border-radius($value: 'all')
+  @for $i from 1 through length($value1)
+    @if nth($value1, $i) == 'all'
+      border-radius: 0
+    @else if vertical(nth($value1, $i))
+      border-top-radius: 0
+      border-bottom-radius: 0
+    @else if horizontal(nth($value1, $i))
+      border-left-radius: 0
+      border-right-radius: 0
+    @else if top(nth($value1, $i))
+      border-top-radius: 0
+    @else if bottom(nth($value1, $i))
+      border-bottom-radius: 0
+    @else if left(nth($value1, $i))
+      border-left-radius: 0
+    @else if right(nth($value1, $i))
+      border-right-radius: 0

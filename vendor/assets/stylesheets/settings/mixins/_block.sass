@@ -37,3 +37,16 @@
     over-flow-y: $over-flow-y
   @else
     over-flow: $over-flow-x
+
+=border-radius($values)
+  +prefixer(border-radius, $values, webkit moz spec)
+
+=inline-block($value: null)
+  display: inline-block
+  vertical-align: $value
+
+=background-size($values)
+  +prefixer(background-size, $values, webkit moz spec)
+
+=background-clip($value)
+  +prefixer(background-clip, $value, webkit moz spec)

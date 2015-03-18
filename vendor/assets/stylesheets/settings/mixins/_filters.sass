@@ -2,4 +2,4 @@
 // 例 +filter(sepia(100%) hue-rotate(33deg) contrast(69%) unquote("saturate(2)"))
 
 =filter($var)
-	+experimental('filter', $var)
+	+prefixer('filter', $var, webkit moz spec)

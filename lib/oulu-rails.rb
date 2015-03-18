@@ -1,13 +1,9 @@
 require 'oulu-rails/version'
 require 'sass'
-require 'compass-rails'
-require 'rgbapng'
+require 'bourbon'
 
 module OuluRails
   class Engine < ::Rails::Engine
-    initializer 'oulu_rails', after: 'compass.initialize_rails' do
-      config.compass.require 'rgbapng'
-    end
   end
 end
 

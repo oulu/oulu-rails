@@ -20,6 +20,13 @@
   +rem('letter-spacing', $space-width)
   +rem('text-indent', $space-width)
 
+// http://compass-style.org/reference/compass/css3/hyphenation/
+=word-break($value: normal)
+  word-break: $value
+  @if $value == break-all
+    // Webkit用
+    word-break: break-word
+
 // brをアクティブにするサイズを設定
 =br($active-sizes)
   br
