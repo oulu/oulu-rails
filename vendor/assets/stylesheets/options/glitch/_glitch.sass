@@ -23,9 +23,9 @@
     clip: rect(0, 900px, 0, 0)
   &:after
     +absolute(left 1px, top 0)
-    +text-shadow(-1px 0 0 rgba(red, 0.4))
+    +rem('text-shadow', -1px 0 0 rgba(red, 0.4))
     +animation(noise-anim 2s infinite linear alternate-reverse)
   &:before
     +absolute(left -1px, top 0)
-    +text-shadow(1px 0 0 rgba(blue, 0.4))
+    +rem('text-shadow', 1px 0 0 rgba(blue, 0.4))
     +animation(noise-anim-2 3s infinite linear alternate-reverse)
