@@ -1,0 +1,84 @@
+body
+  // layout
+  .has-no-gutter-grids
+    +grid-columns(0)
+  .is-horizontal-center-block
+    display: block
+    +margin(horizontal, auto)
+
+  // clearfix
+  .is-clear
+    clear: both
+  .is-clearfix
+    +clearfix
+
+  // width
+  .is-max-width-100
+    width: 100%
+    display: block
+  .is-half
+    width: 50%
+
+  // float
+  .is-left
+    float: left
+  .is-right
+    float: right
+
+  // block link
+  .is-block-link
+    display: block
+    text-decoration: none
+  .is-inline-block-link
+    display: inline-block
+    text-decoration: none
+  .is-clickable
+    cursor: pointer
+
+  // overflow
+  .is-scroll-x-wrapper
+    overflow-x: auto
+    overflow-y: hidden
+    -webkit-overflow-scrolling: touch
+    width: 100%
+    position: relative
+  .is-overflow-visible
+    overflow: visible !important
+  .is-overflow-hidden
+    overflow: hidden
+
+  // position
+  .is-relative
+    position: relative
+  .is-fixed-default
+    +fixed(left 0, top 0)
+    width: 100%
+  .is-z-index-100
+    +relative(100)
+
+  // vertical-align
+  .is-vertical-middle
+    vertical-align: middle !important
+  .is-vertical-top
+    vertical-align: top !important
+  .is-vertical-bottom
+    vertical-align: bottom !important
+
+  // display
+  .is-block
+    display: block
+  .is-display-none
+    display: none
+  .is-display-none-important
+    display: none !important
+  .is-inline-block
+    display: inline-block
+  .is-inline
+    display: inline
+  .is-table-row
+    display: table-row !important
+  .is-table-cell
+    display: table-cell !important
+  .is-inline-blocks
+    >*
+      display: inline-block

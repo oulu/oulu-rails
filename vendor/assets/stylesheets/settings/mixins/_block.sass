@@ -7,10 +7,10 @@
     +rem('height', nth($values, 1))
 
 =center-block($values)
-  $block-height: optional_nth($values, 1)
-  $block-width: optional_nth($values, 2)
+  $block-width: optional_nth($values, 1)
+  $block-height: optional_nth($values, 2)
   $block-z-index: optional_nth($values, 3)
-  +size($block-height $block-width)
+  +block-size($block-width $block-height)
   +fixed(left 50%, top 50%, $block-z-index)
   +rem('margin-top', $block-height / 2 * -1)
   +rem('margin-left', $block-width / 2 * -1)

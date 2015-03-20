@@ -111,3 +111,10 @@ textarea
   &::-moz-selection
     background: $input-selection-bg-color
     color: $input-selection-tx-color
+
+.#{$container-class-name}
+  +rem('max-width', $container-max-width)
+  +box-sizing(border-box)
+  +margin(horizontal, auto)
+  +padding(horizontal, $container-horizontal-padding)
+  clear: both

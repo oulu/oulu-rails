@@ -1,0 +1,60 @@
+body
+  @for $i from 0 through 20
+    .is-margin-bottom-#{$i*4}
+      +rem('margin-bottom', #{$i*4}px)
+    .is-margin-top-#{$i*4}
+      +rem('margin-top', #{$i*4}px)
+    .is-margin-left-#{$i*4}
+      +rem('margin-left', #{$i*4}px)
+    .is-margin-right-#{$i*4}
+      +rem('margin-right', #{$i*4}px)
+    .is-margin-horizontal-#{$i*4}
+      +margin(horizontal, #{$i*4}px)
+    .is-padding-bottom-#{$i*4}
+      +rem('padding-bottom', #{$i*4}px)
+    .is-padding-top-#{$i*4}
+      +rem('padding-top', #{$i*4}px)
+    .is-padding-left-#{$i*4}
+      +rem('padding-left', #{$i*4}px)
+    .is-padding-right-#{$i*4}
+      +rem('padding-right', #{$i*4}px)
+    .is-padding-horizontal-#{$i*4}
+      +padding(horizontal, #{$i*4}px)
+
+  // horizontal-margin-0
+  .is-horizontal-margin-0
+    +margin(horizontal, 0)
+  .is-xs-horizontal-margin-0
+    +screen-xs
+      +margin(horizontal, 0)
+  .is-sm-horizontal-margin-0
+    +screen-sm
+      +margin(horizontal, 0)
+  .is-md-horizontal-margin-0
+    +screen-md
+      +margin(horizontal, 0)
+  .is-lg-horizontal-margin-0
+    +screen-lg
+      +margin(horizontal, 0)
+  .is-xl-horizontal-margin-0
+    +screen-xl
+      +padding(horizontal, 0)
+
+  // horizontal-padding-0
+  .is-horizontal-padding-0
+    +padding(horizontal, 0)
+  .is-xs-horizontal-padding-0
+    +screen-xs
+      +padding(horizontal, 0)
+  .is-sm-horizontal-padding-0
+    +screen-sm
+      +padding(horizontal, 0)
+  .is-md-horizontal-padding-0
+    +screen-md
+      +padding(horizontal, 0)
+  .is-lg-horizontal-padding-0
+    +screen-lg
+      +padding(horizontal, 0)
+  .is-xl-horizontal-padding-0
+    +screen-xl
+      +padding(horizontal, 0)
