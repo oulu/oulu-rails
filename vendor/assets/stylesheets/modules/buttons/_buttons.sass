@@ -2,8 +2,15 @@ $button-sizes: xs, sm, md, lg, xl
 $button-color-names: default, primary, success, warning, danger
 $button-styles: normal, border, flat-emboss, material
 
+// inputのスタイルを継承させる
+input[type= submit]
+  color: inherit
+  font-size: inherit
+  font-weight: inherit
+
 @import button-base
 
+// button styles
 @import styles/normal
 @import styles/border
 @import styles/flat-emboss
