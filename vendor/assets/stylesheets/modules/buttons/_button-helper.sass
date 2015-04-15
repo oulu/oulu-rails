@@ -1,0 +1,27 @@
+// button option
+[class^="is-button"]
+  &.is-block
+    display: block
+    width: 100%
+  &.has-image
+    height: auto
+  .is-button-note
+    +inline-block
+    +rem('font-size', 12px)
+    +rem('margin-left', 6px)
+
+// button-group
+.is-button-group
+  font-size: 0
+  >li
+    display: inline
+    letter-spacing: normal
+    font-size: 0
+    [class^="is-button"]
+      +border-radius(0)
+    &:first-child
+      [class^="is-button"]
+        +border-left-radius(4px)
+    &:last-child
+      [class^="is-button"]
+        +border-right-radius(4px)

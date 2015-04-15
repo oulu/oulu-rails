@@ -14,7 +14,15 @@
   +fixed(left 50%, top 50%, $block-z-index)
   +rem('margin-top', $block-height / 2 * -1)
   +rem('margin-left', $block-width / 2 * -1)
-  +box-sizing(border-box)
+  box-sizing: border-box
+
+=horizontal-center-block($values)
+  $block-width: optional_nth($values, 1)
+  $block-z-index: optional_nth($values, 2)
+  +rem('width', $block-width)
+  +fixed(left 50%, $block-z-index)
+  +rem('margin-left', $block-width / 2 * -1)
+  box-sizing: border-box
 
 =square-block($values)
   $square-block-size: optional_nth($values, 1)
@@ -50,3 +58,12 @@
 
 =background-clip($value)
   +prefixer(background-clip, $value, webkit moz spec)
+
+=box-shadow($values)
+  +rem(box-shadow, $values)
+
+=text-shadow($values)
+  +rem(text-shadow, $values)
+
+=border-radius($values)
+  +rem(border-radius, $values)

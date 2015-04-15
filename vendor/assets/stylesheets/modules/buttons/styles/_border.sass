@@ -1,0 +1,25 @@
+=border-button($color)
+  +border(all, solid)
+  +border-radius(4px)
+  @if $color == $default
+    $color: $text-color
+  @else
+    color: $color
+  border-color: $color
+  background-color: transparent
+  &:link,
+  &:visited
+    color: $color
+  &:hover,
+  &.hover,
+  &.is-hover
+    color: $color
+    background-color: rgba($color, .1)
+  &:active,
+  &.active,
+  &.is-active
+    color: $color
+    background-color: rgba($color, .3)
+  &.is-checked
+    color: $default-text-reversal
+    background-color: $color

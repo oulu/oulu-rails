@@ -82,7 +82,7 @@ $break-points: $break-point-xs-namespace, $break-point-sm-namespace, $break-poin
 =column($number, $columns-gutter-width: $gutter-width)
   +rem('width', 100 / $columns-count * $number * 1%)
   +padding(horizontal, $columns-gutter-width / 2)
-  +box-sizing(border-box)
+  box-sizing: border-box
   float: left
 
 // カラムをサイズごとに作る

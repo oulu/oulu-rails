@@ -1,7 +1,7 @@
 // +ie-rgba(rgba(black, .4), white, background-color)
 =ie-rgba($foreground, $backdrop: white, $property: "background-color")
   @if $property == "background-color"
-    +rgba-background($foreground)
+    background-color: $foreground
   @else
     #{$property}: mix(fade-in($foreground, 1), $backdrop, percentage(opacity($foreground)))
     // Browsers without color opacity

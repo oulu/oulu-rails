@@ -1,3 +1,3 @@
 module OuluRails
-  VERSION = "0.6.5"
+  VERSION = "0.6.10"
 end

@@ -1,0 +1,89 @@
+=waves-effect($color: black)
+  +relative(1)
+  overflow: hidden
+  will-change: opacity, transform
+  +transition(all .3s ease-out)
+  .waves-ripple
+    +absolute
+    border-radius: 50%
+    +block-size(20px)
+    +rem('margin-top', -10px)
+    +rem('margin-left', -10px)
+    opacity: 0
+    @if $color == 'light'
+      background-color: rgba(white, 0.45)
+    @else if $color == 'red'
+      background-color: rgba(#F44336, .70)
+    @else if $color == 'yellow'
+      background-color: rgba(#FFEB3B, .70)
+    @else if $color == 'orange'
+      background-color: rgba(#FF9800, .70)
+    @else if $color == 'purple'
+      background-color: rgba(#9C27B0, 0.70)
+    @else if $color == 'green'
+      background-color: rgba(#4CAF50, 0.70)
+    @else if $color == 'teal'
+      background-color: rgba(#009688, 0.70)
+    @else if luma_bright(lighten($color, 5%))
+      background-color: lighten($color, 45%)
+    @else
+      background-color: darken($color, 20%)
+    +transition(all 0.7s ease-out)
+    -webkit-transition-property: -webkit-transform, opacity
+    -moz-transition-property: -moz-transform, opacity
+    -o-transition-property: -o-transform, opacity
+    transition-property: transform, opacity
+    +transform(scale(0))
+    pointer-events: none
+
+=material-button($color: blue)
+  +transition(.2s ease-out)
+  +border-radius(2px)
+  background-color: $color
+  color: luma_contrast_color($color)
+  box-shadow: 0 2px 5px 0 rgba(black, .16), 0 2px 10px 0 rgba(black, .12)
+  +rem('letter-spacing', .5px)
+  +waves-effect($color)
+  &:hover,
+  .hover,
+  .is-hover
+    $color: lighten($color, 5%)
+    box-shadow: 0 5px 11px 0 rgba(black, .18), 0 4px 15px 0 rgba(black, .15)
+    @if $color == white
+      background-color: #f4f4f4
+    @else
+      background-color: $color
+  &:active,
+  .active,
+  .is-active
+    $color: lighten($color, 6%)
+    @if $color == white
+      background-color: #f4f4f4
+    @else
+      background-color: $color
+    box-shadow: shade($color, 18%) 0 2px 0
+    +top(1px)
+
+.waves-effect
+  +waves-effect($color: white)
+.waves-notransition
+  +transition(none #{"!important"})
+.waves-circle
+  +transform(translateZ(0))
+  -webkit-mask-image: -webkit-radial-gradient(circle, white 100%, black 100%)
+.waves-input-wrapper
+  border-radius: 0.2em
+  vertical-align: bottom
+  .waves-button-input
+    +relative(1, top 0, left 0)
+.waves-circle
+  text-align: center
+  +size(2.5em)
+  line-height: 2.5em
+  border-radius: 50%
+  -webkit-mask-image: none
+.waves-block
+  display: block
+/* Firefox Bug: link not triggered */
+a.waves-effect .waves-ripple
+  z-index: -1

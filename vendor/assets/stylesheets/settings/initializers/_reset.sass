@@ -57,6 +57,11 @@ textarea
   outline: none
   +basic-font
 
+input[type= submit]
+  color: inherit
+  font-size: inherit
+  font-weight: inherit
+
 button
   +appearance(button)
 
@@ -85,7 +90,7 @@ input::-moz-focus-inner
 input,
 textarea
   border: none
-  +box-sizing(border-box)
+  box-sizing: border-box
 
 button, x:-moz-any-link,
 input[type=button], x:-moz-any-link,
@@ -114,7 +119,7 @@ textarea
 
 .#{$container-class-name}
   +rem('max-width', $container-max-width)
-  +box-sizing(border-box)
+  box-sizing: border-box
   +margin(horizontal, auto)
   +padding(horizontal, $container-horizontal-padding)
   clear: both

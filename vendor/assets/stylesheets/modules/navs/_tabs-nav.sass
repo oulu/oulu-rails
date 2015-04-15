@@ -1,0 +1,39 @@
+$tabs-nav-border-color: black !default
+$tabs-nav-background-color: white !default
+$tabs-nav-border-width: 2px !default
+$tabs-nav-font-size: 16px !default
+$tabs-nav-item-gutter: 8px !default
+$tabs-nav-font-color: black !default
+$tabs-nav-current-font-color: red !default
+
+.tabs-nav__items
+  font-size: 0
+  +relative
+  &:before
+    content: ""
+    display: block
+    +block-size(100% $tabs-nav-border-width)
+    background-color: $tabs-nav-border-color
+    +absolute(left 0, bottom 0)
+.tabs-nav__item
+  +inline-block(bottom)
+  +rem('margin-right', 8px)
+  &:last-child
+    margin-right: 0
+.tabs-nav__link
+  +block-link
+  +border(top horizontal, $tabs-nav-border-width solid $tabs-nav-border-color)
+  +rem('padding-bottom', $tabs-nav-border-width)
+  +text-block($tabs-nav-font-size round($tabs-nav-font-size*2.6), center $tabs-nav-font-color)
+  +padding(horizontal, $tabs-nav-font-size*1.6)
+  box-sizing: border-box
+  +relative
+  &:before
+    display: block
+    +block-size(100% $tabs-nav-border-width)
+    background-color: $tabs-nav-background-color
+    +absolute(left 0, bottom 0)
+  &.is-current
+    color: $tabs-nav-current-font-color
+    &:before
+      content: ""

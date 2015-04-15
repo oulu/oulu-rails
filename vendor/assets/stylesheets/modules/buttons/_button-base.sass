@@ -1,0 +1,54 @@
+=button-base
+  +inline-block(middle)
+  cursor: pointer
+  box-sizing: border-box
+  text-align: center
+  +user-select(none)
+  touch-action: manipulation
+  text-decoration: none
+  -webkit-tap-highlight-color: transparent
+
+=button-size($size, $border-width: 0)
+  $font-size: ""
+  @if $size == 'xs'
+    $font-size: 12px
+  @else if $size == 'sm'
+    $font-size: 14px
+  @else if $size == 'md'
+    $font-size: 16px
+  @else if $size == 'lg'
+    $font-size: 18px
+  @else if $size == 'xl'
+    $font-size: 20px
+  $height: round($font-size * 2 + $font-size/2.2)
+  +border(all, $border-width)
+  +text-block($font-size $height - ($border-width*2))
+  +rem('height', $height)
+  +padding(horizontal, $height/2)
+  @if $font-size > 12px
+    font-weight: bold
+  i
+    @if $font-size > 28
+      +rem('margin-right', $font-size/4)
+    @else
+      +rem('margin-right', $font-size/3)
+  &.has-right-icon
+    i
+      margin-right: 0
+        @if $font-size > 28
+          +rem('margin-left', $font-size/4)
+        @else
+          +rem('margin-left', $font-size/3)
+  &.is-input-container
+    padding: 0
+    +relative
+    i
+      +absolute(left $height/2, top 0)
+      +rem('line-height', $height - ($border-width*2))
+    input
+      +padding(horizontal, ($height + if($font-size > 28, $font-size/4, $font-size/3)) $height/2)
+      +rem('height', $height - ($border-width*2))
+
+=button-group
+  .is-button-group
+    @content
