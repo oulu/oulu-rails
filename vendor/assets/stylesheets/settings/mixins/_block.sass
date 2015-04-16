@@ -46,9 +46,6 @@
   @else
     over-flow: $over-flow-x
 
-=border-radius($values)
-  +prefixer(border-radius, $values, webkit moz spec)
-
 =inline-block($value: null)
   display: inline-block
   vertical-align: $value
@@ -59,11 +56,8 @@
 =background-clip($value)
   +prefixer(background-clip, $value, webkit moz spec)
 
-=box-shadow($values)
+=box-shadow($values...)
   +rem(box-shadow, $values)
 
-=text-shadow($values)
+=text-shadow($values...)
   +rem(text-shadow, $values)
-
-=border-radius($values)
-  +rem(border-radius, $values)
