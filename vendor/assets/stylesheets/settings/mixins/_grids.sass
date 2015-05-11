@@ -37,6 +37,9 @@ $screen-md-max: ($screen-lg-min - 1) !default
 =screen-lg
   @media only screen and (max-width: $screen-lg)
     @content
+=screen-xl
+  @media only screen and (min-width: $screen-lg)
+    @content
 
 // カラムのラッパーのクラス名
 $row-class-name: '.row' !default
@@ -52,7 +55,7 @@ $break-point-lg-namespace: 'lg-' !default
 $break-point-xl-namespace: 'xl-' !default
 
 // ブレイクポイントを配列にする
-$break-points: $break-point-xs-namespace, $break-point-sm-namespace, $break-point-md-namespace, $break-point-lg-namespace
+$break-points: $break-point-xs-namespace, $break-point-sm-namespace, $break-point-md-namespace, $break-point-lg-namespace,  $break-point-xl-namespace
 
 // デバイスごとの media query を作る
 =break-points($break-point: $break-point-xs-namespace)
@@ -67,7 +70,7 @@ $break-points: $break-point-xs-namespace, $break-point-sm-namespace, $break-poin
   @else if $screen-lg and $break-point == $break-point-lg-namespace
     @media only screen and (min-width: $screen-md)
       @content
-  @else if $break-point == $break-point-xl-namespace
+  @else if $screen-lg and $break-point == $break-point-xl-namespace
     @media only screen and (min-width: $screen-lg)
       @content
 
