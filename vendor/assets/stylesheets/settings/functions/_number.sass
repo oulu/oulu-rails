@@ -85,3 +85,11 @@
     @return (strip_unit($em) * strip_unit($base-px)) * 1px
   @else if px($em)
     @return $em
+
+@function multiple($number, $multiple_number)
+  // $multiple_number で割り切れる $number に近い数を出す
+  $remainder: $number % $multiple_number
+  @if $remainder == 0
+    @return "#{$number - $remainder}"
+  @else
+    @return "#{$number - $remainder} and #{$number + $remainder}"
