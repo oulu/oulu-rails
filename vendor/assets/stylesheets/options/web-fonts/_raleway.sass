@@ -1,0 +1,11 @@
+@import url(//fonts.googleapis.com/css?family=Raleway:400,900,100,200,300,500,600,700,800)
+=raleway($fw: 400, $ls: 0, $fs: null, $tx-rendering: true)
+  // $fw: フォントの太さ, $ls: 字間, $fs: フォントスタイル
+  font-family: 'Raleway', sans-serif
+  font-weight: $fw
+  @if not $ls == 0
+    letter-spacing: $ls
+  @if (not $fs == null)
+    font-style: italic
+  @if $tx-rendering
+    text-rendering: optimizelegibility
