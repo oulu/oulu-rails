@@ -1,25 +1,43 @@
-=normal-button-color($color)
+=normal-button-color($color, $text-color: true)
   background-color: $color
   +background-image(linear-gradient(top, tint($color, 6%) 0%, shade($color, 6%) 100%))
-  color: luma_contrast_color($color)
   +border(all, solid)
   border-color: shade($color, 10%) shade($color, 16%) shade($color, 26%)
   text-shadow: if(luma_bright($color), lighten($color, 18%) 0 1px 0, darken($color, 18%) 0 -1px 0)
+  @if $text-color
+    color: luma_contrast_color($color)
+    &:hover,
+    &.hover,
+    &.is-hover,
+    &:active,
+    &.active,
+    &.is-active
+      color: luma_contrast_color($color)
 
 =normal-button($color: blue)
   +transition(.5s (background-image))
   +border-radius(4px)
-  +normal-button-color($color)
+  @if $color == white
+    +normal-button-color(#f2f2f2)
+  @else
+    +normal-button-color($color)
   box-shadow: tint($color, 32%) 0 1px 0 inset, shade($color, 26%) 0 1px 0, rgba(black, .15) 0 2px 1px
   &:hover,
   &.hover,
   &.is-hover
-    $color: lighten($color, 5%)
-    +normal-button-color($color)
+    @if $color == white
+      +normal-button-color(lighten(#f2f2f2, 5%), false)
+    @else
+      +normal-button-color(lighten($color, 5%), false)
   &:active,
   &.active,
   &.is-active
-    $color: lighten($color, 7%)
-    +normal-button-color($color)
     +top(1px)
-    box-shadow: darken($color, 12%) 0 1px 0 inset, rgba(white, .3) 0 1px 1px
+    @if $color == white
+      $color: lighten(#f2f2f2, 7%)
+      +normal-button-color($color, false)
+      box-shadow: darken($color, 12%) 0 1px 0 inset, rgba(white, .3) 0 1px 1px
+    @else
+      $color: lighten($color, 7%)
+      +normal-button-color($color, false)
+      box-shadow: darken($color, 12%) 0 1px 0 inset, rgba(white, .3) 0 1px 1px

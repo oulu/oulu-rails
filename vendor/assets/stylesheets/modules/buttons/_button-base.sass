@@ -27,22 +27,25 @@
   +padding(horizontal, $height/2)
   @if $font-size > 12px
     font-weight: bold
-  i
+  i,
+  .is-button-icon
     @if $font-size > 28
       +rem('margin-right', $font-size/4)
     @else
       +rem('margin-right', $font-size/3)
   &.has-right-icon
-    i
+    i,
+    .is-button-icon
       margin-right: 0
-        @if $font-size > 28
-          +rem('margin-left', $font-size/4)
-        @else
-          +rem('margin-left', $font-size/3)
+      @if $font-size > 28
+        +rem('margin-left', $font-size/4)
+      @else
+        +rem('margin-left', $font-size/3)
   &.is-input-container
     padding: 0
     +relative
-    i
+    i,
+    .is-button-icon
       +absolute(left $height/2, top 0)
       +rem('line-height', $height - ($border-width*2))
     input
