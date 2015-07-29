@@ -52,3 +52,59 @@ body
   .is-lg-horizontal-padding-0
     +screen-lg
       +padding(horizontal, 0)
+
+// こっちに変更
+body
+  @for $i from 0 through 20
+    .has-margin-bottom-#{$i*4}
+      +rem('margin-bottom', #{$i*4}px)
+    .has-margin-top-#{$i*4}
+      +rem('margin-top', #{$i*4}px)
+    .has-margin-left-#{$i*4}
+      +rem('margin-left', #{$i*4}px)
+    .has-margin-right-#{$i*4}
+      +rem('margin-right', #{$i*4}px)
+    .has-margin-horizontal-#{$i*4}
+      +margin(horizontal, #{$i*4}px)
+    .has-padding-bottom-#{$i*4}
+      +rem('padding-bottom', #{$i*4}px)
+    .has-padding-top-#{$i*4}
+      +rem('padding-top', #{$i*4}px)
+    .has-padding-left-#{$i*4}
+      +rem('padding-left', #{$i*4}px)
+    .has-padding-right-#{$i*4}
+      +rem('padding-right', #{$i*4}px)
+    .has-padding-horizontal-#{$i*4}
+      +padding(horizontal, #{$i*4}px)
+
+  // horizontal-margin-0
+  .has-horizontal-margin-0
+    +margin(horizontal, 0)
+  .has-xs-horizontal-margin-0
+    +screen-xs
+      +margin(horizontal, 0)
+  .has-sm-horizontal-margin-0
+    +screen-sm
+      +margin(horizontal, 0)
+  .has-md-horizontal-margin-0
+    +screen-md
+      +margin(horizontal, 0)
+  .has-lg-horizontal-margin-0
+    +screen-lg
+      +margin(horizontal, 0)
+
+  // horizontal-padding-0
+  .has-horizontal-padding-0
+    +padding(horizontal, 0)
+  .has-xs-horizontal-padding-0
+    +screen-xs
+      +padding(horizontal, 0)
+  .has-sm-horizontal-padding-0
+    +screen-sm
+      +padding(horizontal, 0)
+  .has-md-horizontal-padding-0
+    +screen-md
+      +padding(horizontal, 0)
+  .has-lg-horizontal-padding-0
+    +screen-lg
+      +padding(horizontal, 0)

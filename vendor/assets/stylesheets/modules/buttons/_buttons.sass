@@ -1,6 +1,6 @@
 $button-sizes: xs, sm, md, lg, xl !default
 $button-color-names: default, primary, success, warning, danger !default
-$button-styles: normal, border, flat-emboss, material !default
+$button-styles: normal, border, bold-border, flat-emboss, material !default
 
 @import button-base
 
@@ -21,16 +21,19 @@ input[type= submit]
 =button($style, $size, $color, $options: false)
   +button-base
   @if $style == normal
-    +button-size($size, 1px)
+    +button-size($size, 1px, 4px)
     +normal-button($color)
   @else if $style == border
-    +button-size($size, 1px)
+    +button-size($size, 1px, 4px)
+    +border-button($color)
+  @else if $style == bold-border
+    +button-size($size, 2px, 8px)
     +border-button($color)
   @else if $style == flat-emboss
-    +button-size($size)
+    +button-size($size, false, 4px)
     +flat-emboss-button($color)
   @else if $style == material
-    +button-size($size)
+    +button-size($size, false, false)
     +material-button($color)
   @each $option in $options
     @if $option == 'left'

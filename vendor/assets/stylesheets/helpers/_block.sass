@@ -25,6 +25,12 @@ body
   .is-right
     float: right
 
+  // float
+  .is-float-left
+    float: left
+  .is-float-right
+    float: right
+
   // block link
   .is-block-link
     display: block
@@ -37,8 +43,7 @@ body
 
   // overflow
   .is-scroll-x-wrapper
-    overflow-x: auto
-    overflow-y: hidden
+    +overflow(auto hidden)
     -webkit-overflow-scrolling: touch
     width: 100%
     position: relative

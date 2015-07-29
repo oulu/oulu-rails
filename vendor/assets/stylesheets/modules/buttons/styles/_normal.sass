@@ -3,9 +3,9 @@
   +background-image(linear-gradient(top, tint($color, 6%) 0%, shade($color, 6%) 100%))
   +border(all, solid)
   border-color: shade($color, 10%) shade($color, 16%) shade($color, 26%)
-  text-shadow: if(luma_bright($color), lighten($color, 18%) 0 1px 0, darken($color, 18%) 0 -1px 0)
   @if $text-color
     color: luma_contrast_color($color)
+    text-shadow: if(luma_bright($color), lighten($color, 18%) 0 1px 0, darken($color, 18%) 0 -1px 0)
     &:hover,
     &.hover,
     &.is-hover,
@@ -16,7 +16,6 @@
 
 =normal-button($color: blue)
   +transition(.5s (background-image))
-  +border-radius(4px)
   @if $color == white
     +normal-button-color(#f2f2f2)
   @else
