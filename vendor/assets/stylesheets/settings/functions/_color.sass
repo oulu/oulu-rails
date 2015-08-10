@@ -22,8 +22,8 @@
   @else
     @return null
 
+// Adapted from: https://gist.github.com/voxpelli/6304812
 @function luma($color)
-  // Adapted from: https://gist.github.com/voxpelli/6304812
   $rgba: red($color), green($color), blue($color)
   $rgba2: ()
   @for $i from 1 through 3
@@ -32,8 +32,6 @@
     $rgb: if($rgb < .03928, $rgb / 12.92, pow(($rgb + .055) / 1.055, 2.4))
     $rgba2: append($rgba2, $rgb)
   @return (.2126 * nth($rgba2, 1) + .7152 * nth($rgba2, 2) + .0722 * nth($rgba2, 3))*100
-
-$ruma-threshold: 100 / pi() !default
 
 @function luma_contrast($color-1, $color-2: null)
   @if $color-2
@@ -66,8 +64,6 @@ $ruma-threshold: 100 / pi() !default
     @return null
 
 @function luma_contrast_color($color)
-  $luma-contrast-bright-color: #000000 !default
-  $luma-contrast-dark-color: #ffffff !default
   @if luma_which($color) == bright
     @return $luma-contrast-bright-color
   @else

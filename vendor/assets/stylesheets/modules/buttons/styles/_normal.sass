@@ -16,7 +16,7 @@
 
 =normal-button($color: blue)
   +transition(.5s (background-image))
-  @if $color == white
+  @if luma($color) > 90
     +normal-button-color(#f2f2f2)
   @else
     +normal-button-color($color)
@@ -24,7 +24,7 @@
   &:hover,
   &.hover,
   &.is-hover
-    @if $color == white
+    @if luma($color) > 90
       +normal-button-color(lighten(#f2f2f2, 5%), false)
     @else
       +normal-button-color(lighten($color, 5%), false)
@@ -32,7 +32,7 @@
   &.active,
   &.is-active
     +top(1px)
-    @if $color == white
+    @if luma($color) > 90
       $color: lighten(#f2f2f2, 7%)
       +normal-button-color($color, false)
       box-shadow: darken($color, 12%) 0 1px 0 inset, rgba(white, .3) 0 1px 1px

@@ -1,3 +1,5 @@
+body
+  content: #{luma(#f2f2f2)}
 =flat-emboss-button($color: blue)
   +transition(.5s (background-image))
   background-color: $color
@@ -5,19 +7,19 @@
   box-shadow: shade($color, 18%) 0 3px 0
   text-shadow: if(luma_bright($color), lighten($color, 8%) 0 1px 0, darken($color, 8%) 0 -1px 0)
   &:hover,
-  .hover,
-  .is-hover
+  &.hover,
+  &.is-hover
     $color: lighten($color, 6%)
-    @if $color == white
-      background-color: #f4f4f4
+    @if luma($color) > 90
+      background-color: #f2f2f2
     @else
       background-color: $color
   &:active,
-  .active,
-  .is-active
+  &.active,
+  &.is-active
     $color: lighten($color, 6%)
-    @if $color == white
-      background-color: #f4f4f4
+    @if luma($color) > 90
+      background-color: #f2f2f2
     @else
       background-color: $color
     box-shadow: shade($color, 18%) 0 2px 0

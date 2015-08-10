@@ -1,3 +1,21 @@
+// device
+=screen-xs
+  @media only screen and (max-width: $screen-xs)
+    @content
+=screen-sm
+  @media only screen and (max-width: $screen-sm)
+    @content
+=screen-md
+  @media only screen and (max-width: $screen-md)
+    @content
+=screen-lg
+  @media only screen and (max-width: $screen-lg)
+    @content
+=screen-xl
+  @media only screen and (min-width: $screen-lg)
+    @content
+
+
 // https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/bootstrap/_responsive-utilities.scss
 
 =responsive-visibility($parent)
