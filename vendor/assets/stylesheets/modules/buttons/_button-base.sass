@@ -48,10 +48,10 @@
         +rem('margin-left', $font-size/3)
   &.is-input-container
     padding: 0
-    +relative
+    position: relative
     i,
     .is-button-icon
-      +absolute(left $height/2, top 0)
+      +position(absolute, left $height/2, top 0)
       +rem('line-height', $height - ($border-width*2))
     input
       +padding(horizontal, ($height + if($font-size > 28, $font-size/4, $font-size/3)) $height/2)

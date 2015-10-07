@@ -8,13 +8,13 @@ $tabs-nav-current-font-color: red !default
 
 .tabs-nav__items
   font-size: 0
-  +relative
+  position: relative
   &:before
     content: ""
     display: block
     +block-size(100% $tabs-nav-border-width)
     background-color: $tabs-nav-border-color
-    +absolute(left 0, bottom 0)
+    +position(absolute, left 0, bottom 0)
 .tabs-nav__item
   +inline-block(bottom)
   +rem('margin-right', 8px)
@@ -27,12 +27,12 @@ $tabs-nav-current-font-color: red !default
   +text-block($tabs-nav-font-size round($tabs-nav-font-size*2.6), center $tabs-nav-font-color)
   +padding(horizontal, $tabs-nav-font-size*1.6)
   box-sizing: border-box
-  +relative
+  position: relative
   &:before
     display: block
     +block-size(100% $tabs-nav-border-width)
     background-color: $tabs-nav-background-color
-    +absolute(left 0, bottom 0)
+    +position(absolute, left 0, bottom 0)
   &.is-current
     color: $tabs-nav-current-font-color
     &:before

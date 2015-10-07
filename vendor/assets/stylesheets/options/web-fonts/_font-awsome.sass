@@ -1,4 +1,4 @@
-=fa
+=fa($icon: null)
   display: inline-block
   font-family: FontAwesome
   font-style: normal
@@ -6,12 +6,12 @@
   line-height: 1
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
+  content: "#{$icon}"
 
 =fa-icon($icon: '\f105', $size: 16px 12px, $options: null, $position1:null, $position2: null)
   &:before
-    +fa
-    content: "#{$icon}"
+    +fa($icon)
     @if $position1
-      +absolute(if($position1, $position1, null), if($position2, $position2, null))
+      +position(absolute, if($position1, $position1, null), if($position2, $position2, null))
     @if $size
       +text-block($size, $options)
