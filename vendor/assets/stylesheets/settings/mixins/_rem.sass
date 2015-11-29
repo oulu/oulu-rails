@@ -12,7 +12,7 @@ $baseline-px: 10px !default
   font-size: strip_unit($baseline-px / 10) * 1rem
 
 =rem($property, $px-values, $important: null)
-  @if $rem == true and px($px-values) or list($px-values)
+  @if $rem == true and (px($px-values) or list($px-values))
     @if $property == "font-size" and $px-values < 10px
       // 9px以下のfont-sizeを使う設定（IE8不可）
       +base-font-size

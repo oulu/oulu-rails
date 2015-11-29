@@ -4,7 +4,8 @@
   text-align: if(text_align($value), $value, null)
   color: if(color($value), $value, null)
   white-space: if(white_space($value), $value, null)
-  @if px($value)
+  display: if(display($value), $value, null)
+  @if number($value)
     +top($value, null)
 
 // +text-block($font-size $line-height $margin-bottom, $font-weight $text-align $color $top)
