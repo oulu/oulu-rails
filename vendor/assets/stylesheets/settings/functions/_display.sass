@@ -1,0 +1,5 @@
+@function display($value)
+  @if $value == "inline" or $value == "block" or $value == "list-item" or $value == "run-in" or $value == "inline-block" or $value == "table" or $value == "inline-table" or $value == "table-row-group" or $value == "table-header-group" or $value == "table-footer-group" or $value == "table-row" or $value == "table-column-group" or $value == "table-column" or $value == "table-cell" or $value == "table-caption" or $value == "none"
+    @return true
+  @else
+    @return null
