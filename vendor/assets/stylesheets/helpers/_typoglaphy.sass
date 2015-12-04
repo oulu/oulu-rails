@@ -9,20 +9,18 @@ body
   .is-serif
     +serif
 
-  // letter-specing
-  .is-no-letter-specing
-    letter-spacing: 0
-  .is-no-letter-specing-center
-    letter-spacing: 0
-    text-indent: 0
+  @for $i from 0 through 24
+    $value: $i/10
+    .is-letter-specing-#{$i}px
+      letter-spacing: $value
+    .is-letter-specing-center-#{$i}px
+      letter-spacing: $value
+      text-indent: $value
 
-  // text-align
-  .is-center-align
-    text-align: center
-  .is-right-align
-    text-align: right
-  .is-left-align
-    text-align: left
-
-  .is-nowrap
+  .is-white-space-nowrap
     white-space: nowrap
+
+  $positions: left center right
+  @each $position in $positions
+    .is-text-align-#{$position}
+      text-align: $position
