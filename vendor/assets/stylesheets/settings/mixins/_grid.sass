@@ -82,3 +82,12 @@
     +margin(horizontal, $gutter-size/2 * -1)
     >*
       +padding(horizontal, $gutter-size/2)
+
+// helper
+.row
+  @for $i from 0 through 16
+    $gutter-size: $i * 4
+    &.is-gutter-width-#{$gutter-size}px
+      +margin(horizontal, $gutter-size / 2 * -1px)
+      >*
+        +padding(horizontal, $gutter-size / 2 * 1px)
