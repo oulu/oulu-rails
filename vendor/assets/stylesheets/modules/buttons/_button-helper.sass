@@ -9,6 +9,12 @@
     +inline-block
     +rem('font-size', 12px)
     +rem('margin-left', 6px)
+  &.is-disabled,
+  &:disabled
+    pointer-events: none
+    cursor: default
+    select
+      cursor: default
 
 // button-group
 .is-button-group
@@ -18,7 +24,7 @@
     letter-spacing: normal
     font-size: 0
     [class^="is-button"]
-      +border-radius(0)
+      border-radius: 0
     &:first-child
       [class^="is-button"]
         +border-radius(left, 4px)

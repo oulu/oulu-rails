@@ -1,6 +1,6 @@
 $button-sizes: xs, sm, md, lg, xl !default
 $button-color-names: default, primary, success, warning, danger !default
-$button-styles: normal, border, bold-border, flat-emboss, material !default
+$button-styles: normal, border, bold-border, flat-emboss, material, flat-round !default
 
 @import button-base
 
@@ -9,14 +9,9 @@ $button-styles: normal, border, bold-border, flat-emboss, material !default
 @import styles/border
 @import styles/flat-emboss
 @import styles/material
+@import styles/flat-round
 
 @import button-helper
-
-// inputのスタイルを継承させる
-input[type= submit]
-  color: inherit
-  font-size: inherit
-  font-weight: inherit
 
 =button($style, $size, $color, $options: false)
   +button-base
@@ -35,6 +30,9 @@ input[type= submit]
   @else if $style == material
     +button-size($size, false, false)
     +material-button($color)
+  @else if $style == flat-round
+    +button-size($size, false, false)
+    +flat-round-button($color)
   @each $option in $options
     @if $option == 'left'
       text-align: left

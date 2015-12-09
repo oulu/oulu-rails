@@ -1,9 +1,9 @@
-=flat-emboss-button($color: blue)
+=flat-round-button($color: blue)
   +transition(.5s (background-image))
   background-color: $color
   color: luma_contrast_color($color)
-  box-shadow: shade($color, 18%) 0 3px 0
-  text-shadow: if(luma_bright($color), lighten($color, 8%) 0 1px 0, darken($color, 8%) 0 -1px 0)
+  font-weight: bold
+  border-radius: 1000px
   &:hover,
   &.hover,
   &.is-hover
@@ -20,5 +20,4 @@
       background-color: #f2f2f2
     @else
       background-color: $color
-    box-shadow: shade($color, 18%) 0 2px 0
     +top(1px)
